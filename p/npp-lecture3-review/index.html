@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="traceback 与常见异常、避免 bug、静态分析、最小失败样例 MFE、IPython.embed 与 pdb 调试器命令的复习笔记。">
+<title>NPP Lecture 3 复习：Debugging 调试</title>
+
+<link rel='canonical' href='https://ada-c38f0bb79f.github.io/p/npp-lecture3-review/'>
+
+<link rel="stylesheet" href="/scss/style.min.cd3e66856c780baaa0f235942bb48d1e842e67328e0ab44cc64935c8eadf098a.css"><meta property='og:title' content="NPP Lecture 3 复习：Debugging 调试">
+<meta property='og:description' content="traceback 与常见异常、避免 bug、静态分析、最小失败样例 MFE、IPython.embed 与 pdb 调试器命令的复习笔记。">
+<meta property='og:url' content='https://ada-c38f0bb79f.github.io/p/npp-lecture3-review/'>
+<meta property='og:site_name' content='Carlos_Hu'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-10-08T11:00:00&#43;08:00'/><meta property='article:modified_time' content='2026-10-08T11:00:00&#43;08:00'/>
+<meta name="twitter:site" content="@CarlosHu4961">
+    <meta name="twitter:creator" content="@CarlosHu4961"><meta name="twitter:title" content="NPP Lecture 3 复习：Debugging 调试">
+<meta name="twitter:description" content="traceback 与常见异常、避免 bug、静态分析、最小失败样例 MFE、IPython.embed 与 pdb 调试器命令的复习笔记。">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu17946783734494809016.png" width="300"
+                            height="299" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🦉</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Carlos_Hu</a></h1>
+            <h2 class="site-description">I would like to create a learning exchange site to urge me to learn new knowledge, so... join to learn together!</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/40617058?spm_id_from=333.1007.0.0'
+                        target="_blank"
+                        title="Bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/CarlossQAQ'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://CarlossQAQ.github.io/" selected>Let&#39;s speak English</option>
+                                
+                                    <option value="https://CarlossQAQ.github.io/zh-cn/" >让我们说中文</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#1">1. 为什么调试重要</a></li>
+    <li><a href="#bug">历史上的著名 bug</a></li>
+    <li><a href="#bug-2">有趣的 bug 类型</a></li>
+    <li><a href="#2-python-traceback">2. Python traceback 与异常</a></li>
+    <li><a href="#traceback">读 traceback</a></li>
+    <li><a href="#section">常见异常（要能写出触发它们的代码）</a></li>
+    <li><a href="#3-bug">3. 避免 bug（写代码时就考虑）</a></li>
+    <li><a href="#4-static-analysis">4. 静态分析（Static Analysis）</a></li>
+    <li><a href="#5-workflow">5. 调试工作流（Workflow）</a></li>
+    <li><a href="#6-minimum-failing-example-mfe">6. 最小失败样例（Minimum Failing Example, MFE）</a></li>
+    <li><a href="#7">7. 手动调试</a></li>
+    <li><a href="#8-python-pdb">8. Python 调试器 pdb</a></li>
+    <li><a href="#section-2">能做什么</a></li>
+    <li><a href="#section-3">三种启动方式</a></li>
+    <li><a href="#section-4">常用命令</a></li>
+    <li><a href="#warning">把 warning 变成异常</a></li>
+    <li><a href="#pytest">pytest 里调试</a></li>
+    <li><a href="#section-5">图形化/替代工具</a></li>
+    <li><a href="#9-ai">9. AI 与调试</a></li>
+    <li><a href="#10">10. 小结（今天学到了什么）</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/npp-lecture3-review/">NPP Lecture 3 复习：Debugging 调试</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2026-10-08</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    4 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="lecture-3-debugging">Lecture 3 复习：Debugging（调试）</h1><blockquote>
+<p>主题：异常与 traceback · 避免 bug · 静态分析 · 最小失败样例 · 手动调试 · pdb 调试器 · AI 调试
+讲师：Dr. Simon Warder</p>
+</blockquote>
+<hr />
+<h2 id="1">1. 为什么调试重要</h2><ul>
+<li>开发软件时，花在调试上的时间往往<strong>不少于</strong>写代码本身。</li>
+<li>调试是必须主动掌握、能大幅提升效率的技能。</li>
+</ul>
+<h3 id="bug">历史上的著名 bug</h3><table>
+<thead>
+<tr>
+  <th>事件</th>
+  <th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>世界上第一个 bug（1947）</td>
+  <td>Grace Hopper 在日志里记录了一只真正的飞蛾卡在继电器里，普及了「debugging」一词</td>
+</tr>
+<tr>
+  <td>Y2K 千年虫</td>
+  <td>两位数年份导致 2000 年问题，全球花数十亿美元修复</td>
+</tr>
+<tr>
+  <td>达兰导弹（1991）</td>
+  <td>Patriot 系统时钟 100 小时漂移 1/3 秒，导致拦截失败，28 名美军丧生</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bug-2">有趣的 bug 类型</h3><table>
+<thead>
+<tr>
+  <th>类型</th>
+  <th>特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Heisenbug（海森堡 bug）</td>
+  <td>一被观测/调试就改变或消失（借用量子力学「观察者效应」）</td>
+</tr>
+<tr>
+  <td>Bohrbug</td>
+  <td>在明确（但可能未知）条件下稳定复现的 bug</td>
+</tr>
+<tr>
+  <td>Mandelbug</td>
+  <td>极其复杂、几乎无法修复的 bug（借 Mandelbrot）</td>
+</tr>
+<tr>
+  <td>Schroedinbug</td>
+  <td>只有当你发现它「本就不该能工作」时才显现的 bug</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-python-traceback">2. Python traceback 与异常</h2><h3 id="traceback">读 traceback</h3><p>traceback 是异常发生时给出的调用栈报告。<strong>从下往上读</strong>（最底下一行是异常发生的位置，但不一定是 bug 根源）。</p>
+<pre><code>NameError: name 'exp' is not defined
+</code></pre>
+<ul>
+<li>第一行是<strong>异常类型</strong>；<code>Traceback (most recent call last)</code> 下面按调用顺序列出每一层。</li>
+</ul>
+<h3 id="section">常见异常（要能写出触发它们的代码）</h3><table>
+<thead>
+<tr>
+  <th>异常</th>
+  <th>触发方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>ImportError</code></td>
+  <td><code>from numpy import alalalala</code></td>
+</tr>
+<tr>
+  <td><code>ModuleNotFoundError</code></td>
+  <td><code>import what</code></td>
+</tr>
+<tr>
+  <td><code>ZeroDivisionError</code></td>
+  <td><code>1 / 0</code></td>
+</tr>
+<tr>
+  <td><code>IndexError</code></td>
+  <td><code>[1,2,3][100]</code></td>
+</tr>
+<tr>
+  <td><code>TypeError</code></td>
+  <td><code>&quot;hello&quot; + None</code></td>
+</tr>
+<tr>
+  <td><code>SyntaxError</code></td>
+  <td>语法写错（如 <code>2+2 ==&quot;4&quot;</code>）</td>
+</tr>
+<tr>
+  <td><code>IndentationError</code></td>
+  <td>缩进错误（for 下面没有缩进）</td>
+</tr>
+<tr>
+  <td><code>RecursionError</code></td>
+  <td><code>def f(): return f()</code> 无限递归</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>可自定义异常；异常类型完整列表见 <a href="https://docs.python.org/3/library/exceptions.html">Python 文档</a>。</p>
+</blockquote>
+<hr />
+<h2 id="3-bug">3. 避免 bug（写代码时就考虑）</h2><ul>
+<li>每个人都会写 bug，写代码时要<strong>为测试和调试而写</strong>。</li>
+<li><strong>KISS</strong>（Keep It Simple, Stupid）：能跑起来的最简单方案是什么？</li>
+<li><strong>DRY</strong>（Don't Repeat Yourself）：每块知识只应有单一、明确的权威表示（常量、算法等）。</li>
+<li><strong>松耦合</strong>（Loose Coupling）：限制代码间的相互依赖。</li>
+<li><strong>有意义的命名</strong>：变量/函数/模块用有意义的名字，别用晦涩的数学符号名。</li>
+</ul>
+<hr />
+<h2 id="4-static-analysis">4. 静态分析（Static Analysis）</h2><ul>
+<li>解释型语言（Python/Matlab/JS）vs 编译型（C/C++/Fortran）：编译型能在<strong>编译期</strong>发现缺 import、类型不匹配等 bug，Python 没有这一步。</li>
+<li>Python 静态分析工具：<ul>
+<li><code>pyflakes</code>：最简单，快；检测语法错误、缺 import、名字拼写错误。</li>
+<li><code>flake8</code>：<code>pyflakes</code> + <code>pep8</code>，额外检测 PEP8 风格违规。</li>
+<li><code>pylint</code>、<code>pychecker</code>。</li>
+<li>笔记本版本：<code>flake8-nb</code>。</li>
+</ul>
+</li>
+<li>强烈建议在编辑器/IDE 里集成，能显著提升效率。</li>
+</ul>
+<hr />
+<h2 id="5-workflow">5. 调试工作流（Workflow）</h2><p>没有银弹，但策略能帮忙。理想情况是把问题隔离到少量代码行，用<strong>短修改-运行-失败循环</strong>：</p>
+<ol>
+<li><strong>让它稳定失败</strong>：找一个每次都同样失败的测试用例。</li>
+<li><strong>分而治之</strong>：定位到某个模块 → 某个函数 → 某一行。</li>
+<li><strong>隔离出最小可复现失败样例（MFE）</strong>。</li>
+<li><strong>一次只改一件事</strong>，重跑失败用例。</li>
+<li>用调试器理解到底哪里错了。</li>
+<li>记笔记、保持耐心。</li>
+<li>修好 bug 后，把这段代码<strong>加入测试套件</strong>，防止回归。</li>
+</ol>
+<hr />
+<h2 id="6-minimum-failing-example-mfe">6. 最小失败样例（Minimum Failing Example, MFE）</h2><ul>
+<li>能复现某个 bug 的<strong>最简单代码</strong>。</li>
+<li>找人帮忙调试时，提供 MFE 是好习惯，能大幅缩短对方调试时间。</li>
+<li>给开源项目报 issue 时，开发者常会要求「Please could you provide an MFE」。</li>
+<li>例子：几百行的 Devito 代码，浓缩成十几行的 MFE 后不到一小时就定位并修复。</li>
+</ul>
+<hr />
+<h2 id="7">7. 手动调试</h2><ul>
+<li><strong>print 语句</strong>：在可疑处打印变量值，快速定位问题行。</li>
+</ul>
+<pre><code class="language-python">x = some_function(inputs)
+print(x.property1, x.property2)
+</code></pre>
+<ul>
+<li><strong><code>IPython.embed()</code></strong>：在代码中途嵌入交互式解释器，检查当时状态。</li>
+</ul>
+<pre><code class="language-python">x = some_function(inputs)
+from IPython import embed; embed()
+</code></pre>
+<hr />
+<h2 id="8-python-pdb">8. Python 调试器 pdb</h2><h3 id="section-2">能做什么</h3><ul>
+<li>查看源码；在调用栈上上下移动；查看/修改变量值；设置断点。</li>
+</ul>
+<h3 id="section-3">三种启动方式</h3><ol>
+<li><strong>Postmortem（事后）</strong>：出错后（仅 IPython）<code>%debug</code> 进入调试器。</li>
+<li><strong>命令行</strong>：<code>python -m pdb script.py</code>。</li>
+<li><strong>代码内</strong>：在想要暂停处插入 <code>breakpoint()</code>（旧代码等价 <code>import pdb; pdb.set_trace()</code>）。</li>
+</ol>
+<h3 id="section-4">常用命令</h3><table>
+<thead>
+<tr>
+  <th>命令</th>
+  <th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>l</code>(list)</td>
+  <td>列出当前位置代码</td>
+</tr>
+<tr>
+  <td><code>p</code>(print)</td>
+  <td>打印变量值（<code>p a</code>）</td>
+</tr>
+<tr>
+  <td><code>n</code>(ext)</td>
+  <td>执行下一行（<strong>不进</strong>新函数）</td>
+</tr>
+<tr>
+  <td><code>s</code>(tep)</td>
+  <td>执行下一条语句（<strong>进入</strong>新函数）</td>
+</tr>
+<tr>
+  <td><code>c</code>(ontinue)</td>
+  <td>继续到下一个断点</td>
+</tr>
+<tr>
+  <td><code>b</code>(reak)</td>
+  <td>设断点（<code>b 34</code>）</td>
+</tr>
+<tr>
+  <td><code>u</code>(p) / <code>d</code>(own)</td>
+  <td>上/下移动调用栈</td>
+</tr>
+<tr>
+  <td><code>bt</code></td>
+  <td>打印调用栈</td>
+</tr>
+<tr>
+  <td><code>a</code></td>
+  <td>打印局部变量</td>
+</tr>
+<tr>
+  <td><code>!command</code></td>
+  <td>执行 Python 命令（区别于 pdb 命令）</td>
+</tr>
+<tr>
+  <td><code>q</code></td>
+  <td>退出</td>
+</tr>
+<tr>
+  <td><code>h</code> / <code>help</code></td>
+  <td>帮助</td>
+</tr>
+</tbody>
+</table>
+<h3 id="warning">把 warning 变成异常</h3><pre><code class="language-python">np.seterr(all='raise')   # 让 divide/invalid/over 等变成异常，便于 post-mortem 调试
+</code></pre>
+<h3 id="pytest">pytest 里调试</h3><ul>
+<li><code>pytest --pdb my_test.py</code>：异常时 post-mortem。</li>
+<li><code>pytest --pdb-failure</code>：测试失败时用调试器检查。</li>
+</ul>
+<h3 id="section-5">图形化/替代工具</h3><ul>
+<li><code>pudb</code>（半图形化控制台调试器）、VS Code 调试模式、Mu 编辑器。</li>
+</ul>
+<hr />
+<h2 id="9-ai">9. AI 与调试</h2><ul>
+<li>AI（Copilot、Claude 等）是强大的编程/调试助手，但<strong>有限制</strong>：容易被误导、会幻觉、自己也会写出 bug。</li>
+<li>经验建议：<ul>
+<li>花时间最久的一些 bug 恰恰是 AI 生成的——因为太急没仔细检查。</li>
+<li><strong>你最终要为自己产出的所有代码负责</strong>。</li>
+<li>上下文很重要：网页聊天适合小片段，不适合大型代码库；agentic 工具（Claude Code/Codex）对大代码库更强，但 MSc 作业通常不允许用。</li>
+</ul>
+</li>
+<li>学习建议：必须能自己从零写代码；AI 可用于辅助学习（澄清概念、优化建议），但<strong>依赖 AI 写/调代码长期对你不利</strong>。</li>
+</ul>
+<hr />
+<h2 id="10">10. 小结（今天学到了什么）</h2><ul>
+<li>每个人都会写 bug。</li>
+<li>调试工具能省大量时间和精力。</li>
+<li>静态分析工具能避免很多简单 bug。</li>
+<li>用 <code>IPython.embed()</code> 手动调试。</li>
+<li>Python 调试器 <code>pdb</code> 的基础用法。</li>
+</ul>
+<blockquote>
+<p>评估要求：作业中要包含<strong>调试过程的截图</strong>作为「调试证据」。</p>
+</blockquote>
+
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo=""
+        issue-term="pathname"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    let utterancesLoaded = false;
+
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+
+        
+        utterancesLoaded = true;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (!utterancesLoaded) return;
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 Carloss_Hu
+    </section>
+    
+    <section class="powerby">
+        
+            contact me @Carlos_Hu <br/>
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<script src=https://CarlossQAQ.github.io/background/sakura.js></script>
+<script src="https://utteranc.es/client.js"
+        repo="CarlossQAQ/CarlossQAQ.github.io"
+        issue-term="pathname"
+        label="❤️"
+        theme="github-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+
+<style>
+    .post-content{
+        text-align: center;
+    }
+</style>
+<script>
+        document.getElementById("theme-toggle").addEventListener("click", () => {
+          const theme = document.body.className.includes("dark")
+            ? "github-light"
+            : "photon-dark";
+          const message = {
+            type: "set-theme",
+            theme: theme,
+          };
+          const utteranc = document.querySelector(".utterances-frame");
+          utteranc.contentWindow.postMessage(message, "https://utteranc.es");
+        });
+      </script>
+    </body>
+</html>

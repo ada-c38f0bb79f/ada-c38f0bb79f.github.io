@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Python 标准库、算法复杂度、二进制与二补码、IEEE-754 浮点数、机器 epsilon、灾难性消去等 Lecture 1 复习笔记。">
+<title>NPP Lecture 1 复习：Intro to Computer Science 与浮点数运算</title>
+
+<link rel='canonical' href='https://ada-c38f0bb79f.github.io/p/npp-lecture1-review/'>
+
+<link rel="stylesheet" href="/scss/style.min.cd3e66856c780baaa0f235942bb48d1e842e67328e0ab44cc64935c8eadf098a.css"><meta property='og:title' content="NPP Lecture 1 复习：Intro to Computer Science 与浮点数运算">
+<meta property='og:description' content="Python 标准库、算法复杂度、二进制与二补码、IEEE-754 浮点数、机器 epsilon、灾难性消去等 Lecture 1 复习笔记。">
+<meta property='og:url' content='https://ada-c38f0bb79f.github.io/p/npp-lecture1-review/'>
+<meta property='og:site_name' content='Carlos_Hu'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-10-08T09:00:00&#43;08:00'/><meta property='article:modified_time' content='2026-10-08T09:00:00&#43;08:00'/>
+<meta name="twitter:site" content="@CarlosHu4961">
+    <meta name="twitter:creator" content="@CarlosHu4961"><meta name="twitter:title" content="NPP Lecture 1 复习：Intro to Computer Science 与浮点数运算">
+<meta name="twitter:description" content="Python 标准库、算法复杂度、二进制与二补码、IEEE-754 浮点数、机器 epsilon、灾难性消去等 Lecture 1 复习笔记。">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu17946783734494809016.png" width="300"
+                            height="299" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🦉</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Carlos_Hu</a></h1>
+            <h2 class="site-description">I would like to create a learning exchange site to urge me to learn new knowledge, so... join to learn together!</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/40617058?spm_id_from=333.1007.0.0'
+                        target="_blank"
+                        title="Bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/CarlossQAQ'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://CarlossQAQ.github.io/" selected>Let&#39;s speak English</option>
+                                
+                                    <option value="https://CarlossQAQ.github.io/zh-cn/" >让我们说中文</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#intro-to-computer-science">第一部分：Intro to Computer Science（上午）</a></li>
+    <li><a href="#1-python">1. 为什么是 Python？</a></li>
+    <li><a href="#2-hello-world">2. Hello World 与命令行</a></li>
+    <li><a href="#3-standard-library">3. 强大的标准库（Standard Library）</a></li>
+    <li><a href="#re">正则表达式 re 速记</a></li>
+    <li><a href="#collections">collections 例子</a></li>
+    <li><a href="#math-numpy">注意 math 与 numpy 不兼容</a></li>
+    <li><a href="#4">4. 好代码的原则（缩略语）</a></li>
+    <li><a href="#5-big-o">5. 时间/空间复杂度（Big O）</a></li>
+    <li><a href="#6">6. 计算机架构与存储层次</a></li>
+    <li><a href="#7">7. 二进制与整数表示</a></li>
+    <li><a href="#section">正整数</a></li>
+    <li><a href="#integer-overflow">整数溢出（Integer Overflow）</a></li>
+    <li><a href="#two-s-complement">负数：二补码（Two's Complement）</a></li>
+    <li><a href="#8">8. 字符与文本编码</a></li>
+    <li><a href="#floating-point">第二部分：浮点数运算 Floating Point（下午）</a></li>
+    <li><a href="#9-ieee-754">9. IEEE-754 标准</a></li>
+    <li><a href="#32">单精度（32 位）</a></li>
+    <li><a href="#64">双精度（64 位）</a></li>
+    <li><a href="#machine-epsilon">机器精度 ε（Machine Epsilon）</a></li>
+    <li><a href="#section-2">精度与分辨率</a></li>
+    <li><a href="#10">10. 舍入、上溢与下溢</a></li>
+    <li><a href="#11-surprises">11. 五大「惊喜」（Surprises）—— 必须理解</a></li>
+    <li><a href="#surprise-1-1-x-ne-1">Surprise 1：$1 + x 
+e 1$ 却不成立</a></li>
+    <li><a href="#surprise-2-0-1-0-2-ne0-3">Surprise 2：$0.1+0.2
+e0.3$</a></li>
+    <li><a href="#surprise-3">Surprise 3：结合律不成立</a></li>
+    <li><a href="#surprise-4-catastrophic-cancellation">Surprise 4：灾难性消去（Catastrophic Cancellation）</a></li>
+    <li><a href="#surprise-5">Surprise 5：累加误差</a></li>
+    <li><a href="#12-take-home-message">12. 结论（Take-home Message）</a></li>
+    <li><a href="#13">13. 配套练习要点</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/npp-lecture1-review/">NPP Lecture 1 复习：Intro to Computer Science 与浮点数运算</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2026-10-08</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    8 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="lecture-1-intro-to-computer-science-amp">Lecture 1 复习：Intro to Computer Science &amp; 浮点数运算</h1><blockquote>
+<p>主题：Python 入门 · 标准库 · 算法复杂度 · 计算机底层 · 二进制 · IEEE-754 浮点数
+讲师：Dr. James Percival（上午 Intro to CS）· Dr. Marijan Beg（下午 Floating Point）</p>
+</blockquote>
+<hr />
+<h2 id="intro-to-computer-science">第一部分：Intro to Computer Science（上午）</h2><h3 id="1-python">1. 为什么是 Python？</h3><ul>
+<li>解释型、通用目的编程语言，流行且就业需求大。</li>
+<li>数据科学领域与 R 竞争，拥有庞大的机器学习/深度学习生态。</li>
+<li>「简单的事容易做，复杂的事不算太难，非常复杂的事也有可能做」。</li>
+</ul>
+<h3 id="2-hello-world">2. Hello World 与命令行</h3><pre><code class="language-python">print(&quot;Hello World!&quot;)
+</code></pre>
+<ul>
+<li>保存成 <code>.py</code> 文件后，在终端用 <code>python scripts/hello_world.py</code> 运行。</li>
+<li>Jupyter / IPython 里用 <code>!</code> 前缀执行命令行、<code>%</code> 前缀执行 magic 命令；<strong>两者都不能用在纯 Python（<code>.py</code>）文件里</strong>。</li>
+</ul>
+<h3 id="3-standard-library">3. 强大的标准库（Standard Library）</h3><p>Python 的 <code>import</code> 是最强大的操作，标准库随安装自带，非常丰富：</p>
+<table>
+<thead>
+<tr>
+  <th>分类</th>
+  <th>模块</th>
+  <th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>文本处理</td>
+  <td><code>re</code></td>
+  <td>正则表达式</td>
+</tr>
+<tr>
+  <td>文本处理</td>
+  <td><code>string</code></td>
+  <td>常见字符串操作</td>
+</tr>
+<tr>
+  <td>数据类型</td>
+  <td><code>copy</code></td>
+  <td>浅拷贝 / 深拷贝</td>
+</tr>
+<tr>
+  <td>数据类型</td>
+  <td><code>collections</code></td>
+  <td>容器类型（<code>defaultdict</code>、<code>namedtuple</code> 等）</td>
+</tr>
+<tr>
+  <td>数据类型</td>
+  <td><code>datetime</code></td>
+  <td>日期时间</td>
+</tr>
+<tr>
+  <td>数值/数学</td>
+  <td><code>math</code></td>
+  <td>数学函数</td>
+</tr>
+<tr>
+  <td>数值/数学</td>
+  <td><code>random</code></td>
+  <td>伪随机数</td>
+</tr>
+<tr>
+  <td>数值/数学</td>
+  <td><code>decimal</code></td>
+  <td>十进制定点/浮点运算</td>
+</tr>
+<tr>
+  <td>数值/数学</td>
+  <td><code>fractions</code></td>
+  <td>有理数</td>
+</tr>
+<tr>
+  <td>数值/数学</td>
+  <td><code>statistics</code></td>
+  <td>统计函数</td>
+</tr>
+<tr>
+  <td>函数式编程</td>
+  <td><code>itertools</code></td>
+  <td>高效循环迭代器</td>
+</tr>
+<tr>
+  <td>函数式编程</td>
+  <td><code>functools</code></td>
+  <td>高阶函数</td>
+</tr>
+<tr>
+  <td>函数式编程</td>
+  <td><code>operator</code></td>
+  <td>运算符作为函数</td>
+</tr>
+<tr>
+  <td>文件/目录</td>
+  <td><code>os</code> / <code>glob</code> / <code>shutil</code> / <code>tempfile</code></td>
+  <td>系统接口 / 路径匹配 / 高级文件操作</td>
+</tr>
+<tr>
+  <td>数据持久化</td>
+  <td><code>pickle</code></td>
+  <td>对象序列化（存盘）</td>
+</tr>
+<tr>
+  <td>数据持久化</td>
+  <td><code>sqlite3</code></td>
+  <td>SQLite 数据库接口</td>
+</tr>
+<tr>
+  <td>文件格式</td>
+  <td><code>csv</code> / <code>json</code></td>
+  <td>CSV / JSON 读写</td>
+</tr>
+<tr>
+  <td>系统服务</td>
+  <td><code>sys</code> / <code>argparse</code> / <code>time</code></td>
+  <td>系统参数 / 命令行解析 / 时间</td>
+</tr>
+<tr>
+  <td>网络/GUI</td>
+  <td><code>urllib</code> / <code>http</code> / <code>tkinter</code></td>
+  <td>URL 处理 / HTTP / 基础 GUI</td>
+</tr>
+</tbody>
+</table>
+<h4 id="re">正则表达式 <code>re</code> 速记</h4><pre><code class="language-python">import re
+re.findall(pattern, text)   # 找所有匹配
+re.search(pattern, text)    # 在任意位置搜索（返回首个匹配）
+re.match(pattern, text)     # 从开头匹配
+</code></pre>
+<ul>
+<li><code>.</code> 匹配任意非换行字符；<code>*</code> 匹配前一个字符 0 次或多次；<code>\w</code> 匹配字母数字下划线。</li>
+</ul>
+<h4 id="collections"><code>collections</code> 例子</h4><pre><code class="language-python">from collections import defaultdict, namedtuple
+
+d = defaultdict(lambda: &quot;not set!&quot;)
+d[&quot;James&quot;]          # -&gt; &quot;not set!&quot;
+
+Pets = namedtuple(&quot;Pets&quot;, [&quot;cat&quot;, &quot;dog&quot;])
+p = Pets(&quot;Tiddles&quot;, dog=&quot;Rover&quot;)
+p.dog               # -&gt; &quot;Rover&quot;
+</code></pre>
+<h4 id="math-numpy">注意 <code>math</code> 与 <code>numpy</code> 不兼容</h4><pre><code class="language-python">import math, numpy as np
+math.sin(np.pi/6)      # OK，numpy 标量能被 Python 理解
+arr = np.array([0, np.pi/6, np.pi/2])
+np.sin(arr)            # OK，向量化
+math.sin(arr)          # 报错！Python 不认识 numpy 数组
+</code></pre>
+<h3 id="4">4. 好代码的原则（缩略语）</h3><table>
+<thead>
+<tr>
+  <th>缩写</th>
+  <th>全称</th>
+  <th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>DRY</td>
+  <td>Don't Repeat Yourself</td>
+  <td>不要重复自己</td>
+</tr>
+<tr>
+  <td>SOC</td>
+  <td>Separation of Concerns</td>
+  <td>关注点分离</td>
+</tr>
+<tr>
+  <td>KISS</td>
+  <td>Keep It Simple, Stupid</td>
+  <td>保持简单</td>
+</tr>
+<tr>
+  <td>YAGNI</td>
+  <td>You Ain't Gonna Need It</td>
+  <td>你不会需要它（别过度设计）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="5-big-o">5. 时间/空间复杂度（Big O）</h3><p>把计算机看作「图灵机」：每个算法都是 <strong>空间</strong>（内存）与 <strong>时间</strong>（运行时长）两种资源的权衡。</p>
+<ul>
+<li><code>my_max(x)</code>：遍历一遍找最大值 → 时间随长度 <strong>线性</strong> 增长，记为 $\mathcal{O}(n)$。</li>
+<li><code>find_duplicates(x)</code>：双重循环比较 → <strong>平方</strong> 增长，$\mathcal{O}(n^2)$。</li>
+<li><code>permute(x)</code>：生成所有排列 → 时间与输出空间随长度 <strong>阶乘</strong> 增长，$\mathcal{O}(n!)$。</li>
+</ul>
+<blockquote>
+<p>衡量时用 <code>%timeit</code>（Jupyter magic）测量运行时间，画 log-log 图看斜率判断复杂度阶。</p>
+</blockquote>
+<h3 id="6">6. 计算机架构与存储层次</h3><ul>
+<li>低层：掺杂硅晶片组成晶体管逻辑电路。</li>
+<li>存储分层（越往上越快越贵）：CPU 寄存器 → CPU 缓存 → 内存（RAM）→ 硬盘。</li>
+<li>层级间搬运数据有时间惩罚 → 计算机处理「靠在一起」的数据更快。</li>
+<li>所有现代计算机都是 <strong>二进制</strong>：高电压「开」/ 低电压「关」。</li>
+</ul>
+<h3 id="7">7. 二进制与整数表示</h3><h4 id="section">正整数</h4><p>十进制 $2381$ 按位权展开；二进制 $1001_2 = 1\cdot8+0\cdot4+0\cdot2+1\cdot1 = 9_{10}$。</p>
+<pre><code class="language-python">int(&quot;1001&quot;, base=2)   # 9
+bin(9)                # '0b1001'
+bin(int(3.5))         # 3  -&gt; 不能 bin(3.5)
+</code></pre>
+<p>两种存法：</p>
+<ol>
+<li>存「位数 + 数字本身」→ Python 用此法，支持<strong>任意精度整数</strong>（受内存限制）。</li>
+<li>固定位数，补前导零 → NumPy 用此法（效率高，配合 C 代码）。</li>
+</ol>
+<h4 id="integer-overflow">整数溢出（Integer Overflow）</h4><p>固定位数会溢出。8 位无符号整数 <code>11111111</code>（255）+ 1 会回绕成 0：</p>
+<pre><code class="language-python">import numpy as np
+x = np.array([int(&quot;11111111&quot;, 2)], dtype=np.uint8)   # 255
+(x + 1)[0]   # -&gt; 0（溢出回绕）
+</code></pre>
+<h4 id="two-s-complement">负数：二补码（Two's Complement）</h4><ul>
+<li>方法一（符号位）：最高位当符号位，需要单独的加法/减法电路，复杂。</li>
+<li>方法二（<strong>二补码</strong>）：最高位权值取 $-2^{n-1}$。4 位下 $-3 = 1101_2$（$-8+4+1=-3$）。<ul>
+<li>加法和无符号一样：$-3+3 = 1101+0011 = 0000 = 0$。</li>
+<li><strong>取反加一</strong>即取相反数：$-3=1101 \to 0010+1=0011=3$。</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-python">np.binary_repr(3, width=4)    # '0011'
+np.binary_repr(-3, width=4)   # '1101'
+</code></pre>
+<h3 id="8">8. 字符与文本编码</h3><ul>
+<li>计算机只能存二进制，字符需<strong>编码</strong>成数字。</li>
+<li>最著名的编码：ASCII（American Standard Code for Information Interchange）。</li>
+<li>Python 3 默认 Unicode（<code>utf-8</code>），覆盖世界上绝大多数语言的字符。</li>
+<li>文本存为「码点（code point）」序列，还需存长度/结束位置。</li>
+</ul>
+<hr />
+<h2 id="floating-point">第二部分：浮点数运算 Floating Point（下午）</h2><blockquote>
+<p>核心悬念：为什么 $0.1 + 0.2 \ne 0.3$？</p>
+</blockquote>
+<h3 id="9-ieee-754">9. IEEE-754 标准</h3><p>1985 年 IEEE 制定的浮点标准，解决各厂商表示不一致的问题（此前 $a+b$ 在不同机器结果不同）。</p>
+<p>任意非零实数 $x$ 可写为（归一化二进制科学计数法）：</p>
+<p>$$x = (-1)^{s} \times (1.f)_{2} \times 2^{e-\text{bias}}$$</p>
+<ul>
+<li><strong>sign</strong> 符号位 $s$：1 位。</li>
+<li><strong>exponent</strong> 指数 $e$：单精度 8 位，双精度 11 位（存的是加 bias 后的值）。</li>
+<li><strong>mantissa</strong>（尾数/significand）$f$：单精度 23 位，双精度 52 位；<strong>前导 1 隐式不存</strong>，所以有效位多 1 位。</li>
+</ul>
+<table>
+<thead>
+<tr>
+  <th>精度</th>
+  <th>总位数</th>
+  <th>符号</th>
+  <th>指数</th>
+  <th>尾数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>single（单精度，<code>float32</code>）</td>
+  <td>32</td>
+  <td>1</td>
+  <td>8</td>
+  <td>23</td>
+</tr>
+<tr>
+  <td>double（双精度，<code>float64</code>）</td>
+  <td>64</td>
+  <td>1</td>
+  <td>11</td>
+  <td>52</td>
+</tr>
+<tr>
+  <td>quadruple</td>
+  <td>128</td>
+  <td>1</td>
+  <td>15</td>
+  <td>112</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>不用死记</strong>，用 <code>np.finfo()</code> 查。</p>
+</blockquote>
+<h4 id="32">单精度（32 位）</h4><p>$$x = (-1)^s \times (1.f)_2 \times 2^{e-127}$$</p>
+<ul>
+<li>指数 $e$：$0 &lt; e &lt; 255$；$e=0$ 保留给 $\pm0$ 与<strong>次正规数</strong>（subnormal），$e=255$ 保留给 $\pm\infty$ 与 NaN。bias = 127，故 $2^{-126}\le$ 指数 $\le 2^{127}$。</li>
+<li>尾数 $m=1.f$：$1 \le m \le 2 - 2^{-23}$。</li>
+<li><strong>最大数</strong> $\approx (2-2^{-23})\cdot 2^{127} \approx 2^{128} \approx 3.4\times10^{38}$。</li>
+<li><strong>最小正正规数</strong> $= 2^{-126} \approx 1.18\times10^{-38}$；次正规数可到 $2^{-149}\approx1.4\times10^{-45}$（牺牲精度）。</li>
+</ul>
+<h4 id="64">双精度（64 位）</h4><p>$$x = (-1)^s \times (1.f)_2 \times 2^{e-1023}$$</p>
+<ul>
+<li>指数 11 位，bias = 1023；尾数 52 位。</li>
+<li>最大数 $\approx 2^{1024} \approx 1.8\times10^{308}$；最小正正规数 $\approx 2^{-1022}\approx2.2\times10^{-308}$；次正规数到 $2^{-1074}\approx4.9\times10^{-324}$。</li>
+</ul>
+<h4 id="machine-epsilon">机器精度 ε（Machine Epsilon）</h4><ul>
+<li><strong>机器数（machine number）</strong>：能精确表示的有限个实数；$x$ 对应的机器数记为 $\mathrm{fl}(x)$。</li>
+<li><strong>机器 ε</strong>：$1$ 与下一个更大机器数之间的距离。<ul>
+<li>单精度：$\epsilon = 2^{-23} \approx 1.19\times10^{-7}$。</li>
+<li>双精度：$\epsilon = 2^{-52} \approx 2.22\times10^{-16}$。</li>
+</ul>
+</li>
+<li>因为四舍五入到<strong>最近</strong>机器数，$x &gt; \epsilon/2$ 时 $\mathrm{fl}(1+x)\ne1$ 就成立。</li>
+</ul>
+<h4 id="section-2">精度与分辨率</h4><ul>
+<li>单精度 23 位尾数 → $\log_{10}(2^{23})\approx6.9$，可靠 <strong>6 位</strong>有效数字，分辨率 $10^{-6}$。</li>
+<li>双精度 52 位尾数 → $\log_{10}(2^{52})\approx15.65$，可靠 <strong>15 位</strong>有效数字，分辨率 $10^{-15}$。</li>
+</ul>
+<pre><code class="language-python">import numpy as np
+f = np.finfo(np.float64)
+print(f.bits, f.nmant, f.nexp)   # 位数/尾数位/指数位
+print(f.max, f.tiny, f.eps)      # 最大数/最小正正规数/机器ε
+print(f.precision, f.resolution) # 精度/分辨率
+</code></pre>
+<h3 id="10">10. 舍入、上溢与下溢</h3><ul>
+<li>每次运算结果都会舍入：$\mathrm{fl}(\mathrm{fl}(a)+\mathrm{fl}(b))$。</li>
+<li><strong>下溢（underflow）</strong>：小于最小正规数的数先掉精度（次正规数），最终被舍入为 0。</li>
+<li><strong>上溢（overflow）</strong>：IEEE-754 默认给 $\pm\infty$（如 <code>1e308 * 10</code> → <code>inf</code>）；某些操作抛 <code>OverflowError</code>（如 <code>2.0**10000</code>、<code>math.exp(1000)</code>）。</li>
+</ul>
+<h3 id="11-surprises">11. 五大「惊喜」（Surprises）—— 必须理解</h3><h4 id="surprise-1-1-x-ne-1">Surprise 1：$1 + x \ne 1$ 却不成立</h4><pre><code class="language-python">x = 1e-16
+print(1 + x != 1)   # False
+</code></pre>
+<p>原因：$x=10^{-16} &lt; \epsilon/2\approx1.11\times10^{-16}$，$1+x$ 更接近机器数 $1$，被舍入成 1。若 $x=2\times10^{-16}$（$&gt;\epsilon/2$ 但 $&lt;\epsilon$），则 <code>1 + x != 1</code> 为 True。</p>
+<h4 id="surprise-2-0-1-0-2-ne0-3">Surprise 2：$0.1+0.2\ne0.3$</h4><pre><code class="language-python">print(0.1 + 0.2 == 0.3)   # False
+</code></pre>
+<p>原因：十进制有限小数未必是二进制有限小数。$(0.1)_{10}=(0.0001100110011\ldots)_2$，像十进制里的 $0.3333\ldots$。<code>fl(0.1)+fl(0.2)</code> 的结果舍入后不等于 <code>fl(0.3)</code>。</p>
+<h4 id="surprise-3">Surprise 3：结合律不成立</h4><pre><code class="language-python">a, b, c = 1e16, -1e16, 1.0
+print((a+b)+c == a+(b+c))   # False
+</code></pre>
+<p>原因：每次运算都舍入。$(a+b)+c = 0+1 = 1$，而 $a+(b+c)=1e16 + (-1e16)$，$b+c$ 舍入回 $-1e16$，结果是 0。机器数在数轴上<strong>不均匀分布</strong>（越大越稀疏）。</p>
+<h4 id="surprise-4-catastrophic-cancellation">Surprise 4：灾难性消去（Catastrophic Cancellation）</h4><pre><code class="language-python">a, b = 1.0000001, 1.0000000
+print(a - b == 1e-7)   # False
+</code></pre>
+<p>原因：两个接近相等的数相减。$\mathrm{fl}(1.0000001)$ 本身带极小的舍入误差，减法本身是精确的（Sterbenz 引理），但前导的 <code>1.000000</code> 抵消后，绝对误差不变而结果变小 $10^7$ 倍，<strong>相对误差被放大约 $10^7$ 倍</strong>。一般地：</p>
+<p>$$\text{相对误差}\lesssim\frac{|a|+|b|}{|a-b|}\cdot\frac{\epsilon}{2}$$</p>
+<ul>
+<li>减法不产生误差，而是<strong>暴露</strong> $a,b$ 里已有的舍入误差；$a,b$ 越接近放大越严重。</li>
+<li>对策：改写公式避免相近数相减，如 $\sqrt{x+1}-\sqrt{x}=\dfrac{1}{\sqrt{x+1}+\sqrt{x}}$。</li>
+</ul>
+<h4 id="surprise-5">Surprise 5：累加误差</h4><pre><code class="language-python">a, b = 100, 0.1
+s = 0
+for _ in range(a):
+    s += b
+print(a * b == s)   # False
+</code></pre>
+<p>原因：<code>fl(0.1)</code> 的误差在 100 次迭代中不断累积。</p>
+<h3 id="12-take-home-message">12. 结论（Take-home Message）</h3><p><strong>永远不要用 <code>==</code> 比较浮点数！</strong> 改用：</p>
+<p>$$|a-b|&lt;\text{tol}$$</p>
+<p>或直接：</p>
+<pre><code class="language-python">np.isclose(0.1+0.2, 0.3, atol=1e-15, rtol=1e-5)
+</code></pre>
+<h3 id="13">13. 配套练习要点</h3><ol>
+<li><strong>dec2bin</strong>：整数部分除 2 取余倒序；小数部分乘 2 取整，最多 <code>max_fractional_digits</code> 位（52）防止死循环。</li>
+<li><strong>机器数计数</strong>：用 <code>itertools.product</code> 枚举所有位组合，去重后计数。</li>
+<li><strong>IEEE-754 编码/解码</strong>：给定十进制数求 32/64 位位串，或反过来由位串还原十进制（sign + exponent + mantissa 三段拼接）。</li>
+</ol>
+
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo=""
+        issue-term="pathname"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    let utterancesLoaded = false;
+
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+
+        
+        utterancesLoaded = true;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (!utterancesLoaded) return;
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 Carloss_Hu
+    </section>
+    
+    <section class="powerby">
+        
+            contact me @Carlos_Hu <br/>
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<script src=https://CarlossQAQ.github.io/background/sakura.js></script>
+<script src="https://utteranc.es/client.js"
+        repo="CarlossQAQ/CarlossQAQ.github.io"
+        issue-term="pathname"
+        label="❤️"
+        theme="github-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+
+<style>
+    .post-content{
+        text-align: center;
+    }
+</style>
+<script>
+        document.getElementById("theme-toggle").addEventListener("click", () => {
+          const theme = document.body.className.includes("dark")
+            ? "github-light"
+            : "photon-dark";
+          const message = {
+            type: "set-theme",
+            theme: theme,
+          };
+          const utteranc = document.querySelector(".utterances-frame");
+          utteranc.contentWindow.postMessage(message, "https://utteranc.es");
+        });
+      </script>
+    </body>
+</html>

@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="list/tuple/set/dict 等数据结构、可变性、类与继承、魔法方法、property，以及 PyTorch nn.Module 的复习笔记。">
+<title>NPP Lecture 4 复习：Python 数据结构与类（面向对象与深度学习）</title>
+
+<link rel='canonical' href='https://ada-c38f0bb79f.github.io/p/npp-lecture4-review/'>
+
+<link rel="stylesheet" href="/scss/style.min.cd3e66856c780baaa0f235942bb48d1e842e67328e0ab44cc64935c8eadf098a.css"><meta property='og:title' content="NPP Lecture 4 复习：Python 数据结构与类（面向对象与深度学习）">
+<meta property='og:description' content="list/tuple/set/dict 等数据结构、可变性、类与继承、魔法方法、property，以及 PyTorch nn.Module 的复习笔记。">
+<meta property='og:url' content='https://ada-c38f0bb79f.github.io/p/npp-lecture4-review/'>
+<meta property='og:site_name' content='Carlos_Hu'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-10-08T12:00:00&#43;08:00'/><meta property='article:modified_time' content='2026-10-08T12:00:00&#43;08:00'/>
+<meta name="twitter:site" content="@CarlosHu4961">
+    <meta name="twitter:creator" content="@CarlosHu4961"><meta name="twitter:title" content="NPP Lecture 4 复习：Python 数据结构与类（面向对象与深度学习）">
+<meta name="twitter:description" content="list/tuple/set/dict 等数据结构、可变性、类与继承、魔法方法、property，以及 PyTorch nn.Module 的复习笔记。">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu17946783734494809016.png" width="300"
+                            height="299" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🦉</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Carlos_Hu</a></h1>
+            <h2 class="site-description">I would like to create a learning exchange site to urge me to learn new knowledge, so... join to learn together!</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/40617058?spm_id_from=333.1007.0.0'
+                        target="_blank"
+                        title="Bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/CarlossQAQ'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://CarlossQAQ.github.io/" selected>Let&#39;s speak English</option>
+                                
+                                    <option value="https://CarlossQAQ.github.io/zh-cn/" >让我们说中文</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#section">第一部分：核心数据结构</a></li>
+    <li><a href="#1">1. 对象与名字绑定</a></li>
+    <li><a href="#2-vs-mutability">2. 可变 vs 不可变（Mutability）</a></li>
+    <li><a href="#3-list">3. 列表（list）</a></li>
+    <li><a href="#list-comprehension">列表推导式（list comprehension）</a></li>
+    <li><a href="#4-tuple">4. 元组（tuple）</a></li>
+    <li><a href="#5-generator">5. 生成器（generator）</a></li>
+    <li><a href="#6-set-frozenset">6. 集合（set）与 frozenset</a></li>
+    <li><a href="#7-dict">7. 字典（dict）</a></li>
+    <li><a href="#8">8. 如何选择数据类型</a></li>
+    <li><a href="#section-2">第二部分：标准库扩展类型</a></li>
+    <li><a href="#9-array">9. array 模块</a></li>
+    <li><a href="#10-collections">10. collections 模块</a></li>
+    <li><a href="#numpy-pandas">第三部分：numpy / pandas 回顾</a></li>
+    <li><a href="#python-classes">第四部分：Python 类（Classes）</a></li>
+    <li><a href="#11">11. 面向对象与封装</a></li>
+    <li><a href="#12-init">12. __init__ 与实例属性</a></li>
+    <li><a href="#13-vs">13. 类属性 vs 实例属性（⚠️ 常见坑）</a></li>
+    <li><a href="#14-inheritance">14. 继承（Inheritance）</a></li>
+    <li><a href="#15-property">15. property：让函数「像属性」</a></li>
+    <li><a href="#16-magic-special-methods">16. 魔法方法（magic/special methods）</a></li>
+    <li><a href="#17-new-del">17. __new__ 与 __del__（进阶，可先忽略）</a></li>
+    <li><a href="#pytorch">第五部分：类与深度学习（PyTorch）</a></li>
+    <li><a href="#18-pytorch">18. 从神经元到 PyTorch</a></li>
+    <li><a href="#19-pytorch-nn-module">19. PyTorch 的 nn.Module</a></li>
+    <li><a href="#20-key-takeaways">20. Key Takeaways</a></li>
+    <li><a href="#section-3">易错点提醒 ⚠️</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/npp-lecture4-review/">NPP Lecture 4 复习：Python 数据结构与类（面向对象与深度学习）</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2026-10-08</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    5 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="lecture-4-python-data-structures-amp-classes">Lecture 4 复习：Python Data Structures &amp; Classes（面向对象与深度学习）</h1><blockquote>
+<p>主题：内置数据结构 · 可变/不可变 · 标准库扩展类型 · 类与继承 · 魔法方法 · PyTorch <code>nn.Module</code>
+讲师：Dr. Tom Davison（Data Structures）· Debbie Pelacani Cruz（Classes &amp; Deep Learning）</p>
+</blockquote>
+<hr />
+<h2 id="section">第一部分：核心数据结构</h2><h3 id="1">1. 对象与名字绑定</h3><ul>
+<li>所有 Python 数据都是「对象（object）」。</li>
+<li>Python 用<strong>鸭子类型</strong>：函数接受任意对象作为输入（不像 C/Java）。</li>
+<li>用 <code>=</code> 把对象<strong>绑定到名字</strong>。</li>
+</ul>
+<pre><code class="language-python">x = 7
+y = x          # y 和 x 指向同一个对象
+a = list([1,2,3,4])
+b = a          # b 和 a 指向同一个 list 对象（浅绑定！）
+</code></pre>
+<h3 id="2-vs-mutability">2. 可变 vs 不可变（Mutability）</h3><table>
+<thead>
+<tr>
+  <th>类型</th>
+  <th>可变性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>int</code> / <code>float</code> / <code>str</code> / <code>complex</code> / <code>tuple</code> / <code>frozenset</code></td>
+  <td><strong>不可变</strong>（immutable）</td>
+</tr>
+<tr>
+  <td><code>list</code> / <code>set</code> / <code>dict</code></td>
+  <td><strong>可变</strong>（mutable）</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>「更新」不可变对象其实是在<strong>新建对象</strong>，用 <code>id()</code> 可验证。</li>
+</ul>
+<pre><code class="language-python">x = 3
+print(id(x)); x += 5; print(id(x))   # id 改变 → 新对象
+</code></pre>
+<ul>
+<li><strong>小整数缓存</strong>：Python 缓存 -5 到 256 的整数对象。</li>
+</ul>
+<pre><code class="language-python">x = 3; y = 3
+print(x is y)          # True（同一缓存对象）
+a = 12345; b = 12345
+print(a is b)          # False
+</code></pre>
+<ul>
+<li>Python 整数<strong>任意精度</strong>，上限受内存限制（<code>sys.getsizeof()</code> 看占用）。</li>
+</ul>
+<h3 id="3-list">3. 列表（list）</h3><ul>
+<li>用 <code>[]</code> 或 <code>list()</code> 创建：<code>[1,3,5]</code>、<code>list((3,4,5))</code>、<code>[_ for _ in range(6,10)]</code>。</li>
+<li>特点：<strong>可变、一维（单索引）、有序</strong>，是其它对象的集合，支持迭代。</li>
+<li>快：查找/改元素、增删<strong>末尾</strong>元素。</li>
+<li>慢：增删<strong>非末尾</strong>元素（与长度成正比，因为要整体搬移）。</li>
+<li><strong>实现</strong>：CPython 的 list 是一块存「内存地址」的内存块；预留空间扩展，满了要整体拷贝。</li>
+</ul>
+<h4 id="list-comprehension">列表推导式（list comprehension）</h4><ul>
+<li><code>[ _ for _ in range(6, 10) ]</code>，通常是最快的建 list 方式（比 for+append 快 20–25%），在可读范围内优先用。</li>
+</ul>
+<h3 id="4-tuple">4. 元组（tuple）</h3><ul>
+<li>用逗号（常配 <code>()</code>）或 <code>tuple()</code> 创建：<code>1,3,5</code>、<code>(2,3,4)</code>、<code>tuple([3,4,5])</code>。</li>
+<li>特点：<strong>不可变、一维、有序</strong>，是 list 的不可变等价物。</li>
+<li>快：查元素；比 list 略省内存（块大小固定，无需预留扩展空间）。</li>
+<li>已知不会变就用 tuple。</li>
+<li><strong>解包（unpacking）</strong>：<code>a, b, c = 1, 2, 3</code>，常用于接收函数返回的多值。</li>
+</ul>
+<h3 id="5-generator">5. 生成器（generator）</h3><ul>
+<li>没有「tuple 推导式」；<code>(x**2 for x in range(3))</code> 是<strong>生成器</strong>。</li>
+<li>只能迭代<strong>一次</strong>，不存内容，用的时候才生成、用完丢弃 → <strong>省内存</strong>。</li>
+<li>易混淆：</li>
+</ul>
+<pre><code class="language-python">gen = (x for x in range(4))
+print(list(gen))   # [0, 1, 2, 3]
+print(list(gen))   # []（已经耗尽！）
+</code></pre>
+<h3 id="6-set-frozenset">6. 集合（set）与 frozenset</h3><ul>
+<li>用 <code>{}</code> 或 <code>set()</code> 创建：<code>{1,3,5}</code>、<code>set([3,4,5])</code>。</li>
+<li>特点：<strong>无序、可变</strong>，是<strong>去重</strong>对象的集合。</li>
+<li><code>x in S</code> 极快（比 list 快一两个数量级）。</li>
+<li><strong>实现</strong>：哈希表（hash table）。一个大块（大部分为空）+ 哈希函数映射到 0..N-1。<ul>
+<li>加成员：算哈希 → 插入对应位置。</li>
+<li>查成员：算哈希 → 查对应位置。</li>
+<li><strong>冲突（collision）</strong>：两个输入哈希到同一位置，Python 按可预测模式继续找下一块，直到找到目标或空位。→ 所以 set 需要比较空、比 list 费内存。</li>
+</ul>
+</li>
+<li><code>frozenset</code>：set 的不可变版本。</li>
+</ul>
+<h3 id="7-dict">7. 字典（dict）</h3><ul>
+<li>映射 <strong>key → value</strong>：<code>{&quot;a&quot;:1,&quot;b&quot;:10}</code>、<code>dict(x=1,y=2)</code>、<code>{x:x**2 for x in range(10)}</code>。</li>
+<li>和 set 一样优化了 <code>x in D</code>（快一两个数量级）。</li>
+<li><strong>key 必须不可变且可哈希</strong>（不能用 list 当 key）。</li>
+<li><strong>实现</strong>：和 set 类似的哈希表；区别是：<ul>
+<li>dict 同时存 key 和（value 对象的地址）。</li>
+<li>dict <strong>保留插入顺序</strong>（Python 3.7+），set 不保留。</li>
+</ul>
+</li>
+<li>字典推导式建 dict 快，但不总是比 for 循环快（如反转字典两者差不多）。</li>
+</ul>
+<h3 id="8">8. 如何选择数据类型</h3><ul>
+<li>需要<strong>有序 + 可变 + 索引</strong> → list；<strong>不变</strong> → tuple。</li>
+<li>需要<strong>去重 / 快速 in 判断</strong> → set；不变 → frozenset。</li>
+<li>需要 <strong>key→value 映射 / 快速查 key</strong> → dict。</li>
+<li>需要<strong>节约内存、只遍历一次</strong> → generator。</li>
+</ul>
+<hr />
+<h2 id="section-2">第二部分：标准库扩展类型</h2><h3 id="9-array">9. <code>array</code> 模块</h3><ul>
+<li>存<strong>同类型</strong>数据的集合，比 list 省内存（直接存值而非存对象地址）。</li>
+<li>但难用，大多数人忽略它；日常用 numpy 更好。</li>
+</ul>
+<pre><code class="language-python">import array
+a = [1,2,3,4,5]
+b = array.array('b', a)   # 更省内存
+</code></pre>
+<h3 id="10-collections">10. <code>collections</code> 模块</h3><table>
+<thead>
+<tr>
+  <th>类型</th>
+  <th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>namedtuple</code></td>
+  <td>类似 tuple 但有命名字段</td>
+</tr>
+<tr>
+  <td><code>deque</code></td>
+  <td>类似 list，但<strong>头尾</strong>增删都快</td>
+</tr>
+<tr>
+  <td><code>OrderedDict</code></td>
+  <td>记住插入顺序的 dict（现在普通 dict 也保序，多出现在旧代码）</td>
+</tr>
+<tr>
+  <td><code>defaultdict</code></td>
+  <td>缺 key 时用工厂函数自动给默认值，如 <code>defaultdict(int)</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="numpy-pandas">第三部分：numpy / pandas 回顾</h2><ul>
+<li><code>numpy.ndarray</code>：多维数组（1D~64D），<strong>所有元素必须同类型</strong>；未指定 <code>dtype</code> 时自动推断能覆盖所有输入的类型。</li>
+</ul>
+<pre><code class="language-python">np.array([0,1,2])     # int64
+np.array([0,1,2.5])   # float64
+np.array([0,'hat',sum])  # object
+</code></pre>
+<ul>
+<li><code>pandas.Series</code>：带标签的一维数组；<code>pandas.DataFrame</code>：带索引和列名的表。</li>
+<li>详见 Lecture 2。</li>
+</ul>
+<hr />
+<h2 id="python-classes">第四部分：Python 类（Classes）</h2><h3 id="11">11. 面向对象与封装</h3><ul>
+<li>类 = 自定义数据结构：**数据（属性）+ 修改它的函数（方法）**绑在一起。</li>
+<li>好处：<strong>封装（Encapsulation）</strong>——把数据和方法绑定，减少把数据/方法用错对象的错误。</li>
+</ul>
+<pre><code class="language-python">class MyClass:
+    &quot;&quot;&quot;This is my cool class.&quot;&quot;&quot;
+    def my_method(self, a, b):
+        self.val = a + b     # 存实例属性
+        return a * b
+
+inst = MyClass()             # 用 () 创建实例
+a = inst.my_method(1, 2)     # a=2，inst.val=3
+</code></pre>
+<h3 id="12-init">12. <code>__init__</code> 与实例属性</h3><pre><code class="language-python">class Point3D:
+    def __init__(self, x, y, z):
+        self.x = x; self.y = y; self.z = z
+
+p = Point3D(1, 4, 7)
+print(p.x, p.y, p.z)   # 1 4 7
+</code></pre>
+<h3 id="13-vs">13. 类属性 vs 实例属性（⚠️ 常见坑）</h3><ul>
+<li><strong>类属性</strong>（写在 class 体、不在方法里）：<strong>所有实例共享同一个对象</strong>。</li>
+<li><strong>实例属性</strong>（<code>self.xxx</code>）：每个实例各自独立。</li>
+</ul>
+<pre><code class="language-python">class MyClass:
+    mylist = []            # 类属性，所有实例共享！
+
+inst1, inst2 = MyClass(), MyClass()
+inst1.mylist.append(1); inst2.mylist.append(2)
+print(inst1.mylist is inst2.mylist)   # True（同一个 list！）
+</code></pre>
+<blockquote>
+<p>可变类型（如 list）当类属性特别危险，因为实例间会互相影响。</p>
+</blockquote>
+<h3 id="14-inheritance">14. 继承（Inheritance）</h3><pre><code class="language-python">class MySubClass(MyBaseClass):
+    '''继承 MyBaseClass'''
+    # 新增方法
+</code></pre>
+<ul>
+<li>所有类最终都继承自基类 <code>object</code>（<code>int</code>、<code>list</code> 也一样）。</li>
+<li>子类可**重写（override）**父类方法。</li>
+<li>查基类：<code>Tree.__base__</code>。</li>
+<li><strong><code>super()</code></strong>：在子类里调用父类的方法，避免重写整个函数。</li>
+</ul>
+<pre><code class="language-python">class Shrub(Tree):
+    def __init__(self, species, age, height, fruit):
+        super().__init__(species, age, height)   # 调用父类 __init__
+        self.fruit = fruit
+</code></pre>
+<h3 id="15-property">15. property：让函数「像属性」</h3><pre><code class="language-python">class Temperature:
+    def __init__(self, temp):
+        self.celsius = temp
+
+    @property
+    def fahrenheit(self):
+        return self.celsius * 9/5 + 32
+
+    @fahrenheit.setter
+    def fahrenheit(self, temp):
+        self.celsius = (temp - 32) * 5/9
+</code></pre>
+<h3 id="16-magic-special-methods">16. 魔法方法（magic/special methods）</h3><table>
+<thead>
+<tr>
+  <th>触发</th>
+  <th>方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>inst()</code></td>
+  <td><code>__call__(self)</code></td>
+</tr>
+<tr>
+  <td><code>print(inst)</code></td>
+  <td><code>__str__(self)</code></td>
+</tr>
+<tr>
+  <td><code>inst</code>（交互式显示）</td>
+  <td><code>__repr__(self)</code></td>
+</tr>
+<tr>
+  <td><code>inst1 + inst2</code></td>
+  <td><code>__add__</code>（运算符重载）</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>重载规则：<strong>别让人惊讶</strong>——<code>+</code> 应该是加/增/追加，<code>-</code> 应该是减/删。</li>
+</ul>
+<h3 id="17-new-del">17. <code>__new__</code> 与 <code>__del__</code>（进阶，可先忽略）</h3><ul>
+<li>创建实例时先调 <code>__new__</code> 再调 <code>__init__</code>（一般只需写 <code>__init__</code>）。</li>
+<li><code>__del__</code> 在垃圾回收认为对象不再需要时调用，用于清理特殊资源。</li>
+</ul>
+<hr />
+<h2 id="pytorch">第五部分：类与深度学习（PyTorch）</h2><h3 id="18-pytorch">18. 从神经元到 PyTorch</h3><p><strong>基础神经元</strong>（线性模型：加权求和 + bias）：</p>
+<pre><code class="language-python">class Neuron:
+    def __init__(self, weights, bias):
+        self.weights = weights; self.bias = bias
+    def forward(self, inputs):
+        return sum(w*i for w,i in zip(self.weights, inputs)) + self.bias
+</code></pre>
+<p><strong>用继承加激活函数</strong>（ReLU / Sigmoid）：</p>
+<pre><code class="language-python">class ReLUNeuron(Neuron):
+    def relu(self, x): return max(0, x)
+    def forward(self, inputs):
+        return self.relu(super().forward(inputs))   # 父类算线性，再套激活
+</code></pre>
+<h3 id="19-pytorch-nn-module">19. PyTorch 的 <code>nn.Module</code></h3><ul>
+<li>PyTorch 中一切「神经网络」都继承自 <code>torch.nn.Module</code>，它管理参数、设备移动、保存/加载、autograd。</li>
+<li>关键点：<ul>
+<li><code>super().__init__()</code> 初始化父类。</li>
+<li><code>nn.Linear</code> 自动注册可学习参数。</li>
+<li><code>forward</code> 定义计算。</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-python">class CustomNeuron(nn.Module):
+    def __init__(self, input_size):
+        super().__init__()
+        self.linear = nn.Linear(input_size, 1)
+        self.relu = nn.ReLU()
+    def forward(self, x):
+        return self.relu(self.linear(x))
+</code></pre>
+<p><strong>多层感知机（MLP）</strong>：</p>
+<pre><code class="language-python">class TinyMLP(nn.Module):
+    def __init__(self, input_size, hidden_size, num_classes):
+        super().__init__()
+        self.fc1 = nn.Linear(input_size, hidden_size)
+        self.act = nn.ReLU()
+        self.fc2 = nn.Linear(hidden_size, num_classes)
+    def forward(self, x):
+        return self.fc2(self.act(self.fc1(x)))
+</code></pre>
+<h3 id="20-key-takeaways">20. Key Takeaways</h3><ul>
+<li><strong>类</strong>封装数据（属性）与行为（方法）。</li>
+<li><strong>继承</strong>让你定义一次通用蓝图，在子类里特化行为。</li>
+<li><strong>PyTorch</strong> 处处用这个模式：模型和层都继承 <code>nn.Module</code>，提供参数管理、设备管理、autograd 集成。</li>
+<li>理解类与继承 → 深度学习框架更透明，模型更易设计、调试和扩展。</li>
+</ul>
+<hr />
+<h2 id="section-3">易错点提醒 ⚠️</h2><ol>
+<li>可变类型（list/dict/set）当<strong>类属性</strong>会在实例间共享，通常应放 <code>__init__</code> 里当实例属性。</li>
+<li>生成器只能迭代一次。</li>
+<li><code>a = b</code> 对可变对象是<strong>浅绑定</strong>（同一对象），改 <code>a</code> 会影响 <code>b</code>。</li>
+<li>dict 的 key 必须<strong>不可变且可哈希</strong>。</li>
+<li>子类要扩展（而非完全重写）父类逻辑时用 <code>super()</code>。</li>
+</ol>
+
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo=""
+        issue-term="pathname"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    let utterancesLoaded = false;
+
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+
+        
+        utterancesLoaded = true;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (!utterancesLoaded) return;
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 Carloss_Hu
+    </section>
+    
+    <section class="powerby">
+        
+            contact me @Carlos_Hu <br/>
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<script src=https://CarlossQAQ.github.io/background/sakura.js></script>
+<script src="https://utteranc.es/client.js"
+        repo="CarlossQAQ/CarlossQAQ.github.io"
+        issue-term="pathname"
+        label="❤️"
+        theme="github-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+
+<style>
+    .post-content{
+        text-align: center;
+    }
+</style>
+<script>
+        document.getElementById("theme-toggle").addEventListener("click", () => {
+          const theme = document.body.className.includes("dark")
+            ? "github-light"
+            : "photon-dark";
+          const message = {
+            type: "set-theme",
+            theme: theme,
+          };
+          const utteranc = document.querySelector(".utterances-frame");
+          utteranc.contentWindow.postMessage(message, "https://utteranc.es");
+        });
+      </script>
+    </body>
+</html>

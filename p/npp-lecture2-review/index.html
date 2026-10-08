@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="NumPy 数组创建/索引/广播/线性代数，Pandas Series/DataFrame、数据清洗、分组聚合、合并与时间序列的完整复习。">
+<title>NPP Lecture 2 复习：NumPy 与 Pandas</title>
+
+<link rel='canonical' href='https://ada-c38f0bb79f.github.io/p/npp-lecture2-review/'>
+
+<link rel="stylesheet" href="/scss/style.min.cd3e66856c780baaa0f235942bb48d1e842e67328e0ab44cc64935c8eadf098a.css"><meta property='og:title' content="NPP Lecture 2 复习：NumPy 与 Pandas">
+<meta property='og:description' content="NumPy 数组创建/索引/广播/线性代数，Pandas Series/DataFrame、数据清洗、分组聚合、合并与时间序列的完整复习。">
+<meta property='og:url' content='https://ada-c38f0bb79f.github.io/p/npp-lecture2-review/'>
+<meta property='og:site_name' content='Carlos_Hu'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-10-08T10:00:00&#43;08:00'/><meta property='article:modified_time' content='2026-10-08T10:00:00&#43;08:00'/>
+<meta name="twitter:site" content="@CarlosHu4961">
+    <meta name="twitter:creator" content="@CarlosHu4961"><meta name="twitter:title" content="NPP Lecture 2 复习：NumPy 与 Pandas">
+<meta name="twitter:description" content="NumPy 数组创建/索引/广播/线性代数，Pandas Series/DataFrame、数据清洗、分组聚合、合并与时间序列的完整复习。">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu17946783734494809016.png" width="300"
+                            height="299" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🦉</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Carlos_Hu</a></h1>
+            <h2 class="site-description">I would like to create a learning exchange site to urge me to learn new knowledge, so... join to learn together!</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/40617058?spm_id_from=333.1007.0.0'
+                        target="_blank"
+                        title="Bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/CarlossQAQ'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://CarlossQAQ.github.io/" selected>Let&#39;s speak English</option>
+                                
+                                    <option value="https://CarlossQAQ.github.io/zh-cn/" >让我们说中文</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#numpy">第一部分：NumPy</a></li>
+    <li><a href="#1">1. 导入约定与陷阱</a></li>
+    <li><a href="#2-ndarray">2. 核心概念：ndarray</a></li>
+    <li><a href="#3">3. 创建数组</a></li>
+    <li><a href="#4">4. 数组属性</a></li>
+    <li><a href="#5">5. 形状变换</a></li>
+    <li><a href="#6-dtype">6. 类型（dtype）</a></li>
+    <li><a href="#7">7. 运算与广播</a></li>
+    <li><a href="#8">8. 索引与切片</a></li>
+    <li><a href="#9-np-linalg">9. 线性代数（np.linalg）</a></li>
+    <li><a href="#10-pandas">10. 记录数组（Pandas 铺垫）</a></li>
+    <li><a href="#pandas">第二部分：Pandas</a></li>
+    <li><a href="#11-series">11. 导入与 Series</a></li>
+    <li><a href="#12-dataframe">12. DataFrame</a></li>
+    <li><a href="#13">13. 读写</a></li>
+    <li><a href="#14-selection">14. 选择（Selection）</a></li>
+    <li><a href="#15">15. 增删</a></li>
+    <li><a href="#16">16. 条件筛选</a></li>
+    <li><a href="#17">17. 索引操作</a></li>
+    <li><a href="#18">18. 常用操作与统计</a></li>
+    <li><a href="#19-map-apply">19. map 与 apply</a></li>
+    <li><a href="#20">20. 类型与缺失值</a></li>
+    <li><a href="#21">21. 分组与透视</a></li>
+    <li><a href="#22-combine">22. 合并（combine）</a></li>
+    <li><a href="#23">23. 可视化</a></li>
+    <li><a href="#24">24. 时间序列</a></li>
+    <li><a href="#numpy-40-pandas-60">速查总表（NumPy 约 40 项 + Pandas 约 60 项）</a></li>
+    <li><a href="#section">易错点提醒 ⚠️</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/npp-lecture2-review/">NPP Lecture 2 复习：NumPy 与 Pandas</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2026-10-08</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    9 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="lecture-2-numpy-amp-pandas">Lecture 2 复习：NumPy &amp; Pandas</h1><blockquote>
+<p>主题：NumPy 数组 · 向量化运算 · 广播 · Pandas Series/DataFrame · 数据清洗 · 分组聚合 · 合并 · 时间序列
+讲师：Dr. Marijan Beg（上午 NumPy）· Dr. Simon Warder（下午 Pandas）</p>
+</blockquote>
+<hr />
+<h2 id="numpy">第一部分：NumPy</h2><h3 id="1">1. 导入约定与陷阱</h3><pre><code class="language-python">import numpy as np            # 惯例缩写
+from numpy import *           # ❌ 危险：会覆盖 sum/max 等内置函数
+</code></pre>
+<h3 id="2-ndarray">2. 核心概念：<code>ndarray</code></h3><ul>
+<li>NumPy 最基本对象。</li>
+<li><strong>list vs array</strong>：list 存「指向对象的指针」，array 连续存「值」，所以 array 更快更省内存。</li>
+<li>不用内置 <code>array</code> 模块：只支持一维、类型定义不灵活。</li>
+</ul>
+<h3 id="3">3. 创建数组</h3><table>
+<thead>
+<tr>
+  <th>方法</th>
+  <th>例子</th>
+  <th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>np.array</code></td>
+  <td><code>np.array([1,2,3])</code>；<code>np.array([[1,2],[3,4]])</code></td>
+  <td>从 list 建；同层维度长度须一致</td>
+</tr>
+<tr>
+  <td><code>np.zeros</code></td>
+  <td><code>np.zeros(3)</code>；<code>np.zeros((3,3))</code></td>
+  <td>全 0</td>
+</tr>
+<tr>
+  <td><code>np.ones</code></td>
+  <td><code>np.ones((3,3))</code></td>
+  <td>全 1</td>
+</tr>
+<tr>
+  <td><code>np.full</code></td>
+  <td><code>np.full(shape, value)</code></td>
+  <td>填指定值</td>
+</tr>
+<tr>
+  <td><code>np.arange</code></td>
+  <td><code>np.arange(start, stop, step)</code></td>
+  <td><strong>不含终点</strong></td>
+</tr>
+<tr>
+  <td><code>np.linspace</code></td>
+  <td><code>np.linspace(0,10,6)</code></td>
+  <td>指定点数，<strong>含终点</strong></td>
+</tr>
+<tr>
+  <td><code>np.eye</code></td>
+  <td><code>np.eye(3)</code></td>
+  <td>单位矩阵</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4">4. 数组属性</h3><pre><code class="language-python">a = np.eye(3)
+a.ndim      # 2   维度数
+a.shape     # (3,3) 各维度大小
+a.size      # 9   = np.prod(shape) 元素总数
+a.nbytes    # 72  = 9 × 8 字节 占用内存
+a.dtype     # float64 元素类型
+</code></pre>
+<h3 id="5">5. 形状变换</h3><ul>
+<li><code>.reshape(4,3)</code> / <code>.reshape(3,-1)</code>：改形状，<code>size</code> 不变；<code>-1</code> 自动推断且<strong>只能出现一次</strong>。</li>
+<li><code>.ravel()</code> / <code>.flatten()</code>：展平成 1D（<code>order=&quot;K&quot;</code> 按内存存储顺序）。</li>
+<li><code>.T</code>：转置。</li>
+<li>1D 向量：<code>np.matmul(arr1,arr2)</code> 与 <code>np.matmul(arr2,arr1)</code> 可能不同（行/列向量不严格区分）。</li>
+</ul>
+<h3 id="6-dtype">6. 类型（dtype）</h3><ul>
+<li>自动推断：<code>[1,2.5,3]</code>→float；<code>[1,2,&quot;Hi&quot;]</code>→str。</li>
+<li>指定类型：<code>np.array([...], dtype=np.int32)</code>。</li>
+<li><strong>陷阱</strong>：<code>int_arr[1] = 3.5</code> 会被<strong>截断为整数</strong>，不报错。</li>
+</ul>
+<h3 id="7">7. 运算与广播</h3><ul>
+<li>逐元素运算符 <code>+ - * / ** %</code>（对应 <code>np.add/subtract/multiply/divide/power/mod</code>）。</li>
+<li>矩阵乘法：<code>@</code> / <code>np.matmul</code> / <code>np.dot</code>。</li>
+<li><strong>广播（broadcasting）</strong>：不同形状数组可运算，小数组广播到大数组（至少一维兼容）。</li>
+</ul>
+<h3 id="8">8. 索引与切片</h3><ul>
+<li>多维索引 <code>arr[0,0]</code>；多维切片 <code>arr[1:3,1:6:2]</code>（等价 <code>arr[slice(1,3), slice(1,6,2)]</code>）。</li>
+<li>切片赋值 <code>arr[1:3,1:3]=0</code> 按广播规则。</li>
+<li>⚠️ <strong>视图陷阱</strong>：<code>new_arr = old_arr[1:3,1:3]</code> 是<strong>视图（view）</strong>，改 new 会改 old；用 <code>.copy()</code> 避免。</li>
+<li>布尔索引：<code>arr[arr&gt;5]</code>；<code>arr[arr%3==0]=-1</code>。</li>
+</ul>
+<h3 id="9-np-linalg">9. 线性代数（<code>np.linalg</code>）</h3><table>
+<thead>
+<tr>
+  <th>方法</th>
+  <th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>np.linalg.det(A)</code></td>
+  <td>行列式</td>
+</tr>
+<tr>
+  <td><code>np.linalg.eig(A)</code></td>
+  <td>特征值/特征向量</td>
+</tr>
+<tr>
+  <td><code>np.linalg.norm(A)</code></td>
+  <td>范数</td>
+</tr>
+<tr>
+  <td><code>np.linalg.inv(A)</code></td>
+  <td>矩阵求逆（直接法）</td>
+</tr>
+<tr>
+  <td><code>np.linalg.solve(A,b)</code></td>
+  <td>解矩阵方程（比求逆更稳）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="10-pandas">10. 记录数组（Pandas 铺垫）</h3><pre><code class="language-python">arr = np.rec.array(...)
+arr[&quot;val_1&quot;]        # 按名字访问字段
+arr.val_2[1]
+</code></pre>
+<hr />
+<h2 id="pandas">第二部分：Pandas</h2><h3 id="11-series">11. 导入与 Series</h3><pre><code class="language-python">import pandas as pd
+</code></pre>
+<ul>
+<li><strong>Series</strong>：一维带标签数组，像 NumPy 数组但按<strong>标签</strong>索引，行为像快速 dict。</li>
+<li>创建：<code>pd.Series(data=list)</code> / <code>pd.Series(data, index=labels, name=&quot;...&quot;)</code> / <code>pd.Series(arr)</code> / <code>pd.Series(dic)</code>（key 自动成为索引标签）。</li>
+<li>按标签取值 <code>ser[&quot;first name&quot;]</code>。</li>
+<li>⚠️ <strong>运算按索引对齐</strong>：<code>ser1 + ser2</code> 按索引标签对齐，不是按位置。</li>
+</ul>
+<h3 id="12-dataframe">12. DataFrame</h3><ul>
+<li>二维表（像 Excel）：行 = record/index，列 = field。</li>
+<li>创建：<code>pd.DataFrame(data, index=[...], columns=[...])</code> 或用字典 <code>{&quot;列名&quot;:[值...]}</code>。</li>
+</ul>
+<h3 id="13">13. 读写</h3><table>
+<thead>
+<tr>
+  <th>方法</th>
+  <th>例子</th>
+  <th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>pd.read_csv</code></td>
+  <td><code>pd.read_csv(&quot;df1.csv&quot;)</code></td>
+  <td>参数 30+</td>
+</tr>
+<tr>
+  <td>指定索引列</td>
+  <td><code>pd.read_csv(..., index_col=0)</code></td>
+  <td>用已有列做索引</td>
+</tr>
+<tr>
+  <td><code>to_csv</code></td>
+  <td><code>df.to_csv(&quot;example&quot;, index=False)</code></td>
+  <td>写回</td>
+</tr>
+<tr>
+  <td><code>pd.read_excel</code>/<code>to_excel</code></td>
+  <td><code>read_excel(&quot;f.xlsx&quot;, sheet_name=&quot;Sheet1&quot;)</code></td>
+  <td>只导数据，不含公式图表</td>
+</tr>
+</tbody>
+</table>
+<h3 id="14-selection">14. 选择（Selection）</h3><ul>
+<li><code>.columns</code> / <code>.index</code>：列名 / 索引。</li>
+<li>选单列 <code>df[&quot;Y&quot;]</code>（返回 Series）；选多列 <code>df[[&quot;Y&quot;,&quot;Z&quot;]]</code>。</li>
+<li>SQL 风格 <code>df.Y</code>：不推荐，有局限。</li>
+<li><code>.iloc</code>（<strong>位置</strong>）：<code>df.iloc[0,:]</code>、<code>df.iloc[:,0]</code>、<code>df.iloc[[1,2],0]</code>（<code>.at</code> 类似）。</li>
+<li><code>.loc</code>（<strong>标签</strong>）：<code>df.loc[&quot;A&quot;]</code>、<code>df.loc[&quot;B&quot;,&quot;Y&quot;]</code>、<code>df.loc[[&quot;A&quot;,&quot;B&quot;],[&quot;Z&quot;,&quot;Y&quot;]]</code>。</li>
+<li>顺序：<code>loc</code>/<code>iloc</code> <strong>行在前列在后</strong>（同 NumPy，与 Python list 相反）。</li>
+</ul>
+<h3 id="15">15. 增删</h3><ul>
+<li>新建列 <code>df[&quot;new&quot;] = df[&quot;Z&quot;] + df[&quot;Y&quot;]</code>（列就是 Series）。</li>
+<li>删除 <code>df.drop(&quot;new&quot;, axis=1)</code> / <code>df.drop(&quot;A&quot;, axis=0)</code>：默认<strong>非原地</strong>，需 <code>inplace=True</code>。</li>
+<li><code>del df[&quot;col&quot;]</code>：原地删除。</li>
+</ul>
+<h3 id="16">16. 条件筛选</h3><ul>
+<li><code>df[df&gt;0]</code>、<code>df[df[&quot;Z&quot;]&gt;0]</code>、<code>df[(df[&quot;X&quot;]&gt;0)&amp;(df[&quot;Y&quot;]&gt;1)]</code>（<code>df&gt;0</code> 是布尔 DataFrame）。</li>
+<li>多条件用 <code>&amp;</code>（与）、<code>|</code>（或）；<strong>每个条件必须加括号</strong>。</li>
+<li><code>.isin</code>（值在列表）、<code>.isnull</code>/<code>.notnull</code>（判断空值）。</li>
+</ul>
+<h3 id="17">17. 索引操作</h3><ul>
+<li><code>reset_index()</code>：回到 0,1,2...；<code>set_index(&quot;col&quot;)</code>：默认非原地，需 <code>inplace=True</code>。</li>
+<li><strong>MultiIndex</strong>：<code>pd.MultiIndex.from_arrays([[...],[...]])</code>；按层取值 <code>mdf.loc[&quot;Player 1&quot;, :]</code>、<code>mdf.xs(&quot;Test 1&quot;, level=1)</code>（level 从 0 开始）。</li>
+</ul>
+<h3 id="18">18. 常用操作与统计</h3><ul>
+<li><code>.head()</code>：看前几行。</li>
+<li><code>.unique()</code> / <code>.nunique()</code>：唯一值 / 唯一值个数。</li>
+<li><code>.value_counts()</code>：各值出现次数。</li>
+<li><code>.duplicated()</code> / <code>.drop_duplicates(inplace=True)</code>：判断/删除重复行。</li>
+<li>统计量：<code>.mean() .std() .median() .sum() .max() .min()</code>（注意 <code>numeric_only=True</code>）。</li>
+<li><code>.describe()</code>：数据汇总（可 <code>.transpose()</code>）。</li>
+</ul>
+<h3 id="19-map-apply">19. map 与 apply</h3><ul>
+<li><code>.map</code>：<code>df[&quot;col1&quot;].map(lambda p: p - mean)</code> 逐元素映射，<strong>非原地</strong>。</li>
+<li><code>.apply</code>：<code>df[&quot;col1&quot;].apply(f, n=4)</code> 或 <code>args=[4]</code> 传额外参数；可用内置 <code>len</code>。</li>
+</ul>
+<h3 id="20">20. 类型与缺失值</h3><ul>
+<li><code>.dtype</code> / <code>.dtypes</code>：单列 / 全部列类型。</li>
+<li><code>.astype(&quot;float64&quot;)</code>：<strong>转换</strong>（非强制 cast）。</li>
+<li>类型含义：<code>float64</code>/<code>int64</code>/<code>object</code>（字符串存为 object）。</li>
+<li><strong>NaN</strong>：缺失记为 NaN，总是 <code>float64</code>。</li>
+<li>判断：<code>df.isnull()</code> / <code>df.notnull()</code>。</li>
+<li>⚠️ 对数学的影响：<code>df.sum()</code> 默认<strong>跳过 NaN</strong>；<code>df.sum(skipna=False)</code> 传播 NaN。</li>
+<li><code>dropna()</code>：按行/列/阈值（<code>axis=1</code>、<code>thresh=2</code>）丢弃。</li>
+<li><code>fillna(value=&quot;FILL&quot;)</code> / <code>df[&quot;A&quot;].fillna(df[&quot;A&quot;].mean())</code>：填充。</li>
+<li><code>replace</code>：把 &quot;Unknown&quot; 等换成 <code>np.nan</code>。</li>
+</ul>
+<h3 id="21">21. 分组与透视</h3><ul>
+<li><code>df.groupby(&quot;Course&quot;)</code>：返回 GroupBy 对象。</li>
+<li><code>.groups</code> / <code>.get_group(&quot;NPP&quot;)</code>：查看分组 / 取某组。</li>
+<li>聚合：<code>.mean() .std() .max() .min() .count() .describe()</code>。</li>
+<li><code>.agg</code>：<code>df.groupby([&quot;Course&quot;]).agg([len,&quot;min&quot;,&quot;max&quot;])</code> 自定义聚合。</li>
+<li><code>pivot_table(values, index, columns, aggfunc, fill_value)</code>：行列互换聚合；<code>aggfunc</code> 可函数/列表/dict。</li>
+</ul>
+<h3 id="22-combine">22. 合并（combine）</h3><ul>
+<li><code>pd.concat([df1,df2,df3])</code>：粘合；纵向默认 <code>axis=0</code>，横向 <code>axis=1</code>。</li>
+<li><code>pd.merge(left,right,how=&quot;inner&quot;,on=&quot;key&quot;)</code>：类似 SQL JOIN。<ul>
+<li><code>how</code>：<code>inner</code>（交集）/<code>outer</code>（并集）/<code>left</code>（左表全键）/<code>right</code>（右表全键）。</li>
+<li>多键 <code>on=[&quot;key1&quot;,&quot;key2&quot;]</code>。</li>
+</ul>
+</li>
+<li><code>.join</code>：<code>left.join(right)</code> 按<strong>索引</strong>合并列；<code>how=&quot;outer&quot;</code>。</li>
+</ul>
+<h3 id="23">23. 可视化</h3><ul>
+<li><code>.plot.hist()</code>：直方图。</li>
+<li><code>.plot.scatter(&quot;A&quot;,&quot;B&quot;)</code>：散点图。</li>
+</ul>
+<h3 id="24">24. 时间序列</h3><ul>
+<li>解析日期：<code>pd.read_csv(&quot;Tide.csv&quot;, index_col=&quot;Date&quot;, parse_dates=True, dayfirst=True)</code>。</li>
+<li><code>.sample(n=5)</code>：随机采样。</li>
+<li>日期分量：<code>df.index.day</code> / <code>.month</code> / <code>.date</code>。</li>
+<li><code>.resample(&quot;D&quot;).mean()</code> / <code>df[&quot;Hs&quot;].resample(&quot;ME&quot;).max()</code>：按日期聚合，可补空缺。</li>
+<li><code>.asfreq(&quot;ME&quot;)</code>：只取时间点不聚合。</li>
+<li><code>pd.to_datetime(dates, format=&quot;mixed&quot;, dayfirst=True, utc=True)</code>：转 DatetimeIndex。</li>
+<li><strong>日期歧义</strong>：数字日期必须统一 DD/MM/YYYY 或 MM/DD/YYYY。</li>
+</ul>
+<hr />
+<h2 id="numpy-40-pandas-60">速查总表（NumPy 约 40 项 + Pandas 约 60 项）</h2><p>| 分类 | 方法 / 知识点 | 语法 / 例子 | 说明要点 |
+|---|---|---|---|
+| NumPy·创建 | <code>np.array</code> / <code>np.zeros</code> / <code>np.ones</code> / <code>np.full</code> | <code>np.full(shape, value)</code> | 建数组 |
+| NumPy·创建 | <code>np.arange</code> / <code>np.linspace</code> / <code>np.eye</code> | <code>np.arange(start, stop, step)</code> | <code>arange</code> 不含终点，<code>linspace</code> 含终点 |
+| NumPy·属性 | <code>.ndim</code> / <code>.shape</code> / <code>.size</code> / <code>.nbytes</code> / <code>.dtype</code> | <code>(3,3)</code>；<code>9</code>；<code>72</code> | 维度/形状/元素数/字节/类型 |
+| NumPy·形状 | <code>.reshape</code> / <code>.ravel</code> / <code>.flatten</code> / <code>.T</code> | <code>arr.reshape(3,-1)</code> | <code>-1</code> 只能出现一次 |
+| NumPy·运算 | 逐元素 <code>+ - * / ** %</code>；矩阵乘 <code>@</code>/<code>np.matmul</code>/<code>np.dot</code> | — | 广播规则 |
+| NumPy·索引 | 多维索引/切片/布尔索引 | <code>arr[arr&gt;5]</code> | 切片是视图，改会改原数组，用 <code>.copy()</code> |
+| NumPy·linalg | <code>det</code> / <code>eig</code> / <code>norm</code> / <code>inv</code> / <code>solve</code> | <code>np.linalg.solve(A,b)</code> | 解方程优先于求逆 |
+| Pandas·Series | 创建 / 按标签取值 / 按索引对齐运算 | <code>ser1 + ser2</code> | 按索引标签对齐 |
+| Pandas·DataFrame | 创建 / 读写 / 选择 | <code>df[[&quot;Y&quot;,&quot;Z&quot;]]</code> | 行=record，列=field |
+| Pandas·选择 | <code>.iloc</code>（位置）/ <code>.loc</code>（标签） | <code>df.loc[&quot;B&quot;,&quot;Y&quot;]</code> | 行前列表 |
+| Pandas·增删 | 新建列 / <code>drop</code> / <code>del</code> | <code>df.drop(&quot;new&quot;, axis=1)</code> | drop 非原地 |
+| Pandas·条件 | 条件选择 / <code>&amp;</code> / <code>|</code> / <code>.isin</code> / <code>.isnull</code> | <code>df[(df[&quot;X&quot;]&gt;0)&amp;(df[&quot;Y&quot;]&gt;1)]</code> | 每个条件加括号 |
+| Pandas·索引 | <code>reset_index</code> / <code>set_index</code> / MultiIndex / <code>.xs</code> | <code>mdf.xs(&quot;Test 1&quot;, level=1)</code> | level 从 0 |
+| Pandas·操作 | <code>.head</code> / <code>.unique</code> / <code>.value_counts</code> / <code>.drop_duplicates</code> / <code>.describe</code> | — | 数据探查 |
+| Pandas·map/apply | <code>.map</code> / <code>.apply</code> | <code>df[&quot;col&quot;].apply(f, n=4)</code> | 非原地 |
+| Pandas·类型 | <code>.astype</code> / <code>float64</code>/<code>int64</code>/<code>object</code> | — | 字符串存 object |
+| Pandas·缺失 | <code>isnull</code> / <code>dropna</code> / <code>fillna</code> / <code>replace</code> | <code>df.sum(skipna=False)</code> | sum 默认跳过 NaN |
+| Pandas·分组 | <code>groupby</code> / <code>.agg</code> / <code>pivot_table</code> | <code>df.groupby(&quot;Course&quot;).agg([len,&quot;min&quot;,&quot;max&quot;])</code> | 聚合 |
+| Pandas·合并 | <code>concat</code> / <code>merge</code> / <code>join</code> | <code>pd.merge(l,r,how=&quot;inner&quot;,on=&quot;key&quot;)</code> | inner/outer/left/right |
+| Pandas·时间 | <code>parse_dates</code> / <code>resample</code> / <code>asfreq</code> / <code>to_datetime</code> | <code>df.resample(&quot;D&quot;).mean()</code> | 日期聚合 |</p>
+<hr />
+<h2 id="section">易错点提醒 ⚠️</h2><ol>
+<li><code>np.arange</code> <strong>不含</strong>终点，<code>np.linspace</code> <strong>含</strong>终点。</li>
+<li>NumPy 切片是<strong>视图</strong>，会改原数组；Pandas 的 <code>drop</code>/<code>set_index</code>/<code>map</code> 默认<strong>非原地</strong>。</li>
+<li>Pandas 多条件筛选必须<strong>加括号</strong>并用 <code>&amp;</code>/<code>|</code>（不能用 <code>and</code>/<code>or</code>）。</li>
+<li>Series 运算按<strong>索引标签</strong>对齐，不是按位置。</li>
+<li><code>df.sum()</code> 默认<strong>跳过 NaN</strong>；需要传播时用 <code>skipna=False</code>。</li>
+<li>整数数组赋值浮点数会被<strong>静默截断</strong>。</li>
+</ol>
+
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo=""
+        issue-term="pathname"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    let utterancesLoaded = false;
+
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+
+        
+        utterancesLoaded = true;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (!utterancesLoaded) return;
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 Carloss_Hu
+    </section>
+    
+    <section class="powerby">
+        
+            contact me @Carlos_Hu <br/>
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<script src=https://CarlossQAQ.github.io/background/sakura.js></script>
+<script src="https://utteranc.es/client.js"
+        repo="CarlossQAQ/CarlossQAQ.github.io"
+        issue-term="pathname"
+        label="❤️"
+        theme="github-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+
+<style>
+    .post-content{
+        text-align: center;
+    }
+</style>
+<script>
+        document.getElementById("theme-toggle").addEventListener("click", () => {
+          const theme = document.body.className.includes("dark")
+            ? "github-light"
+            : "photon-dark";
+          const message = {
+            type: "set-theme",
+            theme: theme,
+          };
+          const utteranc = document.querySelector(".utterances-frame");
+          utteranc.contentWindow.postMessage(message, "https://utteranc.es");
+        });
+      </script>
+    </body>
+</html>
