@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="traceback 与常见异常、避免 bug、静态分析、最小失败样例 MFE、IPython.embed 与 pdb 调试器命令的复习笔记。">
-<title>NPP Lecture 3 复习：Debugging 调试</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Review notes on exceptions and tracebacks, avoiding bugs, static analysis, minimum failing examples, IPython.embed, and the pdb debugger.">
+<title>NPP Lecture 3 Review: Debugging</title>
 
 <link rel='canonical' href='https://ada-c38f0bb79f.github.io/p/npp-lecture3-review/'>
 
-<link rel="stylesheet" href="/scss/style.min.cd3e66856c780baaa0f235942bb48d1e842e67328e0ab44cc64935c8eadf098a.css"><meta property='og:title' content="NPP Lecture 3 复习：Debugging 调试">
-<meta property='og:description' content="traceback 与常见异常、避免 bug、静态分析、最小失败样例 MFE、IPython.embed 与 pdb 调试器命令的复习笔记。">
+<link rel="stylesheet" href="/scss/style.min.cd3e66856c780baaa0f235942bb48d1e842e67328e0ab44cc64935c8eadf098a.css"><meta property='og:title' content="NPP Lecture 3 Review: Debugging">
+<meta property='og:description' content="Review notes on exceptions and tracebacks, avoiding bugs, static analysis, minimum failing examples, IPython.embed, and the pdb debugger.">
 <meta property='og:url' content='https://ada-c38f0bb79f.github.io/p/npp-lecture3-review/'>
 <meta property='og:site_name' content='Carlos_Hu'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-10-08T11:00:00&#43;08:00'/><meta property='article:modified_time' content='2026-10-08T11:00:00&#43;08:00'/>
 <meta name="twitter:site" content="@CarlosHu4961">
-    <meta name="twitter:creator" content="@CarlosHu4961"><meta name="twitter:title" content="NPP Lecture 3 复习：Debugging 调试">
-<meta name="twitter:description" content="traceback 与常见异常、避免 bug、静态分析、最小失败样例 MFE、IPython.embed 与 pdb 调试器命令的复习笔记。">
+    <meta name="twitter:creator" content="@CarlosHu4961"><meta name="twitter:title" content="NPP Lecture 3 Review: Debugging">
+<meta name="twitter:description" content="Review notes on exceptions and tracebacks, avoiding bugs, static analysis, minimum failing examples, IPython.embed, and the pdb debugger.">
     <link rel="shortcut icon" href="/favicon.ico" />
 
   
@@ -102,7 +102,7 @@
             
                 <li>
                     <a 
-                        href='https://github.com/CarlossQAQ'
+                        href='https://github.com/ada-c38f0bb79f'
                         target="_blank"
                         title="GitHub"
                         rel="me"
@@ -237,9 +237,9 @@
 
                             <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
                                 
-                                    <option value="https://CarlossQAQ.github.io/" selected>Let&#39;s speak English</option>
+                                    <option value="https://ada-c38f0bb79f.github.io/" selected>Let&#39;s speak English</option>
                                 
-                                    <option value="https://CarlossQAQ.github.io/zh-cn/" >让我们说中文</option>
+                                    <option value="https://ada-c38f0bb79f.github.io/zh-cn/" >让我们说中文</option>
                                 
                             </select>
                         </li>
@@ -294,26 +294,26 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#1">1. 为什么调试重要</a></li>
-    <li><a href="#bug">历史上的著名 bug</a></li>
-    <li><a href="#bug-2">有趣的 bug 类型</a></li>
-    <li><a href="#2-python-traceback">2. Python traceback 与异常</a></li>
-    <li><a href="#traceback">读 traceback</a></li>
-    <li><a href="#section">常见异常（要能写出触发它们的代码）</a></li>
-    <li><a href="#3-bug">3. 避免 bug（写代码时就考虑）</a></li>
-    <li><a href="#4-static-analysis">4. 静态分析（Static Analysis）</a></li>
-    <li><a href="#5-workflow">5. 调试工作流（Workflow）</a></li>
-    <li><a href="#6-minimum-failing-example-mfe">6. 最小失败样例（Minimum Failing Example, MFE）</a></li>
-    <li><a href="#7">7. 手动调试</a></li>
-    <li><a href="#8-python-pdb">8. Python 调试器 pdb</a></li>
-    <li><a href="#section-2">能做什么</a></li>
-    <li><a href="#section-3">三种启动方式</a></li>
-    <li><a href="#section-4">常用命令</a></li>
-    <li><a href="#warning">把 warning 变成异常</a></li>
-    <li><a href="#pytest">pytest 里调试</a></li>
-    <li><a href="#section-5">图形化/替代工具</a></li>
-    <li><a href="#9-ai">9. AI 与调试</a></li>
-    <li><a href="#10">10. 小结（今天学到了什么）</a></li>
+    <li><a href="#1-why-debugging-matters">1. Why debugging matters</a></li>
+    <li><a href="#famous-bugs-in-history">Famous bugs in history</a></li>
+    <li><a href="#fun-bug-types">Fun bug types</a></li>
+    <li><a href="#2-python-tracebacks-and-exceptions">2. Python tracebacks and exceptions</a></li>
+    <li><a href="#reading-a-traceback">Reading a traceback</a></li>
+    <li><a href="#common-exceptions-be-able-to-trigger-each">Common exceptions (be able to trigger each)</a></li>
+    <li><a href="#3-avoiding-bugs-write-with-debugging-in-mind">3. Avoiding bugs (write with debugging in mind)</a></li>
+    <li><a href="#4-static-analysis">4. Static analysis</a></li>
+    <li><a href="#5-the-debugging-workflow">5. The debugging workflow</a></li>
+    <li><a href="#6-minimum-failing-example-mfe">6. Minimum failing example (MFE)</a></li>
+    <li><a href="#7-manual-debugging">7. Manual debugging</a></li>
+    <li><a href="#8-the-python-debugger-pdb">8. The Python debugger (pdb)</a></li>
+    <li><a href="#what-it-can-do">What it can do</a></li>
+    <li><a href="#three-ways-to-launch">Three ways to launch</a></li>
+    <li><a href="#common-commands">Common commands</a></li>
+    <li><a href="#turning-warnings-into-exceptions">Turning warnings into exceptions</a></li>
+    <li><a href="#debugging-in-pytest">Debugging in pytest</a></li>
+    <li><a href="#gui-alternative-tools">GUI/alternative tools</a></li>
+    <li><a href="#9-ai-and-debugging">9. AI and debugging</a></li>
+    <li><a href="#10-summary">10. Summary</a></li>
   </ol>
 </nav>
         </div>
@@ -333,7 +333,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/npp-lecture3-review/">NPP Lecture 3 复习：Debugging 调试</a>
+            <a href="/p/npp-lecture3-review/">NPP Lecture 3 Review: Debugging</a>
         </h2>
     
         
@@ -370,7 +370,7 @@
 
 
                 <time class="article-time--reading">
-                    4 minute read
+                    8 minute read
                 </time>
             </div>
         
@@ -385,75 +385,74 @@
     <section class="article-content">
     
     
-    <h1 id="lecture-3-debugging">Lecture 3 复习：Debugging（调试）</h1><blockquote>
-<p>主题：异常与 traceback · 避免 bug · 静态分析 · 最小失败样例 · 手动调试 · pdb 调试器 · AI 调试
-讲师：Dr. Simon Warder</p>
+    <h1 id="npp-lecture-3-review-debugging">NPP Lecture 3 Review: Debugging</h1><blockquote>
+<p>Topics: exceptions &amp; tracebacks · avoiding bugs · static analysis · minimum failing examples · manual debugging · the pdb debugger · AI-assisted debugging</p>
 </blockquote>
 <hr />
-<h2 id="1">1. 为什么调试重要</h2><ul>
-<li>开发软件时，花在调试上的时间往往<strong>不少于</strong>写代码本身。</li>
-<li>调试是必须主动掌握、能大幅提升效率的技能。</li>
+<h2 id="1-why-debugging-matters">1. Why debugging matters</h2><ul>
+<li>Developers often spend as much (or more) time debugging as writing &quot;real&quot; code.</li>
+<li>Debugging is a skill you must actively develop to stay productive.</li>
 </ul>
-<h3 id="bug">历史上的著名 bug</h3><table>
+<h3 id="famous-bugs-in-history">Famous bugs in history</h3><table>
 <thead>
 <tr>
-  <th>事件</th>
-  <th>说明</th>
+  <th>Event</th>
+  <th>Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>世界上第一个 bug（1947）</td>
-  <td>Grace Hopper 在日志里记录了一只真正的飞蛾卡在继电器里，普及了「debugging」一词</td>
+  <td>The first &quot;bug&quot; (1947)</td>
+  <td>Grace Hopper logged an actual moth stuck in a relay, popularising the term &quot;debugging&quot;</td>
 </tr>
 <tr>
-  <td>Y2K 千年虫</td>
-  <td>两位数年份导致 2000 年问题，全球花数十亿美元修复</td>
+  <td>Y2K</td>
+  <td>Two-digit years caused the year-2000 problem; billions spent fixing it worldwide</td>
 </tr>
 <tr>
-  <td>达兰导弹（1991）</td>
-  <td>Patriot 系统时钟 100 小时漂移 1/3 秒，导致拦截失败，28 名美军丧生</td>
+  <td>Dhahran missile (1991)</td>
+  <td>A Patriot system clock drifted ⅓ s over 100 h, causing a failed intercept that killed 28 US soldiers</td>
 </tr>
 </tbody>
 </table>
-<h3 id="bug-2">有趣的 bug 类型</h3><table>
+<h3 id="fun-bug-types">Fun bug types</h3><table>
 <thead>
 <tr>
-  <th>类型</th>
-  <th>特点</th>
+  <th>Type</th>
+  <th>Characteristic</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>Heisenbug（海森堡 bug）</td>
-  <td>一被观测/调试就改变或消失（借用量子力学「观察者效应」）</td>
+  <td>Heisenbug</td>
+  <td>Disappears or changes when you try to observe/debug it (quantum &quot;observer effect&quot;)</td>
 </tr>
 <tr>
   <td>Bohrbug</td>
-  <td>在明确（但可能未知）条件下稳定复现的 bug</td>
+  <td>Reproduces reliably under well-defined (possibly unknown) conditions</td>
 </tr>
 <tr>
   <td>Mandelbug</td>
-  <td>极其复杂、几乎无法修复的 bug（借 Mandelbrot）</td>
+  <td>So complex it's practically unfixable (after Mandelbrot)</td>
 </tr>
 <tr>
   <td>Schroedinbug</td>
-  <td>只有当你发现它「本就不该能工作」时才显现的 bug</td>
+  <td>Only manifests once you realise it &quot;shouldn't work at all&quot;</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h2 id="2-python-traceback">2. Python traceback 与异常</h2><h3 id="traceback">读 traceback</h3><p>traceback 是异常发生时给出的调用栈报告。<strong>从下往上读</strong>（最底下一行是异常发生的位置，但不一定是 bug 根源）。</p>
+<h2 id="2-python-tracebacks-and-exceptions">2. Python tracebacks and exceptions</h2><h3 id="reading-a-traceback">Reading a traceback</h3><p>A traceback is the call-stack report produced when an exception is raised. <strong>Read it bottom-to-top</strong> (the last line is where the exception fired, not necessarily the bug's root cause).</p>
 <pre><code>NameError: name 'exp' is not defined
 </code></pre>
 <ul>
-<li>第一行是<strong>异常类型</strong>；<code>Traceback (most recent call last)</code> 下面按调用顺序列出每一层。</li>
+<li>The first line is the <strong>exception type</strong>; below <code>Traceback (most recent call last)</code> each call is listed.</li>
 </ul>
-<h3 id="section">常见异常（要能写出触发它们的代码）</h3><table>
+<h3 id="common-exceptions-be-able-to-trigger-each">Common exceptions (be able to trigger each)</h3><table>
 <thead>
 <tr>
-  <th>异常</th>
-  <th>触发方式</th>
+  <th>Exception</th>
+  <th>How to trigger</th>
 </tr>
 </thead>
 <tbody>
@@ -479,170 +478,166 @@
 </tr>
 <tr>
   <td><code>SyntaxError</code></td>
-  <td>语法写错（如 <code>2+2 ==&quot;4&quot;</code>）</td>
+  <td>syntax errors (e.g. <code>2+2 ==&quot;4&quot;</code>)</td>
 </tr>
 <tr>
   <td><code>IndentationError</code></td>
-  <td>缩进错误（for 下面没有缩进）</td>
+  <td>missing indentation under <code>for</code></td>
 </tr>
 <tr>
   <td><code>RecursionError</code></td>
-  <td><code>def f(): return f()</code> 无限递归</td>
+  <td><code>def f(): return f()</code></td>
 </tr>
 </tbody>
 </table>
 <blockquote>
-<p>可自定义异常；异常类型完整列表见 <a href="https://docs.python.org/3/library/exceptions.html">Python 文档</a>。</p>
+<p>You can define custom exceptions; see the <a href="https://docs.python.org/3/library/exceptions.html">Python docs</a>.</p>
 </blockquote>
 <hr />
-<h2 id="3-bug">3. 避免 bug（写代码时就考虑）</h2><ul>
-<li>每个人都会写 bug，写代码时要<strong>为测试和调试而写</strong>。</li>
-<li><strong>KISS</strong>（Keep It Simple, Stupid）：能跑起来的最简单方案是什么？</li>
-<li><strong>DRY</strong>（Don't Repeat Yourself）：每块知识只应有单一、明确的权威表示（常量、算法等）。</li>
-<li><strong>松耦合</strong>（Loose Coupling）：限制代码间的相互依赖。</li>
-<li><strong>有意义的命名</strong>：变量/函数/模块用有意义的名字，别用晦涩的数学符号名。</li>
+<h2 id="3-avoiding-bugs-write-with-debugging-in-mind">3. Avoiding bugs (write with debugging in mind)</h2><ul>
+<li>Everyone writes buggy code — write it to be testable and debuggable.</li>
+<li><strong>KISS</strong> (Keep It Simple, Stupid): what's the simplest thing that could work?</li>
+<li><strong>DRY</strong> (Don't Repeat Yourself): each piece of knowledge has a single authoritative representation.</li>
+<li><strong>Loose coupling</strong>: limit interdependencies between parts of the code.</li>
+<li><strong>Meaningful names</strong>: name variables/functions/modules clearly, not cryptically.</li>
 </ul>
 <hr />
-<h2 id="4-static-analysis">4. 静态分析（Static Analysis）</h2><ul>
-<li>解释型语言（Python/Matlab/JS）vs 编译型（C/C++/Fortran）：编译型能在<strong>编译期</strong>发现缺 import、类型不匹配等 bug，Python 没有这一步。</li>
-<li>Python 静态分析工具：<ul>
-<li><code>pyflakes</code>：最简单，快；检测语法错误、缺 import、名字拼写错误。</li>
-<li><code>flake8</code>：<code>pyflakes</code> + <code>pep8</code>，额外检测 PEP8 风格违规。</li>
-<li><code>pylint</code>、<code>pychecker</code>。</li>
-<li>笔记本版本：<code>flake8-nb</code>。</li>
+<h2 id="4-static-analysis">4. Static analysis</h2><ul>
+<li>Interpreted (Python/Matlab/JS) vs compiled (C/C++/Fortran): compiled languages catch some bugs at <strong>compile time</strong>; Python misses that step.</li>
+<li>Python static-analysis tools:<ul>
+<li><code>pyflakes</code>: simplest and fast; catches syntax errors, missing imports, name typos.</li>
+<li><code>flake8</code>: <code>pyflakes</code> + <code>pep8</code>, also flags PEP8 style violations.</li>
+<li><code>pylint</code>, <code>pychecker</code>; notebook version <code>flake8-nb</code>.</li>
 </ul>
 </li>
-<li>强烈建议在编辑器/IDE 里集成，能显著提升效率。</li>
+<li>Integrate into your editor/IDE for big productivity gains.</li>
 </ul>
 <hr />
-<h2 id="5-workflow">5. 调试工作流（Workflow）</h2><p>没有银弹，但策略能帮忙。理想情况是把问题隔离到少量代码行，用<strong>短修改-运行-失败循环</strong>：</p>
+<h2 id="5-the-debugging-workflow">5. The debugging workflow</h2><p>No silver bullet, but a strategy helps. Ideal: isolate the bug to a few lines with a short modify-run-fail cycle.</p>
 <ol>
-<li><strong>让它稳定失败</strong>：找一个每次都同样失败的测试用例。</li>
-<li><strong>分而治之</strong>：定位到某个模块 → 某个函数 → 某一行。</li>
-<li><strong>隔离出最小可复现失败样例（MFE）</strong>。</li>
-<li><strong>一次只改一件事</strong>，重跑失败用例。</li>
-<li>用调试器理解到底哪里错了。</li>
-<li>记笔记、保持耐心。</li>
-<li>修好 bug 后，把这段代码<strong>加入测试套件</strong>，防止回归。</li>
+<li><strong>Make it fail reliably</strong> — find a test case that fails the same way every time.</li>
+<li><strong>Divide and conquer</strong> — isolate the module → function → line.</li>
+<li><strong>Isolate a minimum failing example (MFE)</strong>.</li>
+<li><strong>Change one thing at a time</strong>, re-run the failing case.</li>
+<li>Use the debugger to understand what's wrong.</li>
+<li>Take notes and be patient.</li>
+<li>After fixing, <strong>add the case to your test suite</strong> to prevent regression.</li>
 </ol>
 <hr />
-<h2 id="6-minimum-failing-example-mfe">6. 最小失败样例（Minimum Failing Example, MFE）</h2><ul>
-<li>能复现某个 bug 的<strong>最简单代码</strong>。</li>
-<li>找人帮忙调试时，提供 MFE 是好习惯，能大幅缩短对方调试时间。</li>
-<li>给开源项目报 issue 时，开发者常会要求「Please could you provide an MFE」。</li>
-<li>例子：几百行的 Devito 代码，浓缩成十几行的 MFE 后不到一小时就定位并修复。</li>
+<h2 id="6-minimum-failing-example-mfe">6. Minimum failing example (MFE)</h2><ul>
+<li>The simplest code that reproduces a bug.</li>
+<li>Providing an MFE is good practice when asking for help — it drastically cuts debugging time.</li>
+<li>Open-source maintainers often reply &quot;please provide an MFE&quot;.</li>
+<li>Example: hundreds of lines of Devito code condensed to ~15 lines, then fixed in under an hour.</li>
 </ul>
 <hr />
-<h2 id="7">7. 手动调试</h2><ul>
-<li><strong>print 语句</strong>：在可疑处打印变量值，快速定位问题行。</li>
+<h2 id="7-manual-debugging">7. Manual debugging</h2><ul>
+<li><strong>print statements</strong>: print values near the suspected line to localise the bug.</li>
 </ul>
 <pre><code class="language-python">x = some_function(inputs)
 print(x.property1, x.property2)
 </code></pre>
 <ul>
-<li><strong><code>IPython.embed()</code></strong>：在代码中途嵌入交互式解释器，检查当时状态。</li>
+<li><strong><code>IPython.embed()</code></strong>: drop into an interactive interpreter mid-code to inspect state.</li>
 </ul>
 <pre><code class="language-python">x = some_function(inputs)
 from IPython import embed; embed()
 </code></pre>
 <hr />
-<h2 id="8-python-pdb">8. Python 调试器 pdb</h2><h3 id="section-2">能做什么</h3><ul>
-<li>查看源码；在调用栈上上下移动；查看/修改变量值；设置断点。</li>
+<h2 id="8-the-python-debugger-pdb">8. The Python debugger (pdb)</h2><h3 id="what-it-can-do">What it can do</h3><ul>
+<li>View source; walk up/down the call stack; inspect/modify variable values; set breakpoints.</li>
 </ul>
-<h3 id="section-3">三种启动方式</h3><ol>
-<li><strong>Postmortem（事后）</strong>：出错后（仅 IPython）<code>%debug</code> 进入调试器。</li>
-<li><strong>命令行</strong>：<code>python -m pdb script.py</code>。</li>
-<li><strong>代码内</strong>：在想要暂停处插入 <code>breakpoint()</code>（旧代码等价 <code>import pdb; pdb.set_trace()</code>）。</li>
+<h3 id="three-ways-to-launch">Three ways to launch</h3><ol>
+<li><strong>Postmortem</strong> (IPython only): after an error, run <code>%debug</code>.</li>
+<li><strong>Command line</strong>: <code>python -m pdb script.py</code>.</li>
+<li><strong>In code</strong>: insert <code>breakpoint()</code> where you want to drop in (older equivalent: <code>import pdb; pdb.set_trace()</code>).</li>
 </ol>
-<h3 id="section-4">常用命令</h3><table>
+<h3 id="common-commands">Common commands</h3><table>
 <thead>
 <tr>
-  <th>命令</th>
-  <th>说明</th>
+  <th>Command</th>
+  <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
   <td><code>l</code>(list)</td>
-  <td>列出当前位置代码</td>
+  <td>list code around the current position</td>
 </tr>
 <tr>
   <td><code>p</code>(print)</td>
-  <td>打印变量值（<code>p a</code>）</td>
+  <td>print a variable (<code>p a</code>)</td>
 </tr>
 <tr>
   <td><code>n</code>(ext)</td>
-  <td>执行下一行（<strong>不进</strong>新函数）</td>
+  <td>next line (<strong>doesn't</strong> step into functions)</td>
 </tr>
 <tr>
   <td><code>s</code>(tep)</td>
-  <td>执行下一条语句（<strong>进入</strong>新函数）</td>
+  <td>next statement (<strong>steps into</strong> functions)</td>
 </tr>
 <tr>
   <td><code>c</code>(ontinue)</td>
-  <td>继续到下一个断点</td>
+  <td>continue to the next breakpoint</td>
 </tr>
 <tr>
   <td><code>b</code>(reak)</td>
-  <td>设断点（<code>b 34</code>）</td>
+  <td>set a breakpoint (<code>b 34</code>)</td>
 </tr>
 <tr>
   <td><code>u</code>(p) / <code>d</code>(own)</td>
-  <td>上/下移动调用栈</td>
+  <td>move up/down the call stack</td>
 </tr>
 <tr>
   <td><code>bt</code></td>
-  <td>打印调用栈</td>
+  <td>print the call stack</td>
 </tr>
 <tr>
   <td><code>a</code></td>
-  <td>打印局部变量</td>
+  <td>print local variables</td>
 </tr>
 <tr>
   <td><code>!command</code></td>
-  <td>执行 Python 命令（区别于 pdb 命令）</td>
+  <td>run a Python command (vs a pdb command)</td>
 </tr>
 <tr>
   <td><code>q</code></td>
-  <td>退出</td>
+  <td>quit</td>
 </tr>
 <tr>
   <td><code>h</code> / <code>help</code></td>
-  <td>帮助</td>
+  <td>help</td>
 </tr>
 </tbody>
 </table>
-<h3 id="warning">把 warning 变成异常</h3><pre><code class="language-python">np.seterr(all='raise')   # 让 divide/invalid/over 等变成异常，便于 post-mortem 调试
+<h3 id="turning-warnings-into-exceptions">Turning warnings into exceptions</h3><pre><code class="language-python">np.seterr(all='raise')   # make divide/invalid/over raise, enabling post-mortem debugging
 </code></pre>
-<h3 id="pytest">pytest 里调试</h3><ul>
-<li><code>pytest --pdb my_test.py</code>：异常时 post-mortem。</li>
-<li><code>pytest --pdb-failure</code>：测试失败时用调试器检查。</li>
+<h3 id="debugging-in-pytest">Debugging in pytest</h3><ul>
+<li><code>pytest --pdb my_test.py</code>: post-mortem on exceptions.</li>
+<li><code>pytest --pdb-failure</code>: inspect test failures with the debugger.</li>
 </ul>
-<h3 id="section-5">图形化/替代工具</h3><ul>
-<li><code>pudb</code>（半图形化控制台调试器）、VS Code 调试模式、Mu 编辑器。</li>
+<h3 id="gui-alternative-tools">GUI/alternative tools</h3><ul>
+<li><code>pudb</code> (semi-graphical console debugger), VS Code's debug mode, the Mu editor.</li>
 </ul>
 <hr />
-<h2 id="9-ai">9. AI 与调试</h2><ul>
-<li>AI（Copilot、Claude 等）是强大的编程/调试助手，但<strong>有限制</strong>：容易被误导、会幻觉、自己也会写出 bug。</li>
-<li>经验建议：<ul>
-<li>花时间最久的一些 bug 恰恰是 AI 生成的——因为太急没仔细检查。</li>
-<li><strong>你最终要为自己产出的所有代码负责</strong>。</li>
-<li>上下文很重要：网页聊天适合小片段，不适合大型代码库；agentic 工具（Claude Code/Codex）对大代码库更强，但 MSc 作业通常不允许用。</li>
+<h2 id="9-ai-and-debugging">9. AI and debugging</h2><ul>
+<li>AI (Copilot, Claude, …) is a powerful assistant but <strong>has limits</strong>: it can be misled, hallucinate, and write its own bugs.</li>
+<li>Experience-based tips:<ul>
+<li>Some of the hardest-to-find bugs come from AI-generated code checked too hastily.</li>
+<li><strong>You are ultimately responsible for all the code you produce.</strong></li>
+<li>Context matters: chat UIs suit small snippets; agentic tools (Claude Code/Codex) suit large codebases but are often not permitted for assessed work.</li>
 </ul>
 </li>
-<li>学习建议：必须能自己从零写代码；AI 可用于辅助学习（澄清概念、优化建议），但<strong>依赖 AI 写/调代码长期对你不利</strong>。</li>
+<li>Learning advice: you must be able to write code from scratch yourself; AI helps with learning (clarifying concepts, suggesting efficient approaches) but <strong>relying on it to write/debug code won't benefit you long-term</strong>.</li>
 </ul>
 <hr />
-<h2 id="10">10. 小结（今天学到了什么）</h2><ul>
-<li>每个人都会写 bug。</li>
-<li>调试工具能省大量时间和精力。</li>
-<li>静态分析工具能避免很多简单 bug。</li>
-<li>用 <code>IPython.embed()</code> 手动调试。</li>
-<li>Python 调试器 <code>pdb</code> 的基础用法。</li>
+<h2 id="10-summary">10. Summary</h2><ul>
+<li>Everyone writes bugs.</li>
+<li>Debugging tools save time and energy.</li>
+<li>Static analysis avoids many simple bugs.</li>
+<li>Use <code>IPython.embed()</code> for manual debugging.</li>
+<li>Learn the basics of <code>pdb</code>.</li>
 </ul>
-<blockquote>
-<p>评估要求：作业中要包含<strong>调试过程的截图</strong>作为「调试证据」。</p>
-</blockquote>
 
 
 </section>
@@ -689,7 +684,7 @@ from IPython import embed; embed()
     
         
     <script src="https://utteranc.es/client.js" 
-        repo=""
+        repo="ada-c38f0bb79f/ada-c38f0bb79f.github.io"
         issue-term="pathname"
         
         crossorigin="anonymous"
@@ -848,15 +843,8 @@ from IPython import embed; embed()
         document.head.appendChild(customFont);
     }());
 </script>
-<script src=https://CarlossQAQ.github.io/background/sakura.js></script>
-<script src="https://utteranc.es/client.js"
-        repo="CarlossQAQ/CarlossQAQ.github.io"
-        issue-term="pathname"
-        label="❤️"
-        theme="github-dark"
-        crossorigin="anonymous"
-        async>
-</script>
+<script src=https://ada-c38f0bb79f.github.io/background/sakura.js></script>
+
 
 <style>
     .post-content{

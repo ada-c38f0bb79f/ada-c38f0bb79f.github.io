@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="NumPy 数组创建/索引/广播/线性代数，Pandas Series/DataFrame、数据清洗、分组聚合、合并与时间序列的完整复习。">
-<title>NPP Lecture 2 复习：NumPy 与 Pandas</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Review notes on NumPy arrays, broadcasting, and linear algebra, plus Pandas Series/DataFrame, data cleaning, groupby, merging, and time series.">
+<title>NPP Lecture 2 Review: NumPy & Pandas</title>
 
 <link rel='canonical' href='https://ada-c38f0bb79f.github.io/p/npp-lecture2-review/'>
 
-<link rel="stylesheet" href="/scss/style.min.cd3e66856c780baaa0f235942bb48d1e842e67328e0ab44cc64935c8eadf098a.css"><meta property='og:title' content="NPP Lecture 2 复习：NumPy 与 Pandas">
-<meta property='og:description' content="NumPy 数组创建/索引/广播/线性代数，Pandas Series/DataFrame、数据清洗、分组聚合、合并与时间序列的完整复习。">
+<link rel="stylesheet" href="/scss/style.min.cd3e66856c780baaa0f235942bb48d1e842e67328e0ab44cc64935c8eadf098a.css"><meta property='og:title' content="NPP Lecture 2 Review: NumPy & Pandas">
+<meta property='og:description' content="Review notes on NumPy arrays, broadcasting, and linear algebra, plus Pandas Series/DataFrame, data cleaning, groupby, merging, and time series.">
 <meta property='og:url' content='https://ada-c38f0bb79f.github.io/p/npp-lecture2-review/'>
 <meta property='og:site_name' content='Carlos_Hu'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-10-08T10:00:00&#43;08:00'/><meta property='article:modified_time' content='2026-10-08T10:00:00&#43;08:00'/>
 <meta name="twitter:site" content="@CarlosHu4961">
-    <meta name="twitter:creator" content="@CarlosHu4961"><meta name="twitter:title" content="NPP Lecture 2 复习：NumPy 与 Pandas">
-<meta name="twitter:description" content="NumPy 数组创建/索引/广播/线性代数，Pandas Series/DataFrame、数据清洗、分组聚合、合并与时间序列的完整复习。">
+    <meta name="twitter:creator" content="@CarlosHu4961"><meta name="twitter:title" content="NPP Lecture 2 Review: NumPy & Pandas">
+<meta name="twitter:description" content="Review notes on NumPy arrays, broadcasting, and linear algebra, plus Pandas Series/DataFrame, data cleaning, groupby, merging, and time series.">
     <link rel="shortcut icon" href="/favicon.ico" />
 
   
@@ -102,7 +102,7 @@
             
                 <li>
                     <a 
-                        href='https://github.com/CarlossQAQ'
+                        href='https://github.com/ada-c38f0bb79f'
                         target="_blank"
                         title="GitHub"
                         rel="me"
@@ -237,9 +237,9 @@
 
                             <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
                                 
-                                    <option value="https://CarlossQAQ.github.io/" selected>Let&#39;s speak English</option>
+                                    <option value="https://ada-c38f0bb79f.github.io/" selected>Let&#39;s speak English</option>
                                 
-                                    <option value="https://CarlossQAQ.github.io/zh-cn/" >让我们说中文</option>
+                                    <option value="https://ada-c38f0bb79f.github.io/zh-cn/" >让我们说中文</option>
                                 
                             </select>
                         </li>
@@ -294,34 +294,34 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#numpy">第一部分：NumPy</a></li>
-    <li><a href="#1">1. 导入约定与陷阱</a></li>
-    <li><a href="#2-ndarray">2. 核心概念：ndarray</a></li>
-    <li><a href="#3">3. 创建数组</a></li>
-    <li><a href="#4">4. 数组属性</a></li>
-    <li><a href="#5">5. 形状变换</a></li>
-    <li><a href="#6-dtype">6. 类型（dtype）</a></li>
-    <li><a href="#7">7. 运算与广播</a></li>
-    <li><a href="#8">8. 索引与切片</a></li>
-    <li><a href="#9-np-linalg">9. 线性代数（np.linalg）</a></li>
-    <li><a href="#10-pandas">10. 记录数组（Pandas 铺垫）</a></li>
-    <li><a href="#pandas">第二部分：Pandas</a></li>
-    <li><a href="#11-series">11. 导入与 Series</a></li>
+    <li><a href="#part-1-numpy">Part 1: NumPy</a></li>
+    <li><a href="#1-import-conventions-and-pitfalls">1. Import conventions and pitfalls</a></li>
+    <li><a href="#2-core-concept-ndarray">2. Core concept: ndarray</a></li>
+    <li><a href="#3-creating-arrays">3. Creating arrays</a></li>
+    <li><a href="#4-array-attributes">4. Array attributes</a></li>
+    <li><a href="#5-shape-manipulation">5. Shape manipulation</a></li>
+    <li><a href="#6-types-dtype">6. Types (dtype)</a></li>
+    <li><a href="#7-operations-and-broadcasting">7. Operations and broadcasting</a></li>
+    <li><a href="#8-indexing-and-slicing">8. Indexing and slicing</a></li>
+    <li><a href="#9-linear-algebra-np-linalg">9. Linear algebra (np.linalg)</a></li>
+    <li><a href="#10-record-arrays-prelude-to-pandas">10. Record arrays (prelude to Pandas)</a></li>
+    <li><a href="#part-2-pandas">Part 2: Pandas</a></li>
+    <li><a href="#11-import-and-series">11. Import and Series</a></li>
     <li><a href="#12-dataframe">12. DataFrame</a></li>
-    <li><a href="#13">13. 读写</a></li>
-    <li><a href="#14-selection">14. 选择（Selection）</a></li>
-    <li><a href="#15">15. 增删</a></li>
-    <li><a href="#16">16. 条件筛选</a></li>
-    <li><a href="#17">17. 索引操作</a></li>
-    <li><a href="#18">18. 常用操作与统计</a></li>
-    <li><a href="#19-map-apply">19. map 与 apply</a></li>
-    <li><a href="#20">20. 类型与缺失值</a></li>
-    <li><a href="#21">21. 分组与透视</a></li>
-    <li><a href="#22-combine">22. 合并（combine）</a></li>
-    <li><a href="#23">23. 可视化</a></li>
-    <li><a href="#24">24. 时间序列</a></li>
-    <li><a href="#numpy-40-pandas-60">速查总表（NumPy 约 40 项 + Pandas 约 60 项）</a></li>
-    <li><a href="#section">易错点提醒 ⚠️</a></li>
+    <li><a href="#13-reading-and-writing">13. Reading and writing</a></li>
+    <li><a href="#14-selection">14. Selection</a></li>
+    <li><a href="#15-add-remove">15. Add/remove</a></li>
+    <li><a href="#16-conditional-filtering">16. Conditional filtering</a></li>
+    <li><a href="#17-index-operations">17. Index operations</a></li>
+    <li><a href="#18-common-operations-and-statistics">18. Common operations and statistics</a></li>
+    <li><a href="#19-map-and-apply">19. map and apply</a></li>
+    <li><a href="#20-types-and-missing-values">20. Types and missing values</a></li>
+    <li><a href="#21-grouping-and-pivoting">21. Grouping and pivoting</a></li>
+    <li><a href="#22-combining">22. Combining</a></li>
+    <li><a href="#23-visualisation">23. Visualisation</a></li>
+    <li><a href="#24-time-series">24. Time series</a></li>
+    <li><a href="#quick-reference-table-40-numpy-60-pandas-items">Quick-reference table (≈40 NumPy + ≈60 Pandas items)</a></li>
+    <li><a href="#common-pitfalls">Common pitfalls ⚠️</a></li>
   </ol>
 </nav>
         </div>
@@ -341,7 +341,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/npp-lecture2-review/">NPP Lecture 2 复习：NumPy 与 Pandas</a>
+            <a href="/p/npp-lecture2-review/">NPP Lecture 2 Review: NumPy & Pandas</a>
         </h2>
     
         
@@ -378,7 +378,7 @@
 
 
                 <time class="article-time--reading">
-                    9 minute read
+                    13 minute read
                 </time>
             </div>
         
@@ -393,277 +393,276 @@
     <section class="article-content">
     
     
-    <h1 id="lecture-2-numpy-amp-pandas">Lecture 2 复习：NumPy &amp; Pandas</h1><blockquote>
-<p>主题：NumPy 数组 · 向量化运算 · 广播 · Pandas Series/DataFrame · 数据清洗 · 分组聚合 · 合并 · 时间序列
-讲师：Dr. Marijan Beg（上午 NumPy）· Dr. Simon Warder（下午 Pandas）</p>
+    <h1 id="npp-lecture-2-review-numpy-amp-pandas">NPP Lecture 2 Review: NumPy &amp; Pandas</h1><blockquote>
+<p>Topics: NumPy arrays · vectorised operations · broadcasting · Pandas Series/DataFrame · data cleaning · groupby · merging · time series</p>
 </blockquote>
 <hr />
-<h2 id="numpy">第一部分：NumPy</h2><h3 id="1">1. 导入约定与陷阱</h3><pre><code class="language-python">import numpy as np            # 惯例缩写
-from numpy import *           # ❌ 危险：会覆盖 sum/max 等内置函数
+<h2 id="part-1-numpy">Part 1: NumPy</h2><h3 id="1-import-conventions-and-pitfalls">1. Import conventions and pitfalls</h3><pre><code class="language-python">import numpy as np            # conventional alias
+from numpy import *           # ❌ dangerous — overwrites builtins like sum/max
 </code></pre>
-<h3 id="2-ndarray">2. 核心概念：<code>ndarray</code></h3><ul>
-<li>NumPy 最基本对象。</li>
-<li><strong>list vs array</strong>：list 存「指向对象的指针」，array 连续存「值」，所以 array 更快更省内存。</li>
-<li>不用内置 <code>array</code> 模块：只支持一维、类型定义不灵活。</li>
+<h3 id="2-core-concept-ndarray">2. Core concept: <code>ndarray</code></h3><ul>
+<li>NumPy's fundamental object.</li>
+<li><strong>list vs array</strong>: a list stores pointers to objects, an array stores values contiguously — arrays are faster and use less memory.</li>
+<li>Don't use the built-in <code>array</code> module: only 1-D and inflexible types.</li>
 </ul>
-<h3 id="3">3. 创建数组</h3><table>
+<h3 id="3-creating-arrays">3. Creating arrays</h3><table>
 <thead>
 <tr>
-  <th>方法</th>
-  <th>例子</th>
-  <th>说明</th>
+  <th>Method</th>
+  <th>Example</th>
+  <th>Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr>
   <td><code>np.array</code></td>
-  <td><code>np.array([1,2,3])</code>；<code>np.array([[1,2],[3,4]])</code></td>
-  <td>从 list 建；同层维度长度须一致</td>
+  <td><code>np.array([1,2,3])</code>; <code>np.array([[1,2],[3,4]])</code></td>
+  <td>from lists; same-depth lengths must match</td>
 </tr>
 <tr>
   <td><code>np.zeros</code></td>
-  <td><code>np.zeros(3)</code>；<code>np.zeros((3,3))</code></td>
-  <td>全 0</td>
+  <td><code>np.zeros(3)</code>; <code>np.zeros((3,3))</code></td>
+  <td>all zeros</td>
 </tr>
 <tr>
   <td><code>np.ones</code></td>
   <td><code>np.ones((3,3))</code></td>
-  <td>全 1</td>
+  <td>all ones</td>
 </tr>
 <tr>
   <td><code>np.full</code></td>
   <td><code>np.full(shape, value)</code></td>
-  <td>填指定值</td>
+  <td>fill a value</td>
 </tr>
 <tr>
   <td><code>np.arange</code></td>
   <td><code>np.arange(start, stop, step)</code></td>
-  <td><strong>不含终点</strong></td>
+  <td><strong>excludes</strong> stop</td>
 </tr>
 <tr>
   <td><code>np.linspace</code></td>
   <td><code>np.linspace(0,10,6)</code></td>
-  <td>指定点数，<strong>含终点</strong></td>
+  <td>fixed count, <strong>includes</strong> stop</td>
 </tr>
 <tr>
   <td><code>np.eye</code></td>
   <td><code>np.eye(3)</code></td>
-  <td>单位矩阵</td>
+  <td>identity matrix</td>
 </tr>
 </tbody>
 </table>
-<h3 id="4">4. 数组属性</h3><pre><code class="language-python">a = np.eye(3)
-a.ndim      # 2   维度数
-a.shape     # (3,3) 各维度大小
-a.size      # 9   = np.prod(shape) 元素总数
-a.nbytes    # 72  = 9 × 8 字节 占用内存
-a.dtype     # float64 元素类型
+<h3 id="4-array-attributes">4. Array attributes</h3><pre><code class="language-python">a = np.eye(3)
+a.ndim      # 2      number of dimensions
+a.shape     # (3,3)  size of each dimension
+a.size      # 9      = np.prod(shape)
+a.nbytes    # 72     = 9 × 8 bytes
+a.dtype     # float64
 </code></pre>
-<h3 id="5">5. 形状变换</h3><ul>
-<li><code>.reshape(4,3)</code> / <code>.reshape(3,-1)</code>：改形状，<code>size</code> 不变；<code>-1</code> 自动推断且<strong>只能出现一次</strong>。</li>
-<li><code>.ravel()</code> / <code>.flatten()</code>：展平成 1D（<code>order=&quot;K&quot;</code> 按内存存储顺序）。</li>
-<li><code>.T</code>：转置。</li>
-<li>1D 向量：<code>np.matmul(arr1,arr2)</code> 与 <code>np.matmul(arr2,arr1)</code> 可能不同（行/列向量不严格区分）。</li>
+<h3 id="5-shape-manipulation">5. Shape manipulation</h3><ul>
+<li><code>.reshape(4,3)</code> / <code>.reshape(3,-1)</code>: change shape, <code>size</code> unchanged; <code>-1</code> is inferred and <strong>may appear only once</strong>.</li>
+<li><code>.ravel()</code> / <code>.flatten()</code>: flatten to 1-D (<code>order=&quot;K&quot;</code> follows memory order).</li>
+<li><code>.T</code>: transpose.</li>
+<li>1-D vectors: <code>np.matmul(a,b)</code> and <code>np.matmul(b,a)</code> may differ (row/column not strictly distinguished).</li>
 </ul>
-<h3 id="6-dtype">6. 类型（dtype）</h3><ul>
-<li>自动推断：<code>[1,2.5,3]</code>→float；<code>[1,2,&quot;Hi&quot;]</code>→str。</li>
-<li>指定类型：<code>np.array([...], dtype=np.int32)</code>。</li>
-<li><strong>陷阱</strong>：<code>int_arr[1] = 3.5</code> 会被<strong>截断为整数</strong>，不报错。</li>
+<h3 id="6-types-dtype">6. Types (dtype)</h3><ul>
+<li>Inferred: <code>[1,2.5,3]</code> → float; <code>[1,2,&quot;Hi&quot;]</code> → str.</li>
+<li>Explicit: <code>np.array([...], dtype=np.int32)</code>.</li>
+<li><strong>Pitfall</strong>: <code>int_arr[1] = 3.5</code> silently <strong>truncates</strong> to an integer (no error).</li>
 </ul>
-<h3 id="7">7. 运算与广播</h3><ul>
-<li>逐元素运算符 <code>+ - * / ** %</code>（对应 <code>np.add/subtract/multiply/divide/power/mod</code>）。</li>
-<li>矩阵乘法：<code>@</code> / <code>np.matmul</code> / <code>np.dot</code>。</li>
-<li><strong>广播（broadcasting）</strong>：不同形状数组可运算，小数组广播到大数组（至少一维兼容）。</li>
+<h3 id="7-operations-and-broadcasting">7. Operations and broadcasting</h3><ul>
+<li>Element-wise operators <code>+ - * / ** %</code> (map to <code>np.add/subtract/multiply/divide/power/mod</code>).</li>
+<li>Matrix multiplication: <code>@</code> / <code>np.matmul</code> / <code>np.dot</code>.</li>
+<li><strong>Broadcasting</strong>: arrays of different shapes can operate; the smaller is broadcast to the larger (at least one dimension compatible).</li>
 </ul>
-<h3 id="8">8. 索引与切片</h3><ul>
-<li>多维索引 <code>arr[0,0]</code>；多维切片 <code>arr[1:3,1:6:2]</code>（等价 <code>arr[slice(1,3), slice(1,6,2)]</code>）。</li>
-<li>切片赋值 <code>arr[1:3,1:3]=0</code> 按广播规则。</li>
-<li>⚠️ <strong>视图陷阱</strong>：<code>new_arr = old_arr[1:3,1:3]</code> 是<strong>视图（view）</strong>，改 new 会改 old；用 <code>.copy()</code> 避免。</li>
-<li>布尔索引：<code>arr[arr&gt;5]</code>；<code>arr[arr%3==0]=-1</code>。</li>
+<h3 id="8-indexing-and-slicing">8. Indexing and slicing</h3><ul>
+<li>Multi-dim index <code>arr[0,0]</code>; multi-dim slice <code>arr[1:3,1:6:2]</code> (== <code>arr[slice(1,3), slice(1,6,2)]</code>).</li>
+<li>Slice assignment <code>arr[1:3,1:3]=0</code> follows broadcasting.</li>
+<li>⚠️ <strong>View pitfall</strong>: <code>new = old[1:3,1:3]</code> is a <strong>view</strong> — mutating <code>new</code> mutates <code>old</code>; use <code>.copy()</code> to avoid.</li>
+<li>Boolean indexing: <code>arr[arr&gt;5]</code>; <code>arr[arr%3==0]=-1</code>.</li>
 </ul>
-<h3 id="9-np-linalg">9. 线性代数（<code>np.linalg</code>）</h3><table>
+<h3 id="9-linear-algebra-np-linalg">9. Linear algebra (<code>np.linalg</code>)</h3><table>
 <thead>
 <tr>
-  <th>方法</th>
-  <th>用途</th>
+  <th>Method</th>
+  <th>Purpose</th>
 </tr>
 </thead>
 <tbody>
 <tr>
   <td><code>np.linalg.det(A)</code></td>
-  <td>行列式</td>
+  <td>determinant</td>
 </tr>
 <tr>
   <td><code>np.linalg.eig(A)</code></td>
-  <td>特征值/特征向量</td>
+  <td>eigenvalues/vectors</td>
 </tr>
 <tr>
   <td><code>np.linalg.norm(A)</code></td>
-  <td>范数</td>
+  <td>norm</td>
 </tr>
 <tr>
   <td><code>np.linalg.inv(A)</code></td>
-  <td>矩阵求逆（直接法）</td>
+  <td>matrix inverse (direct method)</td>
 </tr>
 <tr>
   <td><code>np.linalg.solve(A,b)</code></td>
-  <td>解矩阵方程（比求逆更稳）</td>
+  <td>solve linear system (prefer to <code>inv</code>)</td>
 </tr>
 </tbody>
 </table>
-<h3 id="10-pandas">10. 记录数组（Pandas 铺垫）</h3><pre><code class="language-python">arr = np.rec.array(...)
-arr[&quot;val_1&quot;]        # 按名字访问字段
+<h3 id="10-record-arrays-prelude-to-pandas">10. Record arrays (prelude to Pandas)</h3><pre><code class="language-python">arr = np.rec.array(...)
+arr[&quot;val_1&quot;]        # access a field by name
 arr.val_2[1]
 </code></pre>
 <hr />
-<h2 id="pandas">第二部分：Pandas</h2><h3 id="11-series">11. 导入与 Series</h3><pre><code class="language-python">import pandas as pd
+<h2 id="part-2-pandas">Part 2: Pandas</h2><h3 id="11-import-and-series">11. Import and Series</h3><pre><code class="language-python">import pandas as pd
 </code></pre>
 <ul>
-<li><strong>Series</strong>：一维带标签数组，像 NumPy 数组但按<strong>标签</strong>索引，行为像快速 dict。</li>
-<li>创建：<code>pd.Series(data=list)</code> / <code>pd.Series(data, index=labels, name=&quot;...&quot;)</code> / <code>pd.Series(arr)</code> / <code>pd.Series(dic)</code>（key 自动成为索引标签）。</li>
-<li>按标签取值 <code>ser[&quot;first name&quot;]</code>。</li>
-<li>⚠️ <strong>运算按索引对齐</strong>：<code>ser1 + ser2</code> 按索引标签对齐，不是按位置。</li>
+<li><strong>Series</strong>: a 1-D labelled array — like a NumPy array but indexed by labels; behaves like a fast dict.</li>
+<li>Create: <code>pd.Series(data=list)</code> / <code>pd.Series(data, index=labels, name=&quot;...&quot;)</code> / <code>pd.Series(arr)</code> / <code>pd.Series(dic)</code> (keys become the index).</li>
+<li>Select by label <code>ser[&quot;first name&quot;]</code>.</li>
+<li>⚠️ <strong>Operations align on the index</strong>: <code>ser1 + ser2</code> aligns by label, not position.</li>
 </ul>
 <h3 id="12-dataframe">12. DataFrame</h3><ul>
-<li>二维表（像 Excel）：行 = record/index，列 = field。</li>
-<li>创建：<code>pd.DataFrame(data, index=[...], columns=[...])</code> 或用字典 <code>{&quot;列名&quot;:[值...]}</code>。</li>
+<li>A 2-D table (like a spreadsheet): rows = records/index, columns = fields.</li>
+<li>Create: <code>pd.DataFrame(data, index=[...], columns=[...])</code> or a dict <code>{&quot;col&quot;:[values...]}</code>.</li>
 </ul>
-<h3 id="13">13. 读写</h3><table>
+<h3 id="13-reading-and-writing">13. Reading and writing</h3><table>
 <thead>
 <tr>
-  <th>方法</th>
-  <th>例子</th>
-  <th>说明</th>
+  <th>Method</th>
+  <th>Example</th>
+  <th>Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr>
   <td><code>pd.read_csv</code></td>
   <td><code>pd.read_csv(&quot;df1.csv&quot;)</code></td>
-  <td>参数 30+</td>
+  <td>30+ parameters</td>
 </tr>
 <tr>
-  <td>指定索引列</td>
+  <td>index column</td>
   <td><code>pd.read_csv(..., index_col=0)</code></td>
-  <td>用已有列做索引</td>
+  <td>use an existing column as index</td>
 </tr>
 <tr>
   <td><code>to_csv</code></td>
   <td><code>df.to_csv(&quot;example&quot;, index=False)</code></td>
-  <td>写回</td>
+  <td>write back</td>
 </tr>
 <tr>
   <td><code>pd.read_excel</code>/<code>to_excel</code></td>
   <td><code>read_excel(&quot;f.xlsx&quot;, sheet_name=&quot;Sheet1&quot;)</code></td>
-  <td>只导数据，不含公式图表</td>
+  <td>data only, no formulas/charts</td>
 </tr>
 </tbody>
 </table>
-<h3 id="14-selection">14. 选择（Selection）</h3><ul>
-<li><code>.columns</code> / <code>.index</code>：列名 / 索引。</li>
-<li>选单列 <code>df[&quot;Y&quot;]</code>（返回 Series）；选多列 <code>df[[&quot;Y&quot;,&quot;Z&quot;]]</code>。</li>
-<li>SQL 风格 <code>df.Y</code>：不推荐，有局限。</li>
-<li><code>.iloc</code>（<strong>位置</strong>）：<code>df.iloc[0,:]</code>、<code>df.iloc[:,0]</code>、<code>df.iloc[[1,2],0]</code>（<code>.at</code> 类似）。</li>
-<li><code>.loc</code>（<strong>标签</strong>）：<code>df.loc[&quot;A&quot;]</code>、<code>df.loc[&quot;B&quot;,&quot;Y&quot;]</code>、<code>df.loc[[&quot;A&quot;,&quot;B&quot;],[&quot;Z&quot;,&quot;Y&quot;]]</code>。</li>
-<li>顺序：<code>loc</code>/<code>iloc</code> <strong>行在前列在后</strong>（同 NumPy，与 Python list 相反）。</li>
+<h3 id="14-selection">14. Selection</h3><ul>
+<li><code>.columns</code> / <code>.index</code>: column names / index.</li>
+<li>Single column <code>df[&quot;Y&quot;]</code> (returns a Series); multiple columns <code>df[[&quot;Y&quot;,&quot;Z&quot;]]</code>.</li>
+<li>SQL-style <code>df.Y</code>: discouraged, has limitations.</li>
+<li><code>.iloc</code> (<strong>position</strong>): <code>df.iloc[0,:]</code>, <code>df.iloc[:,0]</code>, <code>df.iloc[[1,2],0]</code> (<code>.at</code> is similar).</li>
+<li><code>.loc</code> (<strong>label</strong>): <code>df.loc[&quot;A&quot;]</code>, <code>df.loc[&quot;B&quot;,&quot;Y&quot;]</code>, <code>df.loc[[&quot;A&quot;,&quot;B&quot;],[&quot;Z&quot;,&quot;Y&quot;]]</code>.</li>
+<li>Order: <code>loc</code>/<code>iloc</code> put <strong>rows before columns</strong> (same as NumPy, opposite of Python lists).</li>
 </ul>
-<h3 id="15">15. 增删</h3><ul>
-<li>新建列 <code>df[&quot;new&quot;] = df[&quot;Z&quot;] + df[&quot;Y&quot;]</code>（列就是 Series）。</li>
-<li>删除 <code>df.drop(&quot;new&quot;, axis=1)</code> / <code>df.drop(&quot;A&quot;, axis=0)</code>：默认<strong>非原地</strong>，需 <code>inplace=True</code>。</li>
-<li><code>del df[&quot;col&quot;]</code>：原地删除。</li>
+<h3 id="15-add-remove">15. Add/remove</h3><ul>
+<li>New column <code>df[&quot;new&quot;] = df[&quot;Z&quot;] + df[&quot;Y&quot;]</code> (a column is just a Series).</li>
+<li>Remove <code>df.drop(&quot;new&quot;, axis=1)</code> / <code>df.drop(&quot;A&quot;, axis=0)</code>: <strong>not in-place</strong> by default — pass <code>inplace=True</code>.</li>
+<li><code>del df[&quot;col&quot;]</code>: in-place delete.</li>
 </ul>
-<h3 id="16">16. 条件筛选</h3><ul>
-<li><code>df[df&gt;0]</code>、<code>df[df[&quot;Z&quot;]&gt;0]</code>、<code>df[(df[&quot;X&quot;]&gt;0)&amp;(df[&quot;Y&quot;]&gt;1)]</code>（<code>df&gt;0</code> 是布尔 DataFrame）。</li>
-<li>多条件用 <code>&amp;</code>（与）、<code>|</code>（或）；<strong>每个条件必须加括号</strong>。</li>
-<li><code>.isin</code>（值在列表）、<code>.isnull</code>/<code>.notnull</code>（判断空值）。</li>
+<h3 id="16-conditional-filtering">16. Conditional filtering</h3><ul>
+<li><code>df[df&gt;0]</code>, <code>df[df[&quot;Z&quot;]&gt;0]</code>, <code>df[(df[&quot;X&quot;]&gt;0)&amp;(df[&quot;Y&quot;]&gt;1)]</code> (<code>df&gt;0</code> is a boolean DataFrame).</li>
+<li>Combine with <code>&amp;</code> (and), <code>|</code> (or); <strong>each condition must be parenthesised</strong>.</li>
+<li><code>.isin</code> (membership), <code>.isnull</code>/<code>.notnull</code> (null checks).</li>
 </ul>
-<h3 id="17">17. 索引操作</h3><ul>
-<li><code>reset_index()</code>：回到 0,1,2...；<code>set_index(&quot;col&quot;)</code>：默认非原地，需 <code>inplace=True</code>。</li>
-<li><strong>MultiIndex</strong>：<code>pd.MultiIndex.from_arrays([[...],[...]])</code>；按层取值 <code>mdf.loc[&quot;Player 1&quot;, :]</code>、<code>mdf.xs(&quot;Test 1&quot;, level=1)</code>（level 从 0 开始）。</li>
+<h3 id="17-index-operations">17. Index operations</h3><ul>
+<li><code>reset_index()</code>: back to 0,1,2…; <code>set_index(&quot;col&quot;)</code>: not in-place by default.</li>
+<li><strong>MultiIndex</strong>: <code>pd.MultiIndex.from_arrays([[...],[...]])</code>; select by level <code>mdf.loc[&quot;Player 1&quot;, :]</code>, <code>mdf.xs(&quot;Test 1&quot;, level=1)</code> (levels start at 0).</li>
 </ul>
-<h3 id="18">18. 常用操作与统计</h3><ul>
-<li><code>.head()</code>：看前几行。</li>
-<li><code>.unique()</code> / <code>.nunique()</code>：唯一值 / 唯一值个数。</li>
-<li><code>.value_counts()</code>：各值出现次数。</li>
-<li><code>.duplicated()</code> / <code>.drop_duplicates(inplace=True)</code>：判断/删除重复行。</li>
-<li>统计量：<code>.mean() .std() .median() .sum() .max() .min()</code>（注意 <code>numeric_only=True</code>）。</li>
-<li><code>.describe()</code>：数据汇总（可 <code>.transpose()</code>）。</li>
+<h3 id="18-common-operations-and-statistics">18. Common operations and statistics</h3><ul>
+<li><code>.head()</code>: peek at the first rows.</li>
+<li><code>.unique()</code> / <code>.nunique()</code>: unique values / count of unique values.</li>
+<li><code>.value_counts()</code>: occurrence counts.</li>
+<li><code>.duplicated()</code> / <code>.drop_duplicates(inplace=True)</code>: find/drop duplicate rows.</li>
+<li>Statistics: <code>.mean() .std() .median() .sum() .max() .min()</code> (watch <code>numeric_only=True</code>).</li>
+<li><code>.describe()</code>: summary (can <code>.transpose()</code>).</li>
 </ul>
-<h3 id="19-map-apply">19. map 与 apply</h3><ul>
-<li><code>.map</code>：<code>df[&quot;col1&quot;].map(lambda p: p - mean)</code> 逐元素映射，<strong>非原地</strong>。</li>
-<li><code>.apply</code>：<code>df[&quot;col1&quot;].apply(f, n=4)</code> 或 <code>args=[4]</code> 传额外参数；可用内置 <code>len</code>。</li>
+<h3 id="19-map-and-apply">19. map and apply</h3><ul>
+<li><code>.map</code>: <code>df[&quot;col1&quot;].map(lambda p: p - mean)</code> — element-wise, <strong>not in-place</strong>.</li>
+<li><code>.apply</code>: <code>df[&quot;col1&quot;].apply(f, n=4)</code> or <code>args=[4]</code> for extra args; can use builtins like <code>len</code>.</li>
 </ul>
-<h3 id="20">20. 类型与缺失值</h3><ul>
-<li><code>.dtype</code> / <code>.dtypes</code>：单列 / 全部列类型。</li>
-<li><code>.astype(&quot;float64&quot;)</code>：<strong>转换</strong>（非强制 cast）。</li>
-<li>类型含义：<code>float64</code>/<code>int64</code>/<code>object</code>（字符串存为 object）。</li>
-<li><strong>NaN</strong>：缺失记为 NaN，总是 <code>float64</code>。</li>
-<li>判断：<code>df.isnull()</code> / <code>df.notnull()</code>。</li>
-<li>⚠️ 对数学的影响：<code>df.sum()</code> 默认<strong>跳过 NaN</strong>；<code>df.sum(skipna=False)</code> 传播 NaN。</li>
-<li><code>dropna()</code>：按行/列/阈值（<code>axis=1</code>、<code>thresh=2</code>）丢弃。</li>
-<li><code>fillna(value=&quot;FILL&quot;)</code> / <code>df[&quot;A&quot;].fillna(df[&quot;A&quot;].mean())</code>：填充。</li>
-<li><code>replace</code>：把 &quot;Unknown&quot; 等换成 <code>np.nan</code>。</li>
+<h3 id="20-types-and-missing-values">20. Types and missing values</h3><ul>
+<li><code>.dtype</code> / <code>.dtypes</code>: one column / all columns.</li>
+<li><code>.astype(&quot;float64&quot;)</code>: <strong>converts</strong> (not a forced cast).</li>
+<li>Types: <code>float64</code> / <code>int64</code> / <code>object</code> (strings are stored as <code>object</code>).</li>
+<li><strong>NaN</strong>: missing values are NaN, always <code>float64</code>.</li>
+<li>Check: <code>df.isnull()</code> / <code>df.notnull()</code>.</li>
+<li>⚠️ Effect on math: <code>df.sum()</code> <strong>skips NaN</strong> by default; <code>df.sum(skipna=False)</code> propagates NaN.</li>
+<li><code>dropna()</code>: drop by row/column/threshold (<code>axis=1</code>, <code>thresh=2</code>).</li>
+<li><code>fillna(value=&quot;FILL&quot;)</code> / <code>df[&quot;A&quot;].fillna(df[&quot;A&quot;].mean())</code>: fill.</li>
+<li><code>replace</code>: swap &quot;Unknown&quot; etc. for <code>np.nan</code>.</li>
 </ul>
-<h3 id="21">21. 分组与透视</h3><ul>
-<li><code>df.groupby(&quot;Course&quot;)</code>：返回 GroupBy 对象。</li>
-<li><code>.groups</code> / <code>.get_group(&quot;NPP&quot;)</code>：查看分组 / 取某组。</li>
-<li>聚合：<code>.mean() .std() .max() .min() .count() .describe()</code>。</li>
-<li><code>.agg</code>：<code>df.groupby([&quot;Course&quot;]).agg([len,&quot;min&quot;,&quot;max&quot;])</code> 自定义聚合。</li>
-<li><code>pivot_table(values, index, columns, aggfunc, fill_value)</code>：行列互换聚合；<code>aggfunc</code> 可函数/列表/dict。</li>
+<h3 id="21-grouping-and-pivoting">21. Grouping and pivoting</h3><ul>
+<li><code>df.groupby(&quot;Course&quot;)</code>: returns a GroupBy object.</li>
+<li><code>.groups</code> / <code>.get_group(&quot;NPP&quot;)</code>: inspect groups / fetch one group.</li>
+<li>Aggregations: <code>.mean() .std() .max() .min() .count() .describe()</code>.</li>
+<li><code>.agg</code>: <code>df.groupby([&quot;Course&quot;]).agg([len,&quot;min&quot;,&quot;max&quot;])</code> custom aggregation.</li>
+<li><code>pivot_table(values, index, columns, aggfunc, fill_value)</code>: reshape + aggregate; <code>aggfunc</code> can be a function/list/dict.</li>
 </ul>
-<h3 id="22-combine">22. 合并（combine）</h3><ul>
-<li><code>pd.concat([df1,df2,df3])</code>：粘合；纵向默认 <code>axis=0</code>，横向 <code>axis=1</code>。</li>
-<li><code>pd.merge(left,right,how=&quot;inner&quot;,on=&quot;key&quot;)</code>：类似 SQL JOIN。<ul>
-<li><code>how</code>：<code>inner</code>（交集）/<code>outer</code>（并集）/<code>left</code>（左表全键）/<code>right</code>（右表全键）。</li>
-<li>多键 <code>on=[&quot;key1&quot;,&quot;key2&quot;]</code>。</li>
+<h3 id="22-combining">22. Combining</h3><ul>
+<li><code>pd.concat([df1,df2,df3])</code>: glue; vertical by default (<code>axis=0</code>), horizontal with <code>axis=1</code>.</li>
+<li><code>pd.merge(left,right,how=&quot;inner&quot;,on=&quot;key&quot;)</code>: SQL-JOIN-like.<ul>
+<li><code>how</code>: <code>inner</code> (intersection) / <code>outer</code> (union) / <code>left</code> / <code>right</code>.</li>
+<li>multi-key <code>on=[&quot;key1&quot;,&quot;key2&quot;]</code>.</li>
 </ul>
 </li>
-<li><code>.join</code>：<code>left.join(right)</code> 按<strong>索引</strong>合并列；<code>how=&quot;outer&quot;</code>。</li>
+<li><code>.join</code>: <code>left.join(right)</code> merges columns <strong>on the index</strong>; <code>how=&quot;outer&quot;</code>.</li>
 </ul>
-<h3 id="23">23. 可视化</h3><ul>
-<li><code>.plot.hist()</code>：直方图。</li>
-<li><code>.plot.scatter(&quot;A&quot;,&quot;B&quot;)</code>：散点图。</li>
+<h3 id="23-visualisation">23. Visualisation</h3><ul>
+<li><code>.plot.hist()</code>: histogram.</li>
+<li><code>.plot.scatter(&quot;A&quot;,&quot;B&quot;)</code>: scatter plot.</li>
 </ul>
-<h3 id="24">24. 时间序列</h3><ul>
-<li>解析日期：<code>pd.read_csv(&quot;Tide.csv&quot;, index_col=&quot;Date&quot;, parse_dates=True, dayfirst=True)</code>。</li>
-<li><code>.sample(n=5)</code>：随机采样。</li>
-<li>日期分量：<code>df.index.day</code> / <code>.month</code> / <code>.date</code>。</li>
-<li><code>.resample(&quot;D&quot;).mean()</code> / <code>df[&quot;Hs&quot;].resample(&quot;ME&quot;).max()</code>：按日期聚合，可补空缺。</li>
-<li><code>.asfreq(&quot;ME&quot;)</code>：只取时间点不聚合。</li>
-<li><code>pd.to_datetime(dates, format=&quot;mixed&quot;, dayfirst=True, utc=True)</code>：转 DatetimeIndex。</li>
-<li><strong>日期歧义</strong>：数字日期必须统一 DD/MM/YYYY 或 MM/DD/YYYY。</li>
+<h3 id="24-time-series">24. Time series</h3><ul>
+<li>Parse dates: <code>pd.read_csv(&quot;Tide.csv&quot;, index_col=&quot;Date&quot;, parse_dates=True, dayfirst=True)</code>.</li>
+<li><code>.sample(n=5)</code>: random sample.</li>
+<li>Date parts: <code>df.index.day</code> / <code>.month</code> / <code>.date</code>.</li>
+<li><code>.resample(&quot;D&quot;).mean()</code> / <code>df[&quot;Hs&quot;].resample(&quot;ME&quot;).max()</code>: aggregate by date, can fill gaps.</li>
+<li><code>.asfreq(&quot;ME&quot;)</code>: take points at a frequency without aggregating.</li>
+<li><code>pd.to_datetime(dates, format=&quot;mixed&quot;, dayfirst=True, utc=True)</code>: build a DatetimeIndex.</li>
+<li><strong>Date ambiguity</strong>: numeric dates must consistently be DD/MM/YYYY or MM/DD/YYYY.</li>
 </ul>
 <hr />
-<h2 id="numpy-40-pandas-60">速查总表（NumPy 约 40 项 + Pandas 约 60 项）</h2><p>| 分类 | 方法 / 知识点 | 语法 / 例子 | 说明要点 |
+<h2 id="quick-reference-table-40-numpy-60-pandas-items">Quick-reference table (≈40 NumPy + ≈60 Pandas items)</h2><p>| Area | Method / concept | Example | Key point |
 |---|---|---|---|
-| NumPy·创建 | <code>np.array</code> / <code>np.zeros</code> / <code>np.ones</code> / <code>np.full</code> | <code>np.full(shape, value)</code> | 建数组 |
-| NumPy·创建 | <code>np.arange</code> / <code>np.linspace</code> / <code>np.eye</code> | <code>np.arange(start, stop, step)</code> | <code>arange</code> 不含终点，<code>linspace</code> 含终点 |
-| NumPy·属性 | <code>.ndim</code> / <code>.shape</code> / <code>.size</code> / <code>.nbytes</code> / <code>.dtype</code> | <code>(3,3)</code>；<code>9</code>；<code>72</code> | 维度/形状/元素数/字节/类型 |
-| NumPy·形状 | <code>.reshape</code> / <code>.ravel</code> / <code>.flatten</code> / <code>.T</code> | <code>arr.reshape(3,-1)</code> | <code>-1</code> 只能出现一次 |
-| NumPy·运算 | 逐元素 <code>+ - * / ** %</code>；矩阵乘 <code>@</code>/<code>np.matmul</code>/<code>np.dot</code> | — | 广播规则 |
-| NumPy·索引 | 多维索引/切片/布尔索引 | <code>arr[arr&gt;5]</code> | 切片是视图，改会改原数组，用 <code>.copy()</code> |
-| NumPy·linalg | <code>det</code> / <code>eig</code> / <code>norm</code> / <code>inv</code> / <code>solve</code> | <code>np.linalg.solve(A,b)</code> | 解方程优先于求逆 |
-| Pandas·Series | 创建 / 按标签取值 / 按索引对齐运算 | <code>ser1 + ser2</code> | 按索引标签对齐 |
-| Pandas·DataFrame | 创建 / 读写 / 选择 | <code>df[[&quot;Y&quot;,&quot;Z&quot;]]</code> | 行=record，列=field |
-| Pandas·选择 | <code>.iloc</code>（位置）/ <code>.loc</code>（标签） | <code>df.loc[&quot;B&quot;,&quot;Y&quot;]</code> | 行前列表 |
-| Pandas·增删 | 新建列 / <code>drop</code> / <code>del</code> | <code>df.drop(&quot;new&quot;, axis=1)</code> | drop 非原地 |
-| Pandas·条件 | 条件选择 / <code>&amp;</code> / <code>|</code> / <code>.isin</code> / <code>.isnull</code> | <code>df[(df[&quot;X&quot;]&gt;0)&amp;(df[&quot;Y&quot;]&gt;1)]</code> | 每个条件加括号 |
-| Pandas·索引 | <code>reset_index</code> / <code>set_index</code> / MultiIndex / <code>.xs</code> | <code>mdf.xs(&quot;Test 1&quot;, level=1)</code> | level 从 0 |
-| Pandas·操作 | <code>.head</code> / <code>.unique</code> / <code>.value_counts</code> / <code>.drop_duplicates</code> / <code>.describe</code> | — | 数据探查 |
-| Pandas·map/apply | <code>.map</code> / <code>.apply</code> | <code>df[&quot;col&quot;].apply(f, n=4)</code> | 非原地 |
-| Pandas·类型 | <code>.astype</code> / <code>float64</code>/<code>int64</code>/<code>object</code> | — | 字符串存 object |
-| Pandas·缺失 | <code>isnull</code> / <code>dropna</code> / <code>fillna</code> / <code>replace</code> | <code>df.sum(skipna=False)</code> | sum 默认跳过 NaN |
-| Pandas·分组 | <code>groupby</code> / <code>.agg</code> / <code>pivot_table</code> | <code>df.groupby(&quot;Course&quot;).agg([len,&quot;min&quot;,&quot;max&quot;])</code> | 聚合 |
-| Pandas·合并 | <code>concat</code> / <code>merge</code> / <code>join</code> | <code>pd.merge(l,r,how=&quot;inner&quot;,on=&quot;key&quot;)</code> | inner/outer/left/right |
-| Pandas·时间 | <code>parse_dates</code> / <code>resample</code> / <code>asfreq</code> / <code>to_datetime</code> | <code>df.resample(&quot;D&quot;).mean()</code> | 日期聚合 |</p>
+| NumPy·create | <code>np.array</code> / <code>np.zeros</code> / <code>np.ones</code> / <code>np.full</code> | <code>np.full(shape, value)</code> | build arrays |
+| NumPy·create | <code>np.arange</code> / <code>np.linspace</code> / <code>np.eye</code> | <code>np.arange(start, stop, step)</code> | <code>arange</code> excludes, <code>linspace</code> includes the stop |
+| NumPy·attrs | <code>.ndim</code> / <code>.shape</code> / <code>.size</code> / <code>.nbytes</code> / <code>.dtype</code> | <code>(3,3)</code>; <code>9</code>; <code>72</code> | dims / shape / count / bytes / type |
+| NumPy·shape | <code>.reshape</code> / <code>.ravel</code> / <code>.flatten</code> / <code>.T</code> | <code>arr.reshape(3,-1)</code> | <code>-1</code> at most once |
+| NumPy·ops | elementwise <code>+ - * / ** %</code>; matmul <code>@</code>/<code>np.matmul</code>/<code>np.dot</code> | — | broadcasting |
+| NumPy·index | multi-dim index/slice/boolean | <code>arr[arr&gt;5]</code> | slices are views — use <code>.copy()</code> |
+| NumPy·linalg | <code>det</code> / <code>eig</code> / <code>norm</code> / <code>inv</code> / <code>solve</code> | <code>np.linalg.solve(A,b)</code> | prefer <code>solve</code> to <code>inv</code> |
+| Pandas·Series | create / label select / index-aligned ops | <code>ser1 + ser2</code> | aligns by index label |
+| Pandas·DataFrame | create / IO / select | <code>df[[&quot;Y&quot;,&quot;Z&quot;]]</code> | rows = records, columns = fields |
+| Pandas·select | <code>.iloc</code> (position) / <code>.loc</code> (label) | <code>df.loc[&quot;B&quot;,&quot;Y&quot;]</code> | rows first, columns second |
+| Pandas·add/del | new column / <code>drop</code> / <code>del</code> | <code>df.drop(&quot;new&quot;, axis=1)</code> | <code>drop</code> not in-place |
+| Pandas·cond | filter / <code>&amp;</code> / <code>|</code> / <code>.isin</code> / <code>.isnull</code> | <code>df[(df[&quot;X&quot;]&gt;0)&amp;(df[&quot;Y&quot;]&gt;1)]</code> | parenthesise each condition |
+| Pandas·index | <code>reset_index</code> / <code>set_index</code> / MultiIndex / <code>.xs</code> | <code>mdf.xs(&quot;Test 1&quot;, level=1)</code> | levels from 0 |
+| Pandas·ops | <code>.head</code> / <code>.unique</code> / <code>.value_counts</code> / <code>.drop_duplicates</code> / <code>.describe</code> | — | data exploration |
+| Pandas·map/apply | <code>.map</code> / <code>.apply</code> | <code>df[&quot;col&quot;].apply(f, n=4)</code> | not in-place |
+| Pandas·types | <code>.astype</code> / <code>float64</code>/<code>int64</code>/<code>object</code> | — | strings stored as <code>object</code> |
+| Pandas·missing | <code>isnull</code> / <code>dropna</code> / <code>fillna</code> / <code>replace</code> | <code>df.sum(skipna=False)</code> | <code>sum</code> skips NaN by default |
+| Pandas·group | <code>groupby</code> / <code>.agg</code> / <code>pivot_table</code> | <code>df.groupby(&quot;Course&quot;).agg([len,&quot;min&quot;,&quot;max&quot;])</code> | aggregation |
+| Pandas·combine | <code>concat</code> / <code>merge</code> / <code>join</code> | <code>pd.merge(l,r,how=&quot;inner&quot;,on=&quot;key&quot;)</code> | inner/outer/left/right |
+| Pandas·time | <code>parse_dates</code> / <code>resample</code> / <code>asfreq</code> / <code>to_datetime</code> | <code>df.resample(&quot;D&quot;).mean()</code> | date aggregation |</p>
 <hr />
-<h2 id="section">易错点提醒 ⚠️</h2><ol>
-<li><code>np.arange</code> <strong>不含</strong>终点，<code>np.linspace</code> <strong>含</strong>终点。</li>
-<li>NumPy 切片是<strong>视图</strong>，会改原数组；Pandas 的 <code>drop</code>/<code>set_index</code>/<code>map</code> 默认<strong>非原地</strong>。</li>
-<li>Pandas 多条件筛选必须<strong>加括号</strong>并用 <code>&amp;</code>/<code>|</code>（不能用 <code>and</code>/<code>or</code>）。</li>
-<li>Series 运算按<strong>索引标签</strong>对齐，不是按位置。</li>
-<li><code>df.sum()</code> 默认<strong>跳过 NaN</strong>；需要传播时用 <code>skipna=False</code>。</li>
-<li>整数数组赋值浮点数会被<strong>静默截断</strong>。</li>
+<h2 id="common-pitfalls">Common pitfalls ⚠️</h2><ol>
+<li><code>np.arange</code> <strong>excludes</strong> the stop; <code>np.linspace</code> <strong>includes</strong> it.</li>
+<li>NumPy slices are <strong>views</strong> (mutating them changes the original); Pandas <code>drop</code>/<code>set_index</code>/<code>map</code> are <strong>not in-place</strong> by default.</li>
+<li>Pandas multi-condition filters must be <strong>parenthesised</strong> and use <code>&amp;</code>/<code>|</code> (not <code>and</code>/<code>or</code>).</li>
+<li>Series arithmetic aligns on the <strong>index label</strong>, not position.</li>
+<li><code>df.sum()</code> <strong>skips NaN</strong> by default; pass <code>skipna=False</code> to propagate.</li>
+<li>Assigning a float into an integer array <strong>silently truncates</strong>.</li>
 </ol>
 
 
@@ -711,7 +710,7 @@ arr.val_2[1]
     
         
     <script src="https://utteranc.es/client.js" 
-        repo=""
+        repo="ada-c38f0bb79f/ada-c38f0bb79f.github.io"
         issue-term="pathname"
         
         crossorigin="anonymous"
@@ -870,15 +869,8 @@ arr.val_2[1]
         document.head.appendChild(customFont);
     }());
 </script>
-<script src=https://CarlossQAQ.github.io/background/sakura.js></script>
-<script src="https://utteranc.es/client.js"
-        repo="CarlossQAQ/CarlossQAQ.github.io"
-        issue-term="pathname"
-        label="❤️"
-        theme="github-dark"
-        crossorigin="anonymous"
-        async>
-</script>
+<script src=https://ada-c38f0bb79f.github.io/background/sakura.js></script>
+
 
 <style>
     .post-content{

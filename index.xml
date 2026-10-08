@@ -2,149 +2,148 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Carlos_Hu</title>
-        <link>https://CarlossQAQ.github.io/</link>
+        <link>https://ada-c38f0bb79f.github.io/</link>
         <description>Recent content on Carlos_Hu</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <copyright>Carloss_Hu</copyright>
-        <lastBuildDate>Fri, 29 Nov 2024 14:40:58 +0800</lastBuildDate><atom:link href="https://CarlossQAQ.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>NPP Lecture 1 复习：Intro to Computer Science 与浮点数运算</title>
+        <lastBuildDate>Fri, 29 Nov 2024 14:40:58 +0800</lastBuildDate><atom:link href="https://ada-c38f0bb79f.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>NPP Lecture 1 Review: Intro to Computer Science & Floating-Point Arithmetic</title>
         <link>https://ada-c38f0bb79f.github.io/p/npp-lecture1-review/</link>
         <pubDate>Thu, 08 Oct 2026 09:00:00 +0800</pubDate>
         
         <guid>https://ada-c38f0bb79f.github.io/p/npp-lecture1-review/</guid>
-        <description>&lt;h1 id=&quot;lecture-1-intro-to-computer-science-amp&quot;&gt;Lecture 1 复习：Intro to Computer Science &amp;amp; 浮点数运算&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;主题：Python 入门 · 标准库 · 算法复杂度 · 计算机底层 · 二进制 · IEEE-754 浮点数
-讲师：Dr. James Percival（上午 Intro to CS）· Dr. Marijan Beg（下午 Floating Point）&lt;/p&gt;
+        <description>&lt;h1 id=&quot;npp-lecture-1-review-intro-to-computer-science-amp-floating-point-arithmetic&quot;&gt;NPP Lecture 1 Review: Intro to Computer Science &amp;amp; Floating-Point Arithmetic&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;Topics: Python basics · standard library · algorithm complexity · computer fundamentals · binary · IEEE-754 floating point&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;hr /&gt;
-&lt;h2 id=&quot;intro-to-computer-science&quot;&gt;第一部分：Intro to Computer Science（上午）&lt;/h2&gt;&lt;h3 id=&quot;1-python&quot;&gt;1. 为什么是 Python？&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;解释型、通用目的编程语言，流行且就业需求大。&lt;/li&gt;
-&lt;li&gt;数据科学领域与 R 竞争，拥有庞大的机器学习/深度学习生态。&lt;/li&gt;
-&lt;li&gt;「简单的事容易做，复杂的事不算太难，非常复杂的事也有可能做」。&lt;/li&gt;
+&lt;h2 id=&quot;part-1-intro-to-computer-science-morning&quot;&gt;Part 1: Intro to Computer Science (morning)&lt;/h2&gt;&lt;h3 id=&quot;1-why-python&quot;&gt;1. Why Python?&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;An interpreted, general-purpose programming language; popular and in high demand.&lt;/li&gt;
+&lt;li&gt;Competes with R in the data-science space and has a huge ML/deep-learning ecosystem.&lt;/li&gt;
+&lt;li&gt;&amp;quot;Easy to do simple things, not too hard to do complex things, possible to do really complex things.&amp;quot;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;2-hello-world&quot;&gt;2. Hello World 与命令行&lt;/h3&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;print(&amp;quot;Hello World!&amp;quot;)
+&lt;h3 id=&quot;2-hello-world-and-the-command-line&quot;&gt;2. Hello World and the command line&lt;/h3&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;print(&amp;quot;Hello World!&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;ul&gt;
-&lt;li&gt;保存成 &lt;code&gt;.py&lt;/code&gt; 文件后，在终端用 &lt;code&gt;python scripts/hello_world.py&lt;/code&gt; 运行。&lt;/li&gt;
-&lt;li&gt;Jupyter / IPython 里用 &lt;code&gt;!&lt;/code&gt; 前缀执行命令行、&lt;code&gt;%&lt;/code&gt; 前缀执行 magic 命令；&lt;strong&gt;两者都不能用在纯 Python（&lt;code&gt;.py&lt;/code&gt;）文件里&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;Save it as a &lt;code&gt;.py&lt;/code&gt; file and run it in a terminal with &lt;code&gt;python scripts/hello_world.py&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;In Jupyter/IPython, &lt;code&gt;!&lt;/code&gt; runs a shell command and &lt;code&gt;%&lt;/code&gt; runs a magic command; &lt;strong&gt;neither may be used in a plain Python (&lt;code&gt;.py&lt;/code&gt;) file&lt;/strong&gt;.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;3-standard-library&quot;&gt;3. 强大的标准库（Standard Library）&lt;/h3&gt;&lt;p&gt;Python 的 &lt;code&gt;import&lt;/code&gt; 是最强大的操作，标准库随安装自带，非常丰富：&lt;/p&gt;
+&lt;h3 id=&quot;3-the-powerful-standard-library&quot;&gt;3. The powerful standard library&lt;/h3&gt;&lt;p&gt;The &lt;code&gt;import&lt;/code&gt; statement is Python&#x27;s most powerful operation; the standard library ships with every install:&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-  &lt;th&gt;分类&lt;/th&gt;
-  &lt;th&gt;模块&lt;/th&gt;
-  &lt;th&gt;用途&lt;/th&gt;
+  &lt;th&gt;Category&lt;/th&gt;
+  &lt;th&gt;Module&lt;/th&gt;
+  &lt;th&gt;Purpose&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-  &lt;td&gt;文本处理&lt;/td&gt;
+  &lt;td&gt;Text processing&lt;/td&gt;
   &lt;td&gt;&lt;code&gt;re&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;正则表达式&lt;/td&gt;
+  &lt;td&gt;Regular expressions&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-  &lt;td&gt;文本处理&lt;/td&gt;
+  &lt;td&gt;Text processing&lt;/td&gt;
   &lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;常见字符串操作&lt;/td&gt;
+  &lt;td&gt;Common string operations&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-  &lt;td&gt;数据类型&lt;/td&gt;
+  &lt;td&gt;Data types&lt;/td&gt;
   &lt;td&gt;&lt;code&gt;copy&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;浅拷贝 / 深拷贝&lt;/td&gt;
+  &lt;td&gt;Shallow/deep copy&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-  &lt;td&gt;数据类型&lt;/td&gt;
+  &lt;td&gt;Data types&lt;/td&gt;
   &lt;td&gt;&lt;code&gt;collections&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;容器类型（&lt;code&gt;defaultdict&lt;/code&gt;、&lt;code&gt;namedtuple&lt;/code&gt; 等）&lt;/td&gt;
+  &lt;td&gt;Containers (&lt;code&gt;defaultdict&lt;/code&gt;, &lt;code&gt;namedtuple&lt;/code&gt;, …)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-  &lt;td&gt;数据类型&lt;/td&gt;
+  &lt;td&gt;Data types&lt;/td&gt;
   &lt;td&gt;&lt;code&gt;datetime&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;日期时间&lt;/td&gt;
+  &lt;td&gt;Dates and times&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-  &lt;td&gt;数值/数学&lt;/td&gt;
+  &lt;td&gt;Numeric/math&lt;/td&gt;
   &lt;td&gt;&lt;code&gt;math&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;数学函数&lt;/td&gt;
+  &lt;td&gt;Mathematical functions&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-  &lt;td&gt;数值/数学&lt;/td&gt;
+  &lt;td&gt;Numeric/math&lt;/td&gt;
   &lt;td&gt;&lt;code&gt;random&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;伪随机数&lt;/td&gt;
+  &lt;td&gt;Pseudo-random numbers&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-  &lt;td&gt;数值/数学&lt;/td&gt;
+  &lt;td&gt;Numeric/math&lt;/td&gt;
   &lt;td&gt;&lt;code&gt;decimal&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;十进制定点/浮点运算&lt;/td&gt;
+  &lt;td&gt;Decimal fixed/floating-point arithmetic&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-  &lt;td&gt;数值/数学&lt;/td&gt;
+  &lt;td&gt;Numeric/math&lt;/td&gt;
   &lt;td&gt;&lt;code&gt;fractions&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;有理数&lt;/td&gt;
+  &lt;td&gt;Rational numbers&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-  &lt;td&gt;数值/数学&lt;/td&gt;
+  &lt;td&gt;Numeric/math&lt;/td&gt;
   &lt;td&gt;&lt;code&gt;statistics&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;统计函数&lt;/td&gt;
+  &lt;td&gt;Statistical functions&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-  &lt;td&gt;函数式编程&lt;/td&gt;
+  &lt;td&gt;Functional&lt;/td&gt;
   &lt;td&gt;&lt;code&gt;itertools&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;高效循环迭代器&lt;/td&gt;
+  &lt;td&gt;Efficient looping iterators&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-  &lt;td&gt;函数式编程&lt;/td&gt;
+  &lt;td&gt;Functional&lt;/td&gt;
   &lt;td&gt;&lt;code&gt;functools&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;高阶函数&lt;/td&gt;
+  &lt;td&gt;Higher-order functions&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-  &lt;td&gt;函数式编程&lt;/td&gt;
+  &lt;td&gt;Functional&lt;/td&gt;
   &lt;td&gt;&lt;code&gt;operator&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;运算符作为函数&lt;/td&gt;
+  &lt;td&gt;Operators as functions&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-  &lt;td&gt;文件/目录&lt;/td&gt;
+  &lt;td&gt;Files/dirs&lt;/td&gt;
   &lt;td&gt;&lt;code&gt;os&lt;/code&gt; / &lt;code&gt;glob&lt;/code&gt; / &lt;code&gt;shutil&lt;/code&gt; / &lt;code&gt;tempfile&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;系统接口 / 路径匹配 / 高级文件操作&lt;/td&gt;
+  &lt;td&gt;OS interfaces / path matching / high-level file ops&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-  &lt;td&gt;数据持久化&lt;/td&gt;
+  &lt;td&gt;Persistence&lt;/td&gt;
   &lt;td&gt;&lt;code&gt;pickle&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;对象序列化（存盘）&lt;/td&gt;
+  &lt;td&gt;Object serialization (save to disk)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-  &lt;td&gt;数据持久化&lt;/td&gt;
+  &lt;td&gt;Persistence&lt;/td&gt;
   &lt;td&gt;&lt;code&gt;sqlite3&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;SQLite 数据库接口&lt;/td&gt;
+  &lt;td&gt;SQLite DB interface&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-  &lt;td&gt;文件格式&lt;/td&gt;
+  &lt;td&gt;File formats&lt;/td&gt;
   &lt;td&gt;&lt;code&gt;csv&lt;/code&gt; / &lt;code&gt;json&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;CSV / JSON 读写&lt;/td&gt;
+  &lt;td&gt;CSV / JSON read-write&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-  &lt;td&gt;系统服务&lt;/td&gt;
+  &lt;td&gt;System services&lt;/td&gt;
   &lt;td&gt;&lt;code&gt;sys&lt;/code&gt; / &lt;code&gt;argparse&lt;/code&gt; / &lt;code&gt;time&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;系统参数 / 命令行解析 / 时间&lt;/td&gt;
+  &lt;td&gt;System params / CLI parsing / time&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-  &lt;td&gt;网络/GUI&lt;/td&gt;
+  &lt;td&gt;Net/GUI&lt;/td&gt;
   &lt;td&gt;&lt;code&gt;urllib&lt;/code&gt; / &lt;code&gt;http&lt;/code&gt; / &lt;code&gt;tkinter&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;URL 处理 / HTTP / 基础 GUI&lt;/td&gt;
+  &lt;td&gt;URL handling / HTTP / basic GUI&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h4 id=&quot;re&quot;&gt;正则表达式 &lt;code&gt;re&lt;/code&gt; 速记&lt;/h4&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import re
-re.findall(pattern, text)   # 找所有匹配
-re.search(pattern, text)    # 在任意位置搜索（返回首个匹配）
-re.match(pattern, text)     # 从开头匹配
+&lt;h4 id=&quot;re-quick-reference&quot;&gt;&lt;code&gt;re&lt;/code&gt; quick reference&lt;/h4&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import re
+re.findall(pattern, text)   # all matches
+re.search(pattern, text)    # search anywhere (first match)
+re.match(pattern, text)     # match from the start
 &lt;/code&gt;&lt;/pre&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;.&lt;/code&gt; 匹配任意非换行字符；&lt;code&gt;*&lt;/code&gt; 匹配前一个字符 0 次或多次；&lt;code&gt;\w&lt;/code&gt; 匹配字母数字下划线。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.&lt;/code&gt; matches any non-newline character; &lt;code&gt;*&lt;/code&gt; matches 0+ of the previous; &lt;code&gt;\w&lt;/code&gt; matches word characters.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4 id=&quot;collections&quot;&gt;&lt;code&gt;collections&lt;/code&gt; 例子&lt;/h4&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;from collections import defaultdict, namedtuple
+&lt;h4 id=&quot;collections-examples&quot;&gt;&lt;code&gt;collections&lt;/code&gt; examples&lt;/h4&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;from collections import defaultdict, namedtuple
 
 d = defaultdict(lambda: &amp;quot;not set!&amp;quot;)
 d[&amp;quot;James&amp;quot;]          # -&amp;gt; &amp;quot;not set!&amp;quot;
@@ -153,122 +152,122 @@ Pets = namedtuple(&amp;quot;Pets&amp;quot;, [&amp;quot;cat&amp;quot;, &amp;quot;
 p = Pets(&amp;quot;Tiddles&amp;quot;, dog=&amp;quot;Rover&amp;quot;)
 p.dog               # -&amp;gt; &amp;quot;Rover&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id=&quot;math-numpy&quot;&gt;注意 &lt;code&gt;math&lt;/code&gt; 与 &lt;code&gt;numpy&lt;/code&gt; 不兼容&lt;/h4&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import math, numpy as np
-math.sin(np.pi/6)      # OK，numpy 标量能被 Python 理解
+&lt;h4 id=&quot;math-and-numpy-don-t-always-mix&quot;&gt;&lt;code&gt;math&lt;/code&gt; and &lt;code&gt;numpy&lt;/code&gt; don&#x27;t always mix&lt;/h4&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import math, numpy as np
+math.sin(np.pi/6)      # OK — Python understands numpy scalars
 arr = np.array([0, np.pi/6, np.pi/2])
-np.sin(arr)            # OK，向量化
-math.sin(arr)          # 报错！Python 不认识 numpy 数组
+np.sin(arr)            # OK — vectorized
+math.sin(arr)          # ERROR — Python doesn&#x27;t understand numpy arrays
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&quot;4&quot;&gt;4. 好代码的原则（缩略语）&lt;/h3&gt;&lt;table&gt;
+&lt;h3 id=&quot;4-good-code-principles-acronyms&quot;&gt;4. Good-code principles (acronyms)&lt;/h3&gt;&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-  &lt;th&gt;缩写&lt;/th&gt;
-  &lt;th&gt;全称&lt;/th&gt;
-  &lt;th&gt;含义&lt;/th&gt;
+  &lt;th&gt;Acronym&lt;/th&gt;
+  &lt;th&gt;Expansion&lt;/th&gt;
+  &lt;th&gt;Meaning&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
   &lt;td&gt;DRY&lt;/td&gt;
   &lt;td&gt;Don&#x27;t Repeat Yourself&lt;/td&gt;
-  &lt;td&gt;不要重复自己&lt;/td&gt;
+  &lt;td&gt;Avoid duplication&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
   &lt;td&gt;SOC&lt;/td&gt;
   &lt;td&gt;Separation of Concerns&lt;/td&gt;
-  &lt;td&gt;关注点分离&lt;/td&gt;
+  &lt;td&gt;Keep concerns separate&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
   &lt;td&gt;KISS&lt;/td&gt;
   &lt;td&gt;Keep It Simple, Stupid&lt;/td&gt;
-  &lt;td&gt;保持简单&lt;/td&gt;
+  &lt;td&gt;Stay simple&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
   &lt;td&gt;YAGNI&lt;/td&gt;
   &lt;td&gt;You Ain&#x27;t Gonna Need It&lt;/td&gt;
-  &lt;td&gt;你不会需要它（别过度设计）&lt;/td&gt;
+  &lt;td&gt;Don&#x27;t over-engineer&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&quot;5-big-o&quot;&gt;5. 时间/空间复杂度（Big O）&lt;/h3&gt;&lt;p&gt;把计算机看作「图灵机」：每个算法都是 &lt;strong&gt;空间&lt;/strong&gt;（内存）与 &lt;strong&gt;时间&lt;/strong&gt;（运行时长）两种资源的权衡。&lt;/p&gt;
+&lt;h3 id=&quot;5-time-space-complexity-big-o&quot;&gt;5. Time/space complexity (Big O)&lt;/h3&gt;&lt;p&gt;Think of a computer as a Turing machine: every algorithm is a trade-off between &lt;strong&gt;space&lt;/strong&gt; (memory) and &lt;strong&gt;time&lt;/strong&gt; (runtime).&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;my_max(x)&lt;/code&gt;：遍历一遍找最大值 → 时间随长度 &lt;strong&gt;线性&lt;/strong&gt; 增长，记为 $\mathcal{O}(n)$。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;find_duplicates(x)&lt;/code&gt;：双重循环比较 → &lt;strong&gt;平方&lt;/strong&gt; 增长，$\mathcal{O}(n^2)$。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;permute(x)&lt;/code&gt;：生成所有排列 → 时间与输出空间随长度 &lt;strong&gt;阶乘&lt;/strong&gt; 增长，$\mathcal{O}(n!)$。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;my_max(x)&lt;/code&gt;: one pass to find the max → grows &lt;strong&gt;linearly&lt;/strong&gt;, $\mathcal{O}(n)$.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;find_duplicates(x)&lt;/code&gt;: nested loops → grows &lt;strong&gt;quadratically&lt;/strong&gt;, $\mathcal{O}(n^2)$.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;permute(x)&lt;/code&gt;: generate all permutations → time and output space grow &lt;strong&gt;factorial&lt;/strong&gt;, $\mathcal{O}(n!)$.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;blockquote&gt;
-&lt;p&gt;衡量时用 &lt;code&gt;%timeit&lt;/code&gt;（Jupyter magic）测量运行时间，画 log-log 图看斜率判断复杂度阶。&lt;/p&gt;
+&lt;p&gt;Use &lt;code&gt;%timeit&lt;/code&gt; (Jupyter magic) to measure runtime and a log-log plot to read off the order.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h3 id=&quot;6&quot;&gt;6. 计算机架构与存储层次&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;低层：掺杂硅晶片组成晶体管逻辑电路。&lt;/li&gt;
-&lt;li&gt;存储分层（越往上越快越贵）：CPU 寄存器 → CPU 缓存 → 内存（RAM）→ 硬盘。&lt;/li&gt;
-&lt;li&gt;层级间搬运数据有时间惩罚 → 计算机处理「靠在一起」的数据更快。&lt;/li&gt;
-&lt;li&gt;所有现代计算机都是 &lt;strong&gt;二进制&lt;/strong&gt;：高电压「开」/ 低电压「关」。&lt;/li&gt;
+&lt;h3 id=&quot;6-computer-architecture-and-the-storage-hierarchy&quot;&gt;6. Computer architecture and the storage hierarchy&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Low level: doped silicon wafers form transistors in logic circuits.&lt;/li&gt;
+&lt;li&gt;Storage layers (faster/more expensive at the top): CPU registers → CPU cache → RAM → disk.&lt;/li&gt;
+&lt;li&gt;Moving data between layers costs time → computers are faster on &amp;quot;nearby&amp;quot; data.&lt;/li&gt;
+&lt;li&gt;All modern computers are &lt;strong&gt;binary&lt;/strong&gt;: high voltage = &amp;quot;on&amp;quot;, low voltage = &amp;quot;off&amp;quot;.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;7&quot;&gt;7. 二进制与整数表示&lt;/h3&gt;&lt;h4 id=&quot;section&quot;&gt;正整数&lt;/h4&gt;&lt;p&gt;十进制 $2381$ 按位权展开；二进制 $1001_2 = 1\cdot8+0\cdot4+0\cdot2+1\cdot1 = 9_{10}$。&lt;/p&gt;
+&lt;h3 id=&quot;7-binary-and-integer-representation&quot;&gt;7. Binary and integer representation&lt;/h3&gt;&lt;h4 id=&quot;positive-integers&quot;&gt;Positive integers&lt;/h4&gt;&lt;p&gt;$2381$ expands by place value; binary $1001_2 = 1\cdot8+0\cdot4+0\cdot2+1\cdot1 = 9_{10}$.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;int(&amp;quot;1001&amp;quot;, base=2)   # 9
 bin(9)                # &#x27;0b1001&#x27;
-bin(int(3.5))         # 3  -&amp;gt; 不能 bin(3.5)
+bin(int(3.5))         # 3  -&amp;gt; can&#x27;t do bin(3.5)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;两种存法：&lt;/p&gt;
+&lt;p&gt;Two storage schemes:&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;存「位数 + 数字本身」→ Python 用此法，支持&lt;strong&gt;任意精度整数&lt;/strong&gt;（受内存限制）。&lt;/li&gt;
-&lt;li&gt;固定位数，补前导零 → NumPy 用此法（效率高，配合 C 代码）。&lt;/li&gt;
+&lt;li&gt;Store &amp;quot;how many bits + the number itself&amp;quot; → Python uses this, giving &lt;strong&gt;arbitrary-precision integers&lt;/strong&gt; (bounded by memory).&lt;/li&gt;
+&lt;li&gt;Fixed bit count with leading zeros → NumPy uses this (efficient, interoperable with C).&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h4 id=&quot;integer-overflow&quot;&gt;整数溢出（Integer Overflow）&lt;/h4&gt;&lt;p&gt;固定位数会溢出。8 位无符号整数 &lt;code&gt;11111111&lt;/code&gt;（255）+ 1 会回绕成 0：&lt;/p&gt;
+&lt;h4 id=&quot;integer-overflow&quot;&gt;Integer overflow&lt;/h4&gt;&lt;p&gt;Fixed-width integers overflow. An 8-bit unsigned &lt;code&gt;11111111&lt;/code&gt; (255) + 1 wraps to 0:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import numpy as np
 x = np.array([int(&amp;quot;11111111&amp;quot;, 2)], dtype=np.uint8)   # 255
-(x + 1)[0]   # -&amp;gt; 0（溢出回绕）
+(x + 1)[0]   # -&amp;gt; 0 (overflow wraparound)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id=&quot;two-s-complement&quot;&gt;负数：二补码（Two&#x27;s Complement）&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;方法一（符号位）：最高位当符号位，需要单独的加法/减法电路，复杂。&lt;/li&gt;
-&lt;li&gt;方法二（&lt;strong&gt;二补码&lt;/strong&gt;）：最高位权值取 $-2^{n-1}$。4 位下 $-3 = 1101_2$（$-8+4+1=-3$）。&lt;ul&gt;
-&lt;li&gt;加法和无符号一样：$-3+3 = 1101+0011 = 0000 = 0$。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;取反加一&lt;/strong&gt;即取相反数：$-3=1101 \to 0010+1=0011=3$。&lt;/li&gt;
+&lt;h4 id=&quot;negative-integers-two-s-complement&quot;&gt;Negative integers: two&#x27;s complement&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Option 1 (sign bit): steal the top bit for the sign — needs separate add/subtract circuitry, complicated.&lt;/li&gt;
+&lt;li&gt;Option 2 (&lt;strong&gt;two&#x27;s complement&lt;/strong&gt;): the top bit carries weight $-2^{n-1}$. In 4 bits, $-3 = 1101_2$ ($-8+4+1=-3$).&lt;ul&gt;
+&lt;li&gt;Addition works the same as unsigned: $-3+3 = 1101+0011 = 0000 = 0$.&lt;/li&gt;
+&lt;li&gt;Negate by &lt;strong&gt;flipping all bits and adding 1&lt;/strong&gt;: $-3=1101 \to 0010+1=0011=3$.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;np.binary_repr(3, width=4)    # &#x27;0011&#x27;
 np.binary_repr(-3, width=4)   # &#x27;1101&#x27;
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&quot;8&quot;&gt;8. 字符与文本编码&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;计算机只能存二进制，字符需&lt;strong&gt;编码&lt;/strong&gt;成数字。&lt;/li&gt;
-&lt;li&gt;最著名的编码：ASCII（American Standard Code for Information Interchange）。&lt;/li&gt;
-&lt;li&gt;Python 3 默认 Unicode（&lt;code&gt;utf-8&lt;/code&gt;），覆盖世界上绝大多数语言的字符。&lt;/li&gt;
-&lt;li&gt;文本存为「码点（code point）」序列，还需存长度/结束位置。&lt;/li&gt;
+&lt;h3 id=&quot;8-characters-and-text-encoding&quot;&gt;8. Characters and text encoding&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Computers store only binary, so characters must be &lt;strong&gt;encoded&lt;/strong&gt; as numbers.&lt;/li&gt;
+&lt;li&gt;The most famous encoding is ASCII (American Standard Code for Information Interchange).&lt;/li&gt;
+&lt;li&gt;Python 3 defaults to Unicode (&lt;code&gt;utf-8&lt;/code&gt;), covering nearly every world language.&lt;/li&gt;
+&lt;li&gt;Text is stored as a sequence of code points, plus its length/end position.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr /&gt;
-&lt;h2 id=&quot;floating-point&quot;&gt;第二部分：浮点数运算 Floating Point（下午）&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;核心悬念：为什么 $0.1 + 0.2 \ne 0.3$？&lt;/p&gt;
+&lt;h2 id=&quot;part-2-floating-point-arithmetic-afternoon&quot;&gt;Part 2: Floating-point arithmetic (afternoon)&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;The core mystery: why is $0.1 + 0.2 \ne 0.3$?&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h3 id=&quot;9-ieee-754&quot;&gt;9. IEEE-754 标准&lt;/h3&gt;&lt;p&gt;1985 年 IEEE 制定的浮点标准，解决各厂商表示不一致的问题（此前 $a+b$ 在不同机器结果不同）。&lt;/p&gt;
-&lt;p&gt;任意非零实数 $x$ 可写为（归一化二进制科学计数法）：&lt;/p&gt;
+&lt;h3 id=&quot;9-the-ieee-754-standard&quot;&gt;9. The IEEE-754 standard&lt;/h3&gt;&lt;p&gt;Established in 1985 by the IEEE to fix inconsistencies between manufacturers (previously $a+b$ differed across machines).&lt;/p&gt;
+&lt;p&gt;Any non-zero real $x$ can be written in normalised binary scientific notation:&lt;/p&gt;
 &lt;p&gt;$$x = (-1)^{s} \times (1.f)_{2} \times 2^{e-\text{bias}}$$&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;sign&lt;/strong&gt; 符号位 $s$：1 位。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;exponent&lt;/strong&gt; 指数 $e$：单精度 8 位，双精度 11 位（存的是加 bias 后的值）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;mantissa&lt;/strong&gt;（尾数/significand）$f$：单精度 23 位，双精度 52 位；&lt;strong&gt;前导 1 隐式不存&lt;/strong&gt;，所以有效位多 1 位。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;sign&lt;/strong&gt; $s$: 1 bit.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;exponent&lt;/strong&gt; $e$: 8 bits (single) or 11 bits (double) — stored with a bias added.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;mantissa&lt;/strong&gt; (significand) $f$: 23 bits (single) or 52 bits (double); the leading 1 is &lt;strong&gt;implicit&lt;/strong&gt; (not stored), so precision is one bit more.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-  &lt;th&gt;精度&lt;/th&gt;
-  &lt;th&gt;总位数&lt;/th&gt;
-  &lt;th&gt;符号&lt;/th&gt;
-  &lt;th&gt;指数&lt;/th&gt;
-  &lt;th&gt;尾数&lt;/th&gt;
+  &lt;th&gt;Precision&lt;/th&gt;
+  &lt;th&gt;Total bits&lt;/th&gt;
+  &lt;th&gt;Sign&lt;/th&gt;
+  &lt;th&gt;Exponent&lt;/th&gt;
+  &lt;th&gt;Mantissa&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-  &lt;td&gt;single（单精度，&lt;code&gt;float32&lt;/code&gt;）&lt;/td&gt;
+  &lt;td&gt;single (&lt;code&gt;float32&lt;/code&gt;)&lt;/td&gt;
   &lt;td&gt;32&lt;/td&gt;
   &lt;td&gt;1&lt;/td&gt;
   &lt;td&gt;8&lt;/td&gt;
   &lt;td&gt;23&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-  &lt;td&gt;double（双精度，&lt;code&gt;float64&lt;/code&gt;）&lt;/td&gt;
+  &lt;td&gt;double (&lt;code&gt;float64&lt;/code&gt;)&lt;/td&gt;
   &lt;td&gt;64&lt;/td&gt;
   &lt;td&gt;1&lt;/td&gt;
   &lt;td&gt;11&lt;/td&gt;
@@ -284,438 +283,436 @@ np.binary_repr(-3, width=4)   # &#x27;1101&#x27;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;不用死记&lt;/strong&gt;，用 &lt;code&gt;np.finfo()&lt;/code&gt; 查。&lt;/p&gt;
+&lt;p&gt;Don&#x27;t memorise — query &lt;code&gt;np.finfo()&lt;/code&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h4 id=&quot;32&quot;&gt;单精度（32 位）&lt;/h4&gt;&lt;p&gt;$$x = (-1)^s \times (1.f)_2 \times 2^{e-127}$$&lt;/p&gt;
+&lt;h4 id=&quot;single-precision-32-bit&quot;&gt;Single precision (32-bit)&lt;/h4&gt;&lt;p&gt;$$x = (-1)^s \times (1.f)_2 \times 2^{e-127}$$&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;指数 $e$：$0 &amp;lt; e &amp;lt; 255$；$e=0$ 保留给 $\pm0$ 与&lt;strong&gt;次正规数&lt;/strong&gt;（subnormal），$e=255$ 保留给 $\pm\infty$ 与 NaN。bias = 127，故 $2^{-126}\le$ 指数 $\le 2^{127}$。&lt;/li&gt;
-&lt;li&gt;尾数 $m=1.f$：$1 \le m \le 2 - 2^{-23}$。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;最大数&lt;/strong&gt; $\approx (2-2^{-23})\cdot 2^{127} \approx 2^{128} \approx 3.4\times10^{38}$。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;最小正正规数&lt;/strong&gt; $= 2^{-126} \approx 1.18\times10^{-38}$；次正规数可到 $2^{-149}\approx1.4\times10^{-45}$（牺牲精度）。&lt;/li&gt;
+&lt;li&gt;Exponent $e$: $0 &amp;lt; e &amp;lt; 255$; $e=0$ is reserved for $\pm0$ and &lt;strong&gt;subnormals&lt;/strong&gt;, $e=255$ for $\pm\infty$ and NaN. Bias = 127, so the true exponent ranges $2^{-126}$ to $2^{127}$.&lt;/li&gt;
+&lt;li&gt;Mantissa $m=1.f$: $1 \le m \le 2 - 2^{-23}$.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Largest number&lt;/strong&gt; $\approx (2-2^{-23})\cdot 2^{127} \approx 2^{128} \approx 3.4\times10^{38}$.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Smallest positive normal&lt;/strong&gt; $= 2^{-126} \approx 1.18\times10^{-38}$; subnormals reach $2^{-149}\approx1.4\times10^{-45}$ (at the cost of precision).&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4 id=&quot;64&quot;&gt;双精度（64 位）&lt;/h4&gt;&lt;p&gt;$$x = (-1)^s \times (1.f)_2 \times 2^{e-1023}$$&lt;/p&gt;
+&lt;h4 id=&quot;double-precision-64-bit&quot;&gt;Double precision (64-bit)&lt;/h4&gt;&lt;p&gt;$$x = (-1)^s \times (1.f)_2 \times 2^{e-1023}$$&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;指数 11 位，bias = 1023；尾数 52 位。&lt;/li&gt;
-&lt;li&gt;最大数 $\approx 2^{1024} \approx 1.8\times10^{308}$；最小正正规数 $\approx 2^{-1022}\approx2.2\times10^{-308}$；次正规数到 $2^{-1074}\approx4.9\times10^{-324}$。&lt;/li&gt;
+&lt;li&gt;11-bit exponent, bias = 1023; 52-bit mantissa.&lt;/li&gt;
+&lt;li&gt;Largest $\approx 2^{1024} \approx 1.8\times10^{308}$; smallest positive normal $\approx 2^{-1022}\approx2.2\times10^{-308}$; subnormals to $2^{-1074}\approx4.9\times10^{-324}$.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4 id=&quot;machine-epsilon&quot;&gt;机器精度 ε（Machine Epsilon）&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;机器数（machine number）&lt;/strong&gt;：能精确表示的有限个实数；$x$ 对应的机器数记为 $\mathrm{fl}(x)$。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;机器 ε&lt;/strong&gt;：$1$ 与下一个更大机器数之间的距离。&lt;ul&gt;
-&lt;li&gt;单精度：$\epsilon = 2^{-23} \approx 1.19\times10^{-7}$。&lt;/li&gt;
-&lt;li&gt;双精度：$\epsilon = 2^{-52} \approx 2.22\times10^{-16}$。&lt;/li&gt;
+&lt;h4 id=&quot;machine-epsilon&quot;&gt;Machine epsilon ε&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Machine numbers&lt;/strong&gt;: the finite set of exactly representable reals; the machine number for $x$ is $\mathrm{fl}(x)$.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Machine ε&lt;/strong&gt;: the distance between $1$ and the next larger machine number.&lt;ul&gt;
+&lt;li&gt;Single: $\epsilon = 2^{-23} \approx 1.19\times10^{-7}$.&lt;/li&gt;
+&lt;li&gt;Double: $\epsilon = 2^{-52} \approx 2.22\times10^{-16}$.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;因为四舍五入到&lt;strong&gt;最近&lt;/strong&gt;机器数，$x &amp;gt; \epsilon/2$ 时 $\mathrm{fl}(1+x)\ne1$ 就成立。&lt;/li&gt;
+&lt;li&gt;Because we round to the &lt;strong&gt;nearest&lt;/strong&gt; machine number, $\mathrm{fl}(1+x)\ne1$ as soon as $x &amp;gt; \epsilon/2$.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4 id=&quot;section-2&quot;&gt;精度与分辨率&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;单精度 23 位尾数 → $\log_{10}(2^{23})\approx6.9$，可靠 &lt;strong&gt;6 位&lt;/strong&gt;有效数字，分辨率 $10^{-6}$。&lt;/li&gt;
-&lt;li&gt;双精度 52 位尾数 → $\log_{10}(2^{52})\approx15.65$，可靠 &lt;strong&gt;15 位&lt;/strong&gt;有效数字，分辨率 $10^{-15}$。&lt;/li&gt;
+&lt;h4 id=&quot;precision-and-resolution&quot;&gt;Precision and resolution&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Single: 23 mantissa bits → $\log_{10}(2^{23})\approx6.9$, i.e. &lt;strong&gt;6&lt;/strong&gt; reliable significant digits, resolution $10^{-6}$.&lt;/li&gt;
+&lt;li&gt;Double: 52 mantissa bits → $\log_{10}(2^{52})\approx15.65$, i.e. &lt;strong&gt;15&lt;/strong&gt; reliable significant digits, resolution $10^{-15}$.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import numpy as np
 f = np.finfo(np.float64)
-print(f.bits, f.nmant, f.nexp)   # 位数/尾数位/指数位
-print(f.max, f.tiny, f.eps)      # 最大数/最小正正规数/机器ε
-print(f.precision, f.resolution) # 精度/分辨率
+print(f.bits, f.nmant, f.nexp)   # total / mantissa / exponent bits
+print(f.max, f.tiny, f.eps)      # largest / smallest normal / machine epsilon
+print(f.precision, f.resolution)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&quot;10&quot;&gt;10. 舍入、上溢与下溢&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;每次运算结果都会舍入：$\mathrm{fl}(\mathrm{fl}(a)+\mathrm{fl}(b))$。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;下溢（underflow）&lt;/strong&gt;：小于最小正规数的数先掉精度（次正规数），最终被舍入为 0。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;上溢（overflow）&lt;/strong&gt;：IEEE-754 默认给 $\pm\infty$（如 &lt;code&gt;1e308 * 10&lt;/code&gt; → &lt;code&gt;inf&lt;/code&gt;）；某些操作抛 &lt;code&gt;OverflowError&lt;/code&gt;（如 &lt;code&gt;2.0**10000&lt;/code&gt;、&lt;code&gt;math.exp(1000)&lt;/code&gt;）。&lt;/li&gt;
+&lt;h3 id=&quot;10-rounding-overflow-and-underflow&quot;&gt;10. Rounding, overflow and underflow&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Every operation rounds: $\mathrm{fl}(\mathrm{fl}(a)+\mathrm{fl}(b))$.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Underflow&lt;/strong&gt;: numbers below the smallest normal first lose precision (subnormals) and eventually round to zero.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Overflow&lt;/strong&gt;: IEEE-754 default is $\pm\infty$ (e.g. &lt;code&gt;1e308 * 10&lt;/code&gt; → &lt;code&gt;inf&lt;/code&gt;); some operations raise &lt;code&gt;OverflowError&lt;/code&gt; (e.g. &lt;code&gt;2.0**10000&lt;/code&gt;, &lt;code&gt;math.exp(1000)&lt;/code&gt;).&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;11-surprises&quot;&gt;11. 五大「惊喜」（Surprises）—— 必须理解&lt;/h3&gt;&lt;h4 id=&quot;surprise-1-1-x-ne-1&quot;&gt;Surprise 1：$1 + x \ne 1$ 却不成立&lt;/h4&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;x = 1e-16
+&lt;h3 id=&quot;11-the-five-quot-surprises-quot-must-understand&quot;&gt;11. The five &amp;quot;surprises&amp;quot; — must understand&lt;/h3&gt;&lt;h4 id=&quot;surprise-1-1-x-ne-1-does-not-hold&quot;&gt;Surprise 1: $1 + x \ne 1$ does not hold&lt;/h4&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;x = 1e-16
 print(1 + x != 1)   # False
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;原因：$x=10^{-16} &amp;lt; \epsilon/2\approx1.11\times10^{-16}$，$1+x$ 更接近机器数 $1$，被舍入成 1。若 $x=2\times10^{-16}$（$&amp;gt;\epsilon/2$ 但 $&amp;lt;\epsilon$），则 &lt;code&gt;1 + x != 1&lt;/code&gt; 为 True。&lt;/p&gt;
-&lt;h4 id=&quot;surprise-2-0-1-0-2-ne0-3&quot;&gt;Surprise 2：$0.1+0.2\ne0.3$&lt;/h4&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;print(0.1 + 0.2 == 0.3)   # False
+&lt;p&gt;Reason: $x=10^{-16} &amp;lt; \epsilon/2\approx1.11\times10^{-16}$, so $1+x$ rounds back to machine number $1$. With $x=2\times10^{-16}$ ($&amp;gt;\epsilon/2$ but $&amp;lt;\epsilon$), &lt;code&gt;1 + x != 1&lt;/code&gt; is True.&lt;/p&gt;
+&lt;h4 id=&quot;surprise-2-0-1-0-2-ne0-3&quot;&gt;Surprise 2: $0.1+0.2\ne0.3$&lt;/h4&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;print(0.1 + 0.2 == 0.3)   # False
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;原因：十进制有限小数未必是二进制有限小数。$(0.1)_{10}=(0.0001100110011\ldots)_2$，像十进制里的 $0.3333\ldots$。&lt;code&gt;fl(0.1)+fl(0.2)&lt;/code&gt; 的结果舍入后不等于 &lt;code&gt;fl(0.3)&lt;/code&gt;。&lt;/p&gt;
-&lt;h4 id=&quot;surprise-3&quot;&gt;Surprise 3：结合律不成立&lt;/h4&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;a, b, c = 1e16, -1e16, 1.0
+&lt;p&gt;Reason: a finite decimal may not be finite in binary. $(0.1)_{10}=(0.0001100110011\ldots)_2$, like $0.3333\ldots$ in decimal. &lt;code&gt;fl(0.1)+fl(0.2)&lt;/code&gt; rounds to something other than &lt;code&gt;fl(0.3)&lt;/code&gt;.&lt;/p&gt;
+&lt;h4 id=&quot;surprise-3-associativity-fails&quot;&gt;Surprise 3: associativity fails&lt;/h4&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;a, b, c = 1e16, -1e16, 1.0
 print((a+b)+c == a+(b+c))   # False
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;原因：每次运算都舍入。$(a+b)+c = 0+1 = 1$，而 $a+(b+c)=1e16 + (-1e16)$，$b+c$ 舍入回 $-1e16$，结果是 0。机器数在数轴上&lt;strong&gt;不均匀分布&lt;/strong&gt;（越大越稀疏）。&lt;/p&gt;
-&lt;h4 id=&quot;surprise-4-catastrophic-cancellation&quot;&gt;Surprise 4：灾难性消去（Catastrophic Cancellation）&lt;/h4&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;a, b = 1.0000001, 1.0000000
+&lt;p&gt;Reason: every operation rounds. $(a+b)+c = 0+1 = 1$, but $a+(b+c)=1e16+(-1e16)$; $b+c$ rounds back to $-1e16$, giving 0. Machine numbers are &lt;strong&gt;not evenly spaced&lt;/strong&gt; (sparser for larger magnitudes).&lt;/p&gt;
+&lt;h4 id=&quot;surprise-4-catastrophic-cancellation&quot;&gt;Surprise 4: catastrophic cancellation&lt;/h4&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;a, b = 1.0000001, 1.0000000
 print(a - b == 1e-7)   # False
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;原因：两个接近相等的数相减。$\mathrm{fl}(1.0000001)$ 本身带极小的舍入误差，减法本身是精确的（Sterbenz 引理），但前导的 &lt;code&gt;1.000000&lt;/code&gt; 抵消后，绝对误差不变而结果变小 $10^7$ 倍，&lt;strong&gt;相对误差被放大约 $10^7$ 倍&lt;/strong&gt;。一般地：&lt;/p&gt;
-&lt;p&gt;$$\text{相对误差}\lesssim\frac{|a|+|b|}{|a-b|}\cdot\frac{\epsilon}{2}$$&lt;/p&gt;
+&lt;p&gt;Reason: subtracting two nearly-equal numbers. $\mathrm{fl}(1.0000001)$ carries a tiny rounding error; the subtraction itself is exact (Sterbenz lemma), but the leading &lt;code&gt;1.000000&lt;/code&gt; cancels, so the absolute error stays while the result shrinks $10^7\times$ — the &lt;strong&gt;relative error is amplified about $10^7\times$&lt;/strong&gt;. In general:&lt;/p&gt;
+&lt;p&gt;$$\text{relative error}\lesssim\frac{|a|+|b|}{|a-b|}\cdot\frac{\epsilon}{2}$$&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;减法不产生误差，而是&lt;strong&gt;暴露&lt;/strong&gt; $a,b$ 里已有的舍入误差；$a,b$ 越接近放大越严重。&lt;/li&gt;
-&lt;li&gt;对策：改写公式避免相近数相减，如 $\sqrt{x+1}-\sqrt{x}=\dfrac{1}{\sqrt{x+1}+\sqrt{x}}$。&lt;/li&gt;
+&lt;li&gt;Subtraction doesn&#x27;t create error — it &lt;strong&gt;exposes&lt;/strong&gt; the rounding errors already in $a,b$; the closer they are, the worse the amplification.&lt;/li&gt;
+&lt;li&gt;Remedy: rewrite formulas to avoid subtracting nearly-equal numbers, e.g. $\sqrt{x+1}-\sqrt{x}=\dfrac{1}{\sqrt{x+1}+\sqrt{x}}$.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4 id=&quot;surprise-5&quot;&gt;Surprise 5：累加误差&lt;/h4&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;a, b = 100, 0.1
+&lt;h4 id=&quot;surprise-5-accumulated-error&quot;&gt;Surprise 5: accumulated error&lt;/h4&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;a, b = 100, 0.1
 s = 0
 for _ in range(a):
     s += b
 print(a * b == s)   # False
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;原因：&lt;code&gt;fl(0.1)&lt;/code&gt; 的误差在 100 次迭代中不断累积。&lt;/p&gt;
-&lt;h3 id=&quot;12-take-home-message&quot;&gt;12. 结论（Take-home Message）&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;永远不要用 &lt;code&gt;==&lt;/code&gt; 比较浮点数！&lt;/strong&gt; 改用：&lt;/p&gt;
+&lt;p&gt;Reason: the error in &lt;code&gt;fl(0.1)&lt;/code&gt; accumulates over 100 iterations.&lt;/p&gt;
+&lt;h3 id=&quot;12-take-home-message&quot;&gt;12. Take-home message&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Never compare floats with &lt;code&gt;==&lt;/code&gt;!&lt;/strong&gt; Use&lt;/p&gt;
 &lt;p&gt;$$|a-b|&amp;lt;\text{tol}$$&lt;/p&gt;
-&lt;p&gt;或直接：&lt;/p&gt;
+&lt;p&gt;or simply:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;np.isclose(0.1+0.2, 0.3, atol=1e-15, rtol=1e-5)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&quot;13&quot;&gt;13. 配套练习要点&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;dec2bin&lt;/strong&gt;：整数部分除 2 取余倒序；小数部分乘 2 取整，最多 &lt;code&gt;max_fractional_digits&lt;/code&gt; 位（52）防止死循环。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;机器数计数&lt;/strong&gt;：用 &lt;code&gt;itertools.product&lt;/code&gt; 枚举所有位组合，去重后计数。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;IEEE-754 编码/解码&lt;/strong&gt;：给定十进制数求 32/64 位位串，或反过来由位串还原十进制（sign + exponent + mantissa 三段拼接）。&lt;/li&gt;
+&lt;h3 id=&quot;13-companion-exercises&quot;&gt;13. Companion exercises&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;dec2bin&lt;/strong&gt;: integer part — repeated division by 2 (remainders reversed); fractional part — repeated multiplication by 2 (take the integer part), capped at &lt;code&gt;max_fractional_digits&lt;/code&gt; (52) to avoid infinite loops.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Counting machine numbers&lt;/strong&gt;: use &lt;code&gt;itertools.product&lt;/code&gt; to enumerate all bit combinations, then deduplicate and count.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;IEEE-754 encode/decode&lt;/strong&gt;: convert a decimal to its 32/64-bit string, or a bit string back to decimal (sign + exponent + mantissa concatenation).&lt;/li&gt;
 &lt;/ol&gt;
 </description>
     </item>
 <item>
-        <title>NPP Lecture 2 复习：NumPy 与 Pandas</title>
+        <title>NPP Lecture 2 Review: NumPy & Pandas</title>
         <link>https://ada-c38f0bb79f.github.io/p/npp-lecture2-review/</link>
         <pubDate>Thu, 08 Oct 2026 10:00:00 +0800</pubDate>
         
         <guid>https://ada-c38f0bb79f.github.io/p/npp-lecture2-review/</guid>
-        <description>&lt;h1 id=&quot;lecture-2-numpy-amp-pandas&quot;&gt;Lecture 2 复习：NumPy &amp;amp; Pandas&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;主题：NumPy 数组 · 向量化运算 · 广播 · Pandas Series/DataFrame · 数据清洗 · 分组聚合 · 合并 · 时间序列
-讲师：Dr. Marijan Beg（上午 NumPy）· Dr. Simon Warder（下午 Pandas）&lt;/p&gt;
+        <description>&lt;h1 id=&quot;npp-lecture-2-review-numpy-amp-pandas&quot;&gt;NPP Lecture 2 Review: NumPy &amp;amp; Pandas&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;Topics: NumPy arrays · vectorised operations · broadcasting · Pandas Series/DataFrame · data cleaning · groupby · merging · time series&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;hr /&gt;
-&lt;h2 id=&quot;numpy&quot;&gt;第一部分：NumPy&lt;/h2&gt;&lt;h3 id=&quot;1&quot;&gt;1. 导入约定与陷阱&lt;/h3&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import numpy as np            # 惯例缩写
-from numpy import *           # ❌ 危险：会覆盖 sum/max 等内置函数
+&lt;h2 id=&quot;part-1-numpy&quot;&gt;Part 1: NumPy&lt;/h2&gt;&lt;h3 id=&quot;1-import-conventions-and-pitfalls&quot;&gt;1. Import conventions and pitfalls&lt;/h3&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import numpy as np            # conventional alias
+from numpy import *           # ❌ dangerous — overwrites builtins like sum/max
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&quot;2-ndarray&quot;&gt;2. 核心概念：&lt;code&gt;ndarray&lt;/code&gt;&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;NumPy 最基本对象。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;list vs array&lt;/strong&gt;：list 存「指向对象的指针」，array 连续存「值」，所以 array 更快更省内存。&lt;/li&gt;
-&lt;li&gt;不用内置 &lt;code&gt;array&lt;/code&gt; 模块：只支持一维、类型定义不灵活。&lt;/li&gt;
+&lt;h3 id=&quot;2-core-concept-ndarray&quot;&gt;2. Core concept: &lt;code&gt;ndarray&lt;/code&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;NumPy&#x27;s fundamental object.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;list vs array&lt;/strong&gt;: a list stores pointers to objects, an array stores values contiguously — arrays are faster and use less memory.&lt;/li&gt;
+&lt;li&gt;Don&#x27;t use the built-in &lt;code&gt;array&lt;/code&gt; module: only 1-D and inflexible types.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;3&quot;&gt;3. 创建数组&lt;/h3&gt;&lt;table&gt;
+&lt;h3 id=&quot;3-creating-arrays&quot;&gt;3. Creating arrays&lt;/h3&gt;&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-  &lt;th&gt;方法&lt;/th&gt;
-  &lt;th&gt;例子&lt;/th&gt;
-  &lt;th&gt;说明&lt;/th&gt;
+  &lt;th&gt;Method&lt;/th&gt;
+  &lt;th&gt;Example&lt;/th&gt;
+  &lt;th&gt;Notes&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
   &lt;td&gt;&lt;code&gt;np.array&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;&lt;code&gt;np.array([1,2,3])&lt;/code&gt;；&lt;code&gt;np.array([[1,2],[3,4]])&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;从 list 建；同层维度长度须一致&lt;/td&gt;
+  &lt;td&gt;&lt;code&gt;np.array([1,2,3])&lt;/code&gt;; &lt;code&gt;np.array([[1,2],[3,4]])&lt;/code&gt;&lt;/td&gt;
+  &lt;td&gt;from lists; same-depth lengths must match&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
   &lt;td&gt;&lt;code&gt;np.zeros&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;&lt;code&gt;np.zeros(3)&lt;/code&gt;；&lt;code&gt;np.zeros((3,3))&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;全 0&lt;/td&gt;
+  &lt;td&gt;&lt;code&gt;np.zeros(3)&lt;/code&gt;; &lt;code&gt;np.zeros((3,3))&lt;/code&gt;&lt;/td&gt;
+  &lt;td&gt;all zeros&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
   &lt;td&gt;&lt;code&gt;np.ones&lt;/code&gt;&lt;/td&gt;
   &lt;td&gt;&lt;code&gt;np.ones((3,3))&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;全 1&lt;/td&gt;
+  &lt;td&gt;all ones&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
   &lt;td&gt;&lt;code&gt;np.full&lt;/code&gt;&lt;/td&gt;
   &lt;td&gt;&lt;code&gt;np.full(shape, value)&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;填指定值&lt;/td&gt;
+  &lt;td&gt;fill a value&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
   &lt;td&gt;&lt;code&gt;np.arange&lt;/code&gt;&lt;/td&gt;
   &lt;td&gt;&lt;code&gt;np.arange(start, stop, step)&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;&lt;strong&gt;不含终点&lt;/strong&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;strong&gt;excludes&lt;/strong&gt; stop&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
   &lt;td&gt;&lt;code&gt;np.linspace&lt;/code&gt;&lt;/td&gt;
   &lt;td&gt;&lt;code&gt;np.linspace(0,10,6)&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;指定点数，&lt;strong&gt;含终点&lt;/strong&gt;&lt;/td&gt;
+  &lt;td&gt;fixed count, &lt;strong&gt;includes&lt;/strong&gt; stop&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
   &lt;td&gt;&lt;code&gt;np.eye&lt;/code&gt;&lt;/td&gt;
   &lt;td&gt;&lt;code&gt;np.eye(3)&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;单位矩阵&lt;/td&gt;
+  &lt;td&gt;identity matrix&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&quot;4&quot;&gt;4. 数组属性&lt;/h3&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;a = np.eye(3)
-a.ndim      # 2   维度数
-a.shape     # (3,3) 各维度大小
-a.size      # 9   = np.prod(shape) 元素总数
-a.nbytes    # 72  = 9 × 8 字节 占用内存
-a.dtype     # float64 元素类型
+&lt;h3 id=&quot;4-array-attributes&quot;&gt;4. Array attributes&lt;/h3&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;a = np.eye(3)
+a.ndim      # 2      number of dimensions
+a.shape     # (3,3)  size of each dimension
+a.size      # 9      = np.prod(shape)
+a.nbytes    # 72     = 9 × 8 bytes
+a.dtype     # float64
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&quot;5&quot;&gt;5. 形状变换&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;.reshape(4,3)&lt;/code&gt; / &lt;code&gt;.reshape(3,-1)&lt;/code&gt;：改形状，&lt;code&gt;size&lt;/code&gt; 不变；&lt;code&gt;-1&lt;/code&gt; 自动推断且&lt;strong&gt;只能出现一次&lt;/strong&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;.ravel()&lt;/code&gt; / &lt;code&gt;.flatten()&lt;/code&gt;：展平成 1D（&lt;code&gt;order=&amp;quot;K&amp;quot;&lt;/code&gt; 按内存存储顺序）。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;.T&lt;/code&gt;：转置。&lt;/li&gt;
-&lt;li&gt;1D 向量：&lt;code&gt;np.matmul(arr1,arr2)&lt;/code&gt; 与 &lt;code&gt;np.matmul(arr2,arr1)&lt;/code&gt; 可能不同（行/列向量不严格区分）。&lt;/li&gt;
+&lt;h3 id=&quot;5-shape-manipulation&quot;&gt;5. Shape manipulation&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;.reshape(4,3)&lt;/code&gt; / &lt;code&gt;.reshape(3,-1)&lt;/code&gt;: change shape, &lt;code&gt;size&lt;/code&gt; unchanged; &lt;code&gt;-1&lt;/code&gt; is inferred and &lt;strong&gt;may appear only once&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.ravel()&lt;/code&gt; / &lt;code&gt;.flatten()&lt;/code&gt;: flatten to 1-D (&lt;code&gt;order=&amp;quot;K&amp;quot;&lt;/code&gt; follows memory order).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.T&lt;/code&gt;: transpose.&lt;/li&gt;
+&lt;li&gt;1-D vectors: &lt;code&gt;np.matmul(a,b)&lt;/code&gt; and &lt;code&gt;np.matmul(b,a)&lt;/code&gt; may differ (row/column not strictly distinguished).&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;6-dtype&quot;&gt;6. 类型（dtype）&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;自动推断：&lt;code&gt;[1,2.5,3]&lt;/code&gt;→float；&lt;code&gt;[1,2,&amp;quot;Hi&amp;quot;]&lt;/code&gt;→str。&lt;/li&gt;
-&lt;li&gt;指定类型：&lt;code&gt;np.array([...], dtype=np.int32)&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;陷阱&lt;/strong&gt;：&lt;code&gt;int_arr[1] = 3.5&lt;/code&gt; 会被&lt;strong&gt;截断为整数&lt;/strong&gt;，不报错。&lt;/li&gt;
+&lt;h3 id=&quot;6-types-dtype&quot;&gt;6. Types (dtype)&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Inferred: &lt;code&gt;[1,2.5,3]&lt;/code&gt; → float; &lt;code&gt;[1,2,&amp;quot;Hi&amp;quot;]&lt;/code&gt; → str.&lt;/li&gt;
+&lt;li&gt;Explicit: &lt;code&gt;np.array([...], dtype=np.int32)&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Pitfall&lt;/strong&gt;: &lt;code&gt;int_arr[1] = 3.5&lt;/code&gt; silently &lt;strong&gt;truncates&lt;/strong&gt; to an integer (no error).&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;7&quot;&gt;7. 运算与广播&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;逐元素运算符 &lt;code&gt;+ - * / ** %&lt;/code&gt;（对应 &lt;code&gt;np.add/subtract/multiply/divide/power/mod&lt;/code&gt;）。&lt;/li&gt;
-&lt;li&gt;矩阵乘法：&lt;code&gt;@&lt;/code&gt; / &lt;code&gt;np.matmul&lt;/code&gt; / &lt;code&gt;np.dot&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;广播（broadcasting）&lt;/strong&gt;：不同形状数组可运算，小数组广播到大数组（至少一维兼容）。&lt;/li&gt;
+&lt;h3 id=&quot;7-operations-and-broadcasting&quot;&gt;7. Operations and broadcasting&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Element-wise operators &lt;code&gt;+ - * / ** %&lt;/code&gt; (map to &lt;code&gt;np.add/subtract/multiply/divide/power/mod&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;Matrix multiplication: &lt;code&gt;@&lt;/code&gt; / &lt;code&gt;np.matmul&lt;/code&gt; / &lt;code&gt;np.dot&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Broadcasting&lt;/strong&gt;: arrays of different shapes can operate; the smaller is broadcast to the larger (at least one dimension compatible).&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;8&quot;&gt;8. 索引与切片&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;多维索引 &lt;code&gt;arr[0,0]&lt;/code&gt;；多维切片 &lt;code&gt;arr[1:3,1:6:2]&lt;/code&gt;（等价 &lt;code&gt;arr[slice(1,3), slice(1,6,2)]&lt;/code&gt;）。&lt;/li&gt;
-&lt;li&gt;切片赋值 &lt;code&gt;arr[1:3,1:3]=0&lt;/code&gt; 按广播规则。&lt;/li&gt;
-&lt;li&gt;⚠️ &lt;strong&gt;视图陷阱&lt;/strong&gt;：&lt;code&gt;new_arr = old_arr[1:3,1:3]&lt;/code&gt; 是&lt;strong&gt;视图（view）&lt;/strong&gt;，改 new 会改 old；用 &lt;code&gt;.copy()&lt;/code&gt; 避免。&lt;/li&gt;
-&lt;li&gt;布尔索引：&lt;code&gt;arr[arr&amp;gt;5]&lt;/code&gt;；&lt;code&gt;arr[arr%3==0]=-1&lt;/code&gt;。&lt;/li&gt;
+&lt;h3 id=&quot;8-indexing-and-slicing&quot;&gt;8. Indexing and slicing&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Multi-dim index &lt;code&gt;arr[0,0]&lt;/code&gt;; multi-dim slice &lt;code&gt;arr[1:3,1:6:2]&lt;/code&gt; (== &lt;code&gt;arr[slice(1,3), slice(1,6,2)]&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;Slice assignment &lt;code&gt;arr[1:3,1:3]=0&lt;/code&gt; follows broadcasting.&lt;/li&gt;
+&lt;li&gt;⚠️ &lt;strong&gt;View pitfall&lt;/strong&gt;: &lt;code&gt;new = old[1:3,1:3]&lt;/code&gt; is a &lt;strong&gt;view&lt;/strong&gt; — mutating &lt;code&gt;new&lt;/code&gt; mutates &lt;code&gt;old&lt;/code&gt;; use &lt;code&gt;.copy()&lt;/code&gt; to avoid.&lt;/li&gt;
+&lt;li&gt;Boolean indexing: &lt;code&gt;arr[arr&amp;gt;5]&lt;/code&gt;; &lt;code&gt;arr[arr%3==0]=-1&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;9-np-linalg&quot;&gt;9. 线性代数（&lt;code&gt;np.linalg&lt;/code&gt;）&lt;/h3&gt;&lt;table&gt;
+&lt;h3 id=&quot;9-linear-algebra-np-linalg&quot;&gt;9. Linear algebra (&lt;code&gt;np.linalg&lt;/code&gt;)&lt;/h3&gt;&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-  &lt;th&gt;方法&lt;/th&gt;
-  &lt;th&gt;用途&lt;/th&gt;
+  &lt;th&gt;Method&lt;/th&gt;
+  &lt;th&gt;Purpose&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
   &lt;td&gt;&lt;code&gt;np.linalg.det(A)&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;行列式&lt;/td&gt;
+  &lt;td&gt;determinant&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
   &lt;td&gt;&lt;code&gt;np.linalg.eig(A)&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;特征值/特征向量&lt;/td&gt;
+  &lt;td&gt;eigenvalues/vectors&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
   &lt;td&gt;&lt;code&gt;np.linalg.norm(A)&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;范数&lt;/td&gt;
+  &lt;td&gt;norm&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
   &lt;td&gt;&lt;code&gt;np.linalg.inv(A)&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;矩阵求逆（直接法）&lt;/td&gt;
+  &lt;td&gt;matrix inverse (direct method)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
   &lt;td&gt;&lt;code&gt;np.linalg.solve(A,b)&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;解矩阵方程（比求逆更稳）&lt;/td&gt;
+  &lt;td&gt;solve linear system (prefer to &lt;code&gt;inv&lt;/code&gt;)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&quot;10-pandas&quot;&gt;10. 记录数组（Pandas 铺垫）&lt;/h3&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;arr = np.rec.array(...)
-arr[&amp;quot;val_1&amp;quot;]        # 按名字访问字段
+&lt;h3 id=&quot;10-record-arrays-prelude-to-pandas&quot;&gt;10. Record arrays (prelude to Pandas)&lt;/h3&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;arr = np.rec.array(...)
+arr[&amp;quot;val_1&amp;quot;]        # access a field by name
 arr.val_2[1]
 &lt;/code&gt;&lt;/pre&gt;
 &lt;hr /&gt;
-&lt;h2 id=&quot;pandas&quot;&gt;第二部分：Pandas&lt;/h2&gt;&lt;h3 id=&quot;11-series&quot;&gt;11. 导入与 Series&lt;/h3&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import pandas as pd
+&lt;h2 id=&quot;part-2-pandas&quot;&gt;Part 2: Pandas&lt;/h2&gt;&lt;h3 id=&quot;11-import-and-series&quot;&gt;11. Import and Series&lt;/h3&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import pandas as pd
 &lt;/code&gt;&lt;/pre&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Series&lt;/strong&gt;：一维带标签数组，像 NumPy 数组但按&lt;strong&gt;标签&lt;/strong&gt;索引，行为像快速 dict。&lt;/li&gt;
-&lt;li&gt;创建：&lt;code&gt;pd.Series(data=list)&lt;/code&gt; / &lt;code&gt;pd.Series(data, index=labels, name=&amp;quot;...&amp;quot;)&lt;/code&gt; / &lt;code&gt;pd.Series(arr)&lt;/code&gt; / &lt;code&gt;pd.Series(dic)&lt;/code&gt;（key 自动成为索引标签）。&lt;/li&gt;
-&lt;li&gt;按标签取值 &lt;code&gt;ser[&amp;quot;first name&amp;quot;]&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;⚠️ &lt;strong&gt;运算按索引对齐&lt;/strong&gt;：&lt;code&gt;ser1 + ser2&lt;/code&gt; 按索引标签对齐，不是按位置。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Series&lt;/strong&gt;: a 1-D labelled array — like a NumPy array but indexed by labels; behaves like a fast dict.&lt;/li&gt;
+&lt;li&gt;Create: &lt;code&gt;pd.Series(data=list)&lt;/code&gt; / &lt;code&gt;pd.Series(data, index=labels, name=&amp;quot;...&amp;quot;)&lt;/code&gt; / &lt;code&gt;pd.Series(arr)&lt;/code&gt; / &lt;code&gt;pd.Series(dic)&lt;/code&gt; (keys become the index).&lt;/li&gt;
+&lt;li&gt;Select by label &lt;code&gt;ser[&amp;quot;first name&amp;quot;]&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;⚠️ &lt;strong&gt;Operations align on the index&lt;/strong&gt;: &lt;code&gt;ser1 + ser2&lt;/code&gt; aligns by label, not position.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&quot;12-dataframe&quot;&gt;12. DataFrame&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;二维表（像 Excel）：行 = record/index，列 = field。&lt;/li&gt;
-&lt;li&gt;创建：&lt;code&gt;pd.DataFrame(data, index=[...], columns=[...])&lt;/code&gt; 或用字典 &lt;code&gt;{&amp;quot;列名&amp;quot;:[值...]}&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;A 2-D table (like a spreadsheet): rows = records/index, columns = fields.&lt;/li&gt;
+&lt;li&gt;Create: &lt;code&gt;pd.DataFrame(data, index=[...], columns=[...])&lt;/code&gt; or a dict &lt;code&gt;{&amp;quot;col&amp;quot;:[values...]}&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;13&quot;&gt;13. 读写&lt;/h3&gt;&lt;table&gt;
+&lt;h3 id=&quot;13-reading-and-writing&quot;&gt;13. Reading and writing&lt;/h3&gt;&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-  &lt;th&gt;方法&lt;/th&gt;
-  &lt;th&gt;例子&lt;/th&gt;
-  &lt;th&gt;说明&lt;/th&gt;
+  &lt;th&gt;Method&lt;/th&gt;
+  &lt;th&gt;Example&lt;/th&gt;
+  &lt;th&gt;Notes&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
   &lt;td&gt;&lt;code&gt;pd.read_csv&lt;/code&gt;&lt;/td&gt;
   &lt;td&gt;&lt;code&gt;pd.read_csv(&amp;quot;df1.csv&amp;quot;)&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;参数 30+&lt;/td&gt;
+  &lt;td&gt;30+ parameters&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-  &lt;td&gt;指定索引列&lt;/td&gt;
+  &lt;td&gt;index column&lt;/td&gt;
   &lt;td&gt;&lt;code&gt;pd.read_csv(..., index_col=0)&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;用已有列做索引&lt;/td&gt;
+  &lt;td&gt;use an existing column as index&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
   &lt;td&gt;&lt;code&gt;to_csv&lt;/code&gt;&lt;/td&gt;
   &lt;td&gt;&lt;code&gt;df.to_csv(&amp;quot;example&amp;quot;, index=False)&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;写回&lt;/td&gt;
+  &lt;td&gt;write back&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
   &lt;td&gt;&lt;code&gt;pd.read_excel&lt;/code&gt;/&lt;code&gt;to_excel&lt;/code&gt;&lt;/td&gt;
   &lt;td&gt;&lt;code&gt;read_excel(&amp;quot;f.xlsx&amp;quot;, sheet_name=&amp;quot;Sheet1&amp;quot;)&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;只导数据，不含公式图表&lt;/td&gt;
+  &lt;td&gt;data only, no formulas/charts&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&quot;14-selection&quot;&gt;14. 选择（Selection）&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;.columns&lt;/code&gt; / &lt;code&gt;.index&lt;/code&gt;：列名 / 索引。&lt;/li&gt;
-&lt;li&gt;选单列 &lt;code&gt;df[&amp;quot;Y&amp;quot;]&lt;/code&gt;（返回 Series）；选多列 &lt;code&gt;df[[&amp;quot;Y&amp;quot;,&amp;quot;Z&amp;quot;]]&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;SQL 风格 &lt;code&gt;df.Y&lt;/code&gt;：不推荐，有局限。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;.iloc&lt;/code&gt;（&lt;strong&gt;位置&lt;/strong&gt;）：&lt;code&gt;df.iloc[0,:]&lt;/code&gt;、&lt;code&gt;df.iloc[:,0]&lt;/code&gt;、&lt;code&gt;df.iloc[[1,2],0]&lt;/code&gt;（&lt;code&gt;.at&lt;/code&gt; 类似）。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;.loc&lt;/code&gt;（&lt;strong&gt;标签&lt;/strong&gt;）：&lt;code&gt;df.loc[&amp;quot;A&amp;quot;]&lt;/code&gt;、&lt;code&gt;df.loc[&amp;quot;B&amp;quot;,&amp;quot;Y&amp;quot;]&lt;/code&gt;、&lt;code&gt;df.loc[[&amp;quot;A&amp;quot;,&amp;quot;B&amp;quot;],[&amp;quot;Z&amp;quot;,&amp;quot;Y&amp;quot;]]&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;顺序：&lt;code&gt;loc&lt;/code&gt;/&lt;code&gt;iloc&lt;/code&gt; &lt;strong&gt;行在前列在后&lt;/strong&gt;（同 NumPy，与 Python list 相反）。&lt;/li&gt;
+&lt;h3 id=&quot;14-selection&quot;&gt;14. Selection&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;.columns&lt;/code&gt; / &lt;code&gt;.index&lt;/code&gt;: column names / index.&lt;/li&gt;
+&lt;li&gt;Single column &lt;code&gt;df[&amp;quot;Y&amp;quot;]&lt;/code&gt; (returns a Series); multiple columns &lt;code&gt;df[[&amp;quot;Y&amp;quot;,&amp;quot;Z&amp;quot;]]&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;SQL-style &lt;code&gt;df.Y&lt;/code&gt;: discouraged, has limitations.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.iloc&lt;/code&gt; (&lt;strong&gt;position&lt;/strong&gt;): &lt;code&gt;df.iloc[0,:]&lt;/code&gt;, &lt;code&gt;df.iloc[:,0]&lt;/code&gt;, &lt;code&gt;df.iloc[[1,2],0]&lt;/code&gt; (&lt;code&gt;.at&lt;/code&gt; is similar).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.loc&lt;/code&gt; (&lt;strong&gt;label&lt;/strong&gt;): &lt;code&gt;df.loc[&amp;quot;A&amp;quot;]&lt;/code&gt;, &lt;code&gt;df.loc[&amp;quot;B&amp;quot;,&amp;quot;Y&amp;quot;]&lt;/code&gt;, &lt;code&gt;df.loc[[&amp;quot;A&amp;quot;,&amp;quot;B&amp;quot;],[&amp;quot;Z&amp;quot;,&amp;quot;Y&amp;quot;]]&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Order: &lt;code&gt;loc&lt;/code&gt;/&lt;code&gt;iloc&lt;/code&gt; put &lt;strong&gt;rows before columns&lt;/strong&gt; (same as NumPy, opposite of Python lists).&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;15&quot;&gt;15. 增删&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;新建列 &lt;code&gt;df[&amp;quot;new&amp;quot;] = df[&amp;quot;Z&amp;quot;] + df[&amp;quot;Y&amp;quot;]&lt;/code&gt;（列就是 Series）。&lt;/li&gt;
-&lt;li&gt;删除 &lt;code&gt;df.drop(&amp;quot;new&amp;quot;, axis=1)&lt;/code&gt; / &lt;code&gt;df.drop(&amp;quot;A&amp;quot;, axis=0)&lt;/code&gt;：默认&lt;strong&gt;非原地&lt;/strong&gt;，需 &lt;code&gt;inplace=True&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;del df[&amp;quot;col&amp;quot;]&lt;/code&gt;：原地删除。&lt;/li&gt;
+&lt;h3 id=&quot;15-add-remove&quot;&gt;15. Add/remove&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;New column &lt;code&gt;df[&amp;quot;new&amp;quot;] = df[&amp;quot;Z&amp;quot;] + df[&amp;quot;Y&amp;quot;]&lt;/code&gt; (a column is just a Series).&lt;/li&gt;
+&lt;li&gt;Remove &lt;code&gt;df.drop(&amp;quot;new&amp;quot;, axis=1)&lt;/code&gt; / &lt;code&gt;df.drop(&amp;quot;A&amp;quot;, axis=0)&lt;/code&gt;: &lt;strong&gt;not in-place&lt;/strong&gt; by default — pass &lt;code&gt;inplace=True&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;del df[&amp;quot;col&amp;quot;]&lt;/code&gt;: in-place delete.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;16&quot;&gt;16. 条件筛选&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;df[df&amp;gt;0]&lt;/code&gt;、&lt;code&gt;df[df[&amp;quot;Z&amp;quot;]&amp;gt;0]&lt;/code&gt;、&lt;code&gt;df[(df[&amp;quot;X&amp;quot;]&amp;gt;0)&amp;amp;(df[&amp;quot;Y&amp;quot;]&amp;gt;1)]&lt;/code&gt;（&lt;code&gt;df&amp;gt;0&lt;/code&gt; 是布尔 DataFrame）。&lt;/li&gt;
-&lt;li&gt;多条件用 &lt;code&gt;&amp;amp;&lt;/code&gt;（与）、&lt;code&gt;|&lt;/code&gt;（或）；&lt;strong&gt;每个条件必须加括号&lt;/strong&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;.isin&lt;/code&gt;（值在列表）、&lt;code&gt;.isnull&lt;/code&gt;/&lt;code&gt;.notnull&lt;/code&gt;（判断空值）。&lt;/li&gt;
+&lt;h3 id=&quot;16-conditional-filtering&quot;&gt;16. Conditional filtering&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;df[df&amp;gt;0]&lt;/code&gt;, &lt;code&gt;df[df[&amp;quot;Z&amp;quot;]&amp;gt;0]&lt;/code&gt;, &lt;code&gt;df[(df[&amp;quot;X&amp;quot;]&amp;gt;0)&amp;amp;(df[&amp;quot;Y&amp;quot;]&amp;gt;1)]&lt;/code&gt; (&lt;code&gt;df&amp;gt;0&lt;/code&gt; is a boolean DataFrame).&lt;/li&gt;
+&lt;li&gt;Combine with &lt;code&gt;&amp;amp;&lt;/code&gt; (and), &lt;code&gt;|&lt;/code&gt; (or); &lt;strong&gt;each condition must be parenthesised&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.isin&lt;/code&gt; (membership), &lt;code&gt;.isnull&lt;/code&gt;/&lt;code&gt;.notnull&lt;/code&gt; (null checks).&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;17&quot;&gt;17. 索引操作&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;reset_index()&lt;/code&gt;：回到 0,1,2...；&lt;code&gt;set_index(&amp;quot;col&amp;quot;)&lt;/code&gt;：默认非原地，需 &lt;code&gt;inplace=True&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;MultiIndex&lt;/strong&gt;：&lt;code&gt;pd.MultiIndex.from_arrays([[...],[...]])&lt;/code&gt;；按层取值 &lt;code&gt;mdf.loc[&amp;quot;Player 1&amp;quot;, :]&lt;/code&gt;、&lt;code&gt;mdf.xs(&amp;quot;Test 1&amp;quot;, level=1)&lt;/code&gt;（level 从 0 开始）。&lt;/li&gt;
+&lt;h3 id=&quot;17-index-operations&quot;&gt;17. Index operations&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;reset_index()&lt;/code&gt;: back to 0,1,2…; &lt;code&gt;set_index(&amp;quot;col&amp;quot;)&lt;/code&gt;: not in-place by default.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MultiIndex&lt;/strong&gt;: &lt;code&gt;pd.MultiIndex.from_arrays([[...],[...]])&lt;/code&gt;; select by level &lt;code&gt;mdf.loc[&amp;quot;Player 1&amp;quot;, :]&lt;/code&gt;, &lt;code&gt;mdf.xs(&amp;quot;Test 1&amp;quot;, level=1)&lt;/code&gt; (levels start at 0).&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;18&quot;&gt;18. 常用操作与统计&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;.head()&lt;/code&gt;：看前几行。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;.unique()&lt;/code&gt; / &lt;code&gt;.nunique()&lt;/code&gt;：唯一值 / 唯一值个数。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;.value_counts()&lt;/code&gt;：各值出现次数。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;.duplicated()&lt;/code&gt; / &lt;code&gt;.drop_duplicates(inplace=True)&lt;/code&gt;：判断/删除重复行。&lt;/li&gt;
-&lt;li&gt;统计量：&lt;code&gt;.mean() .std() .median() .sum() .max() .min()&lt;/code&gt;（注意 &lt;code&gt;numeric_only=True&lt;/code&gt;）。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;.describe()&lt;/code&gt;：数据汇总（可 &lt;code&gt;.transpose()&lt;/code&gt;）。&lt;/li&gt;
+&lt;h3 id=&quot;18-common-operations-and-statistics&quot;&gt;18. Common operations and statistics&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;.head()&lt;/code&gt;: peek at the first rows.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.unique()&lt;/code&gt; / &lt;code&gt;.nunique()&lt;/code&gt;: unique values / count of unique values.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.value_counts()&lt;/code&gt;: occurrence counts.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.duplicated()&lt;/code&gt; / &lt;code&gt;.drop_duplicates(inplace=True)&lt;/code&gt;: find/drop duplicate rows.&lt;/li&gt;
+&lt;li&gt;Statistics: &lt;code&gt;.mean() .std() .median() .sum() .max() .min()&lt;/code&gt; (watch &lt;code&gt;numeric_only=True&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.describe()&lt;/code&gt;: summary (can &lt;code&gt;.transpose()&lt;/code&gt;).&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;19-map-apply&quot;&gt;19. map 与 apply&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;.map&lt;/code&gt;：&lt;code&gt;df[&amp;quot;col1&amp;quot;].map(lambda p: p - mean)&lt;/code&gt; 逐元素映射，&lt;strong&gt;非原地&lt;/strong&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;.apply&lt;/code&gt;：&lt;code&gt;df[&amp;quot;col1&amp;quot;].apply(f, n=4)&lt;/code&gt; 或 &lt;code&gt;args=[4]&lt;/code&gt; 传额外参数；可用内置 &lt;code&gt;len&lt;/code&gt;。&lt;/li&gt;
+&lt;h3 id=&quot;19-map-and-apply&quot;&gt;19. map and apply&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;.map&lt;/code&gt;: &lt;code&gt;df[&amp;quot;col1&amp;quot;].map(lambda p: p - mean)&lt;/code&gt; — element-wise, &lt;strong&gt;not in-place&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.apply&lt;/code&gt;: &lt;code&gt;df[&amp;quot;col1&amp;quot;].apply(f, n=4)&lt;/code&gt; or &lt;code&gt;args=[4]&lt;/code&gt; for extra args; can use builtins like &lt;code&gt;len&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;20&quot;&gt;20. 类型与缺失值&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;.dtype&lt;/code&gt; / &lt;code&gt;.dtypes&lt;/code&gt;：单列 / 全部列类型。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;.astype(&amp;quot;float64&amp;quot;)&lt;/code&gt;：&lt;strong&gt;转换&lt;/strong&gt;（非强制 cast）。&lt;/li&gt;
-&lt;li&gt;类型含义：&lt;code&gt;float64&lt;/code&gt;/&lt;code&gt;int64&lt;/code&gt;/&lt;code&gt;object&lt;/code&gt;（字符串存为 object）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;NaN&lt;/strong&gt;：缺失记为 NaN，总是 &lt;code&gt;float64&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;判断：&lt;code&gt;df.isnull()&lt;/code&gt; / &lt;code&gt;df.notnull()&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;⚠️ 对数学的影响：&lt;code&gt;df.sum()&lt;/code&gt; 默认&lt;strong&gt;跳过 NaN&lt;/strong&gt;；&lt;code&gt;df.sum(skipna=False)&lt;/code&gt; 传播 NaN。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;dropna()&lt;/code&gt;：按行/列/阈值（&lt;code&gt;axis=1&lt;/code&gt;、&lt;code&gt;thresh=2&lt;/code&gt;）丢弃。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;fillna(value=&amp;quot;FILL&amp;quot;)&lt;/code&gt; / &lt;code&gt;df[&amp;quot;A&amp;quot;].fillna(df[&amp;quot;A&amp;quot;].mean())&lt;/code&gt;：填充。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;replace&lt;/code&gt;：把 &amp;quot;Unknown&amp;quot; 等换成 &lt;code&gt;np.nan&lt;/code&gt;。&lt;/li&gt;
+&lt;h3 id=&quot;20-types-and-missing-values&quot;&gt;20. Types and missing values&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;.dtype&lt;/code&gt; / &lt;code&gt;.dtypes&lt;/code&gt;: one column / all columns.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.astype(&amp;quot;float64&amp;quot;)&lt;/code&gt;: &lt;strong&gt;converts&lt;/strong&gt; (not a forced cast).&lt;/li&gt;
+&lt;li&gt;Types: &lt;code&gt;float64&lt;/code&gt; / &lt;code&gt;int64&lt;/code&gt; / &lt;code&gt;object&lt;/code&gt; (strings are stored as &lt;code&gt;object&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;NaN&lt;/strong&gt;: missing values are NaN, always &lt;code&gt;float64&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Check: &lt;code&gt;df.isnull()&lt;/code&gt; / &lt;code&gt;df.notnull()&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;⚠️ Effect on math: &lt;code&gt;df.sum()&lt;/code&gt; &lt;strong&gt;skips NaN&lt;/strong&gt; by default; &lt;code&gt;df.sum(skipna=False)&lt;/code&gt; propagates NaN.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;dropna()&lt;/code&gt;: drop by row/column/threshold (&lt;code&gt;axis=1&lt;/code&gt;, &lt;code&gt;thresh=2&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;fillna(value=&amp;quot;FILL&amp;quot;)&lt;/code&gt; / &lt;code&gt;df[&amp;quot;A&amp;quot;].fillna(df[&amp;quot;A&amp;quot;].mean())&lt;/code&gt;: fill.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;replace&lt;/code&gt;: swap &amp;quot;Unknown&amp;quot; etc. for &lt;code&gt;np.nan&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;21&quot;&gt;21. 分组与透视&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;df.groupby(&amp;quot;Course&amp;quot;)&lt;/code&gt;：返回 GroupBy 对象。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;.groups&lt;/code&gt; / &lt;code&gt;.get_group(&amp;quot;NPP&amp;quot;)&lt;/code&gt;：查看分组 / 取某组。&lt;/li&gt;
-&lt;li&gt;聚合：&lt;code&gt;.mean() .std() .max() .min() .count() .describe()&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;.agg&lt;/code&gt;：&lt;code&gt;df.groupby([&amp;quot;Course&amp;quot;]).agg([len,&amp;quot;min&amp;quot;,&amp;quot;max&amp;quot;])&lt;/code&gt; 自定义聚合。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;pivot_table(values, index, columns, aggfunc, fill_value)&lt;/code&gt;：行列互换聚合；&lt;code&gt;aggfunc&lt;/code&gt; 可函数/列表/dict。&lt;/li&gt;
+&lt;h3 id=&quot;21-grouping-and-pivoting&quot;&gt;21. Grouping and pivoting&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;df.groupby(&amp;quot;Course&amp;quot;)&lt;/code&gt;: returns a GroupBy object.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.groups&lt;/code&gt; / &lt;code&gt;.get_group(&amp;quot;NPP&amp;quot;)&lt;/code&gt;: inspect groups / fetch one group.&lt;/li&gt;
+&lt;li&gt;Aggregations: &lt;code&gt;.mean() .std() .max() .min() .count() .describe()&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.agg&lt;/code&gt;: &lt;code&gt;df.groupby([&amp;quot;Course&amp;quot;]).agg([len,&amp;quot;min&amp;quot;,&amp;quot;max&amp;quot;])&lt;/code&gt; custom aggregation.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pivot_table(values, index, columns, aggfunc, fill_value)&lt;/code&gt;: reshape + aggregate; &lt;code&gt;aggfunc&lt;/code&gt; can be a function/list/dict.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;22-combine&quot;&gt;22. 合并（combine）&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;pd.concat([df1,df2,df3])&lt;/code&gt;：粘合；纵向默认 &lt;code&gt;axis=0&lt;/code&gt;，横向 &lt;code&gt;axis=1&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;pd.merge(left,right,how=&amp;quot;inner&amp;quot;,on=&amp;quot;key&amp;quot;)&lt;/code&gt;：类似 SQL JOIN。&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;how&lt;/code&gt;：&lt;code&gt;inner&lt;/code&gt;（交集）/&lt;code&gt;outer&lt;/code&gt;（并集）/&lt;code&gt;left&lt;/code&gt;（左表全键）/&lt;code&gt;right&lt;/code&gt;（右表全键）。&lt;/li&gt;
-&lt;li&gt;多键 &lt;code&gt;on=[&amp;quot;key1&amp;quot;,&amp;quot;key2&amp;quot;]&lt;/code&gt;。&lt;/li&gt;
+&lt;h3 id=&quot;22-combining&quot;&gt;22. Combining&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;pd.concat([df1,df2,df3])&lt;/code&gt;: glue; vertical by default (&lt;code&gt;axis=0&lt;/code&gt;), horizontal with &lt;code&gt;axis=1&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pd.merge(left,right,how=&amp;quot;inner&amp;quot;,on=&amp;quot;key&amp;quot;)&lt;/code&gt;: SQL-JOIN-like.&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;how&lt;/code&gt;: &lt;code&gt;inner&lt;/code&gt; (intersection) / &lt;code&gt;outer&lt;/code&gt; (union) / &lt;code&gt;left&lt;/code&gt; / &lt;code&gt;right&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;multi-key &lt;code&gt;on=[&amp;quot;key1&amp;quot;,&amp;quot;key2&amp;quot;]&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;code&gt;.join&lt;/code&gt;：&lt;code&gt;left.join(right)&lt;/code&gt; 按&lt;strong&gt;索引&lt;/strong&gt;合并列；&lt;code&gt;how=&amp;quot;outer&amp;quot;&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.join&lt;/code&gt;: &lt;code&gt;left.join(right)&lt;/code&gt; merges columns &lt;strong&gt;on the index&lt;/strong&gt;; &lt;code&gt;how=&amp;quot;outer&amp;quot;&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;23&quot;&gt;23. 可视化&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;.plot.hist()&lt;/code&gt;：直方图。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;.plot.scatter(&amp;quot;A&amp;quot;,&amp;quot;B&amp;quot;)&lt;/code&gt;：散点图。&lt;/li&gt;
+&lt;h3 id=&quot;23-visualisation&quot;&gt;23. Visualisation&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;.plot.hist()&lt;/code&gt;: histogram.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.plot.scatter(&amp;quot;A&amp;quot;,&amp;quot;B&amp;quot;)&lt;/code&gt;: scatter plot.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;24&quot;&gt;24. 时间序列&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;解析日期：&lt;code&gt;pd.read_csv(&amp;quot;Tide.csv&amp;quot;, index_col=&amp;quot;Date&amp;quot;, parse_dates=True, dayfirst=True)&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;.sample(n=5)&lt;/code&gt;：随机采样。&lt;/li&gt;
-&lt;li&gt;日期分量：&lt;code&gt;df.index.day&lt;/code&gt; / &lt;code&gt;.month&lt;/code&gt; / &lt;code&gt;.date&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;.resample(&amp;quot;D&amp;quot;).mean()&lt;/code&gt; / &lt;code&gt;df[&amp;quot;Hs&amp;quot;].resample(&amp;quot;ME&amp;quot;).max()&lt;/code&gt;：按日期聚合，可补空缺。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;.asfreq(&amp;quot;ME&amp;quot;)&lt;/code&gt;：只取时间点不聚合。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;pd.to_datetime(dates, format=&amp;quot;mixed&amp;quot;, dayfirst=True, utc=True)&lt;/code&gt;：转 DatetimeIndex。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;日期歧义&lt;/strong&gt;：数字日期必须统一 DD/MM/YYYY 或 MM/DD/YYYY。&lt;/li&gt;
+&lt;h3 id=&quot;24-time-series&quot;&gt;24. Time series&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Parse dates: &lt;code&gt;pd.read_csv(&amp;quot;Tide.csv&amp;quot;, index_col=&amp;quot;Date&amp;quot;, parse_dates=True, dayfirst=True)&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.sample(n=5)&lt;/code&gt;: random sample.&lt;/li&gt;
+&lt;li&gt;Date parts: &lt;code&gt;df.index.day&lt;/code&gt; / &lt;code&gt;.month&lt;/code&gt; / &lt;code&gt;.date&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.resample(&amp;quot;D&amp;quot;).mean()&lt;/code&gt; / &lt;code&gt;df[&amp;quot;Hs&amp;quot;].resample(&amp;quot;ME&amp;quot;).max()&lt;/code&gt;: aggregate by date, can fill gaps.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.asfreq(&amp;quot;ME&amp;quot;)&lt;/code&gt;: take points at a frequency without aggregating.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pd.to_datetime(dates, format=&amp;quot;mixed&amp;quot;, dayfirst=True, utc=True)&lt;/code&gt;: build a DatetimeIndex.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Date ambiguity&lt;/strong&gt;: numeric dates must consistently be DD/MM/YYYY or MM/DD/YYYY.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr /&gt;
-&lt;h2 id=&quot;numpy-40-pandas-60&quot;&gt;速查总表（NumPy 约 40 项 + Pandas 约 60 项）&lt;/h2&gt;&lt;p&gt;| 分类 | 方法 / 知识点 | 语法 / 例子 | 说明要点 |
+&lt;h2 id=&quot;quick-reference-table-40-numpy-60-pandas-items&quot;&gt;Quick-reference table (≈40 NumPy + ≈60 Pandas items)&lt;/h2&gt;&lt;p&gt;| Area | Method / concept | Example | Key point |
 |---|---|---|---|
-| NumPy·创建 | &lt;code&gt;np.array&lt;/code&gt; / &lt;code&gt;np.zeros&lt;/code&gt; / &lt;code&gt;np.ones&lt;/code&gt; / &lt;code&gt;np.full&lt;/code&gt; | &lt;code&gt;np.full(shape, value)&lt;/code&gt; | 建数组 |
-| NumPy·创建 | &lt;code&gt;np.arange&lt;/code&gt; / &lt;code&gt;np.linspace&lt;/code&gt; / &lt;code&gt;np.eye&lt;/code&gt; | &lt;code&gt;np.arange(start, stop, step)&lt;/code&gt; | &lt;code&gt;arange&lt;/code&gt; 不含终点，&lt;code&gt;linspace&lt;/code&gt; 含终点 |
-| NumPy·属性 | &lt;code&gt;.ndim&lt;/code&gt; / &lt;code&gt;.shape&lt;/code&gt; / &lt;code&gt;.size&lt;/code&gt; / &lt;code&gt;.nbytes&lt;/code&gt; / &lt;code&gt;.dtype&lt;/code&gt; | &lt;code&gt;(3,3)&lt;/code&gt;；&lt;code&gt;9&lt;/code&gt;；&lt;code&gt;72&lt;/code&gt; | 维度/形状/元素数/字节/类型 |
-| NumPy·形状 | &lt;code&gt;.reshape&lt;/code&gt; / &lt;code&gt;.ravel&lt;/code&gt; / &lt;code&gt;.flatten&lt;/code&gt; / &lt;code&gt;.T&lt;/code&gt; | &lt;code&gt;arr.reshape(3,-1)&lt;/code&gt; | &lt;code&gt;-1&lt;/code&gt; 只能出现一次 |
-| NumPy·运算 | 逐元素 &lt;code&gt;+ - * / ** %&lt;/code&gt;；矩阵乘 &lt;code&gt;@&lt;/code&gt;/&lt;code&gt;np.matmul&lt;/code&gt;/&lt;code&gt;np.dot&lt;/code&gt; | — | 广播规则 |
-| NumPy·索引 | 多维索引/切片/布尔索引 | &lt;code&gt;arr[arr&amp;gt;5]&lt;/code&gt; | 切片是视图，改会改原数组，用 &lt;code&gt;.copy()&lt;/code&gt; |
-| NumPy·linalg | &lt;code&gt;det&lt;/code&gt; / &lt;code&gt;eig&lt;/code&gt; / &lt;code&gt;norm&lt;/code&gt; / &lt;code&gt;inv&lt;/code&gt; / &lt;code&gt;solve&lt;/code&gt; | &lt;code&gt;np.linalg.solve(A,b)&lt;/code&gt; | 解方程优先于求逆 |
-| Pandas·Series | 创建 / 按标签取值 / 按索引对齐运算 | &lt;code&gt;ser1 + ser2&lt;/code&gt; | 按索引标签对齐 |
-| Pandas·DataFrame | 创建 / 读写 / 选择 | &lt;code&gt;df[[&amp;quot;Y&amp;quot;,&amp;quot;Z&amp;quot;]]&lt;/code&gt; | 行=record，列=field |
-| Pandas·选择 | &lt;code&gt;.iloc&lt;/code&gt;（位置）/ &lt;code&gt;.loc&lt;/code&gt;（标签） | &lt;code&gt;df.loc[&amp;quot;B&amp;quot;,&amp;quot;Y&amp;quot;]&lt;/code&gt; | 行前列表 |
-| Pandas·增删 | 新建列 / &lt;code&gt;drop&lt;/code&gt; / &lt;code&gt;del&lt;/code&gt; | &lt;code&gt;df.drop(&amp;quot;new&amp;quot;, axis=1)&lt;/code&gt; | drop 非原地 |
-| Pandas·条件 | 条件选择 / &lt;code&gt;&amp;amp;&lt;/code&gt; / &lt;code&gt;|&lt;/code&gt; / &lt;code&gt;.isin&lt;/code&gt; / &lt;code&gt;.isnull&lt;/code&gt; | &lt;code&gt;df[(df[&amp;quot;X&amp;quot;]&amp;gt;0)&amp;amp;(df[&amp;quot;Y&amp;quot;]&amp;gt;1)]&lt;/code&gt; | 每个条件加括号 |
-| Pandas·索引 | &lt;code&gt;reset_index&lt;/code&gt; / &lt;code&gt;set_index&lt;/code&gt; / MultiIndex / &lt;code&gt;.xs&lt;/code&gt; | &lt;code&gt;mdf.xs(&amp;quot;Test 1&amp;quot;, level=1)&lt;/code&gt; | level 从 0 |
-| Pandas·操作 | &lt;code&gt;.head&lt;/code&gt; / &lt;code&gt;.unique&lt;/code&gt; / &lt;code&gt;.value_counts&lt;/code&gt; / &lt;code&gt;.drop_duplicates&lt;/code&gt; / &lt;code&gt;.describe&lt;/code&gt; | — | 数据探查 |
-| Pandas·map/apply | &lt;code&gt;.map&lt;/code&gt; / &lt;code&gt;.apply&lt;/code&gt; | &lt;code&gt;df[&amp;quot;col&amp;quot;].apply(f, n=4)&lt;/code&gt; | 非原地 |
-| Pandas·类型 | &lt;code&gt;.astype&lt;/code&gt; / &lt;code&gt;float64&lt;/code&gt;/&lt;code&gt;int64&lt;/code&gt;/&lt;code&gt;object&lt;/code&gt; | — | 字符串存 object |
-| Pandas·缺失 | &lt;code&gt;isnull&lt;/code&gt; / &lt;code&gt;dropna&lt;/code&gt; / &lt;code&gt;fillna&lt;/code&gt; / &lt;code&gt;replace&lt;/code&gt; | &lt;code&gt;df.sum(skipna=False)&lt;/code&gt; | sum 默认跳过 NaN |
-| Pandas·分组 | &lt;code&gt;groupby&lt;/code&gt; / &lt;code&gt;.agg&lt;/code&gt; / &lt;code&gt;pivot_table&lt;/code&gt; | &lt;code&gt;df.groupby(&amp;quot;Course&amp;quot;).agg([len,&amp;quot;min&amp;quot;,&amp;quot;max&amp;quot;])&lt;/code&gt; | 聚合 |
-| Pandas·合并 | &lt;code&gt;concat&lt;/code&gt; / &lt;code&gt;merge&lt;/code&gt; / &lt;code&gt;join&lt;/code&gt; | &lt;code&gt;pd.merge(l,r,how=&amp;quot;inner&amp;quot;,on=&amp;quot;key&amp;quot;)&lt;/code&gt; | inner/outer/left/right |
-| Pandas·时间 | &lt;code&gt;parse_dates&lt;/code&gt; / &lt;code&gt;resample&lt;/code&gt; / &lt;code&gt;asfreq&lt;/code&gt; / &lt;code&gt;to_datetime&lt;/code&gt; | &lt;code&gt;df.resample(&amp;quot;D&amp;quot;).mean()&lt;/code&gt; | 日期聚合 |&lt;/p&gt;
+| NumPy·create | &lt;code&gt;np.array&lt;/code&gt; / &lt;code&gt;np.zeros&lt;/code&gt; / &lt;code&gt;np.ones&lt;/code&gt; / &lt;code&gt;np.full&lt;/code&gt; | &lt;code&gt;np.full(shape, value)&lt;/code&gt; | build arrays |
+| NumPy·create | &lt;code&gt;np.arange&lt;/code&gt; / &lt;code&gt;np.linspace&lt;/code&gt; / &lt;code&gt;np.eye&lt;/code&gt; | &lt;code&gt;np.arange(start, stop, step)&lt;/code&gt; | &lt;code&gt;arange&lt;/code&gt; excludes, &lt;code&gt;linspace&lt;/code&gt; includes the stop |
+| NumPy·attrs | &lt;code&gt;.ndim&lt;/code&gt; / &lt;code&gt;.shape&lt;/code&gt; / &lt;code&gt;.size&lt;/code&gt; / &lt;code&gt;.nbytes&lt;/code&gt; / &lt;code&gt;.dtype&lt;/code&gt; | &lt;code&gt;(3,3)&lt;/code&gt;; &lt;code&gt;9&lt;/code&gt;; &lt;code&gt;72&lt;/code&gt; | dims / shape / count / bytes / type |
+| NumPy·shape | &lt;code&gt;.reshape&lt;/code&gt; / &lt;code&gt;.ravel&lt;/code&gt; / &lt;code&gt;.flatten&lt;/code&gt; / &lt;code&gt;.T&lt;/code&gt; | &lt;code&gt;arr.reshape(3,-1)&lt;/code&gt; | &lt;code&gt;-1&lt;/code&gt; at most once |
+| NumPy·ops | elementwise &lt;code&gt;+ - * / ** %&lt;/code&gt;; matmul &lt;code&gt;@&lt;/code&gt;/&lt;code&gt;np.matmul&lt;/code&gt;/&lt;code&gt;np.dot&lt;/code&gt; | — | broadcasting |
+| NumPy·index | multi-dim index/slice/boolean | &lt;code&gt;arr[arr&amp;gt;5]&lt;/code&gt; | slices are views — use &lt;code&gt;.copy()&lt;/code&gt; |
+| NumPy·linalg | &lt;code&gt;det&lt;/code&gt; / &lt;code&gt;eig&lt;/code&gt; / &lt;code&gt;norm&lt;/code&gt; / &lt;code&gt;inv&lt;/code&gt; / &lt;code&gt;solve&lt;/code&gt; | &lt;code&gt;np.linalg.solve(A,b)&lt;/code&gt; | prefer &lt;code&gt;solve&lt;/code&gt; to &lt;code&gt;inv&lt;/code&gt; |
+| Pandas·Series | create / label select / index-aligned ops | &lt;code&gt;ser1 + ser2&lt;/code&gt; | aligns by index label |
+| Pandas·DataFrame | create / IO / select | &lt;code&gt;df[[&amp;quot;Y&amp;quot;,&amp;quot;Z&amp;quot;]]&lt;/code&gt; | rows = records, columns = fields |
+| Pandas·select | &lt;code&gt;.iloc&lt;/code&gt; (position) / &lt;code&gt;.loc&lt;/code&gt; (label) | &lt;code&gt;df.loc[&amp;quot;B&amp;quot;,&amp;quot;Y&amp;quot;]&lt;/code&gt; | rows first, columns second |
+| Pandas·add/del | new column / &lt;code&gt;drop&lt;/code&gt; / &lt;code&gt;del&lt;/code&gt; | &lt;code&gt;df.drop(&amp;quot;new&amp;quot;, axis=1)&lt;/code&gt; | &lt;code&gt;drop&lt;/code&gt; not in-place |
+| Pandas·cond | filter / &lt;code&gt;&amp;amp;&lt;/code&gt; / &lt;code&gt;|&lt;/code&gt; / &lt;code&gt;.isin&lt;/code&gt; / &lt;code&gt;.isnull&lt;/code&gt; | &lt;code&gt;df[(df[&amp;quot;X&amp;quot;]&amp;gt;0)&amp;amp;(df[&amp;quot;Y&amp;quot;]&amp;gt;1)]&lt;/code&gt; | parenthesise each condition |
+| Pandas·index | &lt;code&gt;reset_index&lt;/code&gt; / &lt;code&gt;set_index&lt;/code&gt; / MultiIndex / &lt;code&gt;.xs&lt;/code&gt; | &lt;code&gt;mdf.xs(&amp;quot;Test 1&amp;quot;, level=1)&lt;/code&gt; | levels from 0 |
+| Pandas·ops | &lt;code&gt;.head&lt;/code&gt; / &lt;code&gt;.unique&lt;/code&gt; / &lt;code&gt;.value_counts&lt;/code&gt; / &lt;code&gt;.drop_duplicates&lt;/code&gt; / &lt;code&gt;.describe&lt;/code&gt; | — | data exploration |
+| Pandas·map/apply | &lt;code&gt;.map&lt;/code&gt; / &lt;code&gt;.apply&lt;/code&gt; | &lt;code&gt;df[&amp;quot;col&amp;quot;].apply(f, n=4)&lt;/code&gt; | not in-place |
+| Pandas·types | &lt;code&gt;.astype&lt;/code&gt; / &lt;code&gt;float64&lt;/code&gt;/&lt;code&gt;int64&lt;/code&gt;/&lt;code&gt;object&lt;/code&gt; | — | strings stored as &lt;code&gt;object&lt;/code&gt; |
+| Pandas·missing | &lt;code&gt;isnull&lt;/code&gt; / &lt;code&gt;dropna&lt;/code&gt; / &lt;code&gt;fillna&lt;/code&gt; / &lt;code&gt;replace&lt;/code&gt; | &lt;code&gt;df.sum(skipna=False)&lt;/code&gt; | &lt;code&gt;sum&lt;/code&gt; skips NaN by default |
+| Pandas·group | &lt;code&gt;groupby&lt;/code&gt; / &lt;code&gt;.agg&lt;/code&gt; / &lt;code&gt;pivot_table&lt;/code&gt; | &lt;code&gt;df.groupby(&amp;quot;Course&amp;quot;).agg([len,&amp;quot;min&amp;quot;,&amp;quot;max&amp;quot;])&lt;/code&gt; | aggregation |
+| Pandas·combine | &lt;code&gt;concat&lt;/code&gt; / &lt;code&gt;merge&lt;/code&gt; / &lt;code&gt;join&lt;/code&gt; | &lt;code&gt;pd.merge(l,r,how=&amp;quot;inner&amp;quot;,on=&amp;quot;key&amp;quot;)&lt;/code&gt; | inner/outer/left/right |
+| Pandas·time | &lt;code&gt;parse_dates&lt;/code&gt; / &lt;code&gt;resample&lt;/code&gt; / &lt;code&gt;asfreq&lt;/code&gt; / &lt;code&gt;to_datetime&lt;/code&gt; | &lt;code&gt;df.resample(&amp;quot;D&amp;quot;).mean()&lt;/code&gt; | date aggregation |&lt;/p&gt;
 &lt;hr /&gt;
-&lt;h2 id=&quot;section&quot;&gt;易错点提醒 ⚠️&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;np.arange&lt;/code&gt; &lt;strong&gt;不含&lt;/strong&gt;终点，&lt;code&gt;np.linspace&lt;/code&gt; &lt;strong&gt;含&lt;/strong&gt;终点。&lt;/li&gt;
-&lt;li&gt;NumPy 切片是&lt;strong&gt;视图&lt;/strong&gt;，会改原数组；Pandas 的 &lt;code&gt;drop&lt;/code&gt;/&lt;code&gt;set_index&lt;/code&gt;/&lt;code&gt;map&lt;/code&gt; 默认&lt;strong&gt;非原地&lt;/strong&gt;。&lt;/li&gt;
-&lt;li&gt;Pandas 多条件筛选必须&lt;strong&gt;加括号&lt;/strong&gt;并用 &lt;code&gt;&amp;amp;&lt;/code&gt;/&lt;code&gt;|&lt;/code&gt;（不能用 &lt;code&gt;and&lt;/code&gt;/&lt;code&gt;or&lt;/code&gt;）。&lt;/li&gt;
-&lt;li&gt;Series 运算按&lt;strong&gt;索引标签&lt;/strong&gt;对齐，不是按位置。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;df.sum()&lt;/code&gt; 默认&lt;strong&gt;跳过 NaN&lt;/strong&gt;；需要传播时用 &lt;code&gt;skipna=False&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;整数数组赋值浮点数会被&lt;strong&gt;静默截断&lt;/strong&gt;。&lt;/li&gt;
+&lt;h2 id=&quot;common-pitfalls&quot;&gt;Common pitfalls ⚠️&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;np.arange&lt;/code&gt; &lt;strong&gt;excludes&lt;/strong&gt; the stop; &lt;code&gt;np.linspace&lt;/code&gt; &lt;strong&gt;includes&lt;/strong&gt; it.&lt;/li&gt;
+&lt;li&gt;NumPy slices are &lt;strong&gt;views&lt;/strong&gt; (mutating them changes the original); Pandas &lt;code&gt;drop&lt;/code&gt;/&lt;code&gt;set_index&lt;/code&gt;/&lt;code&gt;map&lt;/code&gt; are &lt;strong&gt;not in-place&lt;/strong&gt; by default.&lt;/li&gt;
+&lt;li&gt;Pandas multi-condition filters must be &lt;strong&gt;parenthesised&lt;/strong&gt; and use &lt;code&gt;&amp;amp;&lt;/code&gt;/&lt;code&gt;|&lt;/code&gt; (not &lt;code&gt;and&lt;/code&gt;/&lt;code&gt;or&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;Series arithmetic aligns on the &lt;strong&gt;index label&lt;/strong&gt;, not position.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;df.sum()&lt;/code&gt; &lt;strong&gt;skips NaN&lt;/strong&gt; by default; pass &lt;code&gt;skipna=False&lt;/code&gt; to propagate.&lt;/li&gt;
+&lt;li&gt;Assigning a float into an integer array &lt;strong&gt;silently truncates&lt;/strong&gt;.&lt;/li&gt;
 &lt;/ol&gt;
 </description>
     </item>
 <item>
-        <title>NPP Lecture 3 复习：Debugging 调试</title>
+        <title>NPP Lecture 3 Review: Debugging</title>
         <link>https://ada-c38f0bb79f.github.io/p/npp-lecture3-review/</link>
         <pubDate>Thu, 08 Oct 2026 11:00:00 +0800</pubDate>
         
         <guid>https://ada-c38f0bb79f.github.io/p/npp-lecture3-review/</guid>
-        <description>&lt;h1 id=&quot;lecture-3-debugging&quot;&gt;Lecture 3 复习：Debugging（调试）&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;主题：异常与 traceback · 避免 bug · 静态分析 · 最小失败样例 · 手动调试 · pdb 调试器 · AI 调试
-讲师：Dr. Simon Warder&lt;/p&gt;
+        <description>&lt;h1 id=&quot;npp-lecture-3-review-debugging&quot;&gt;NPP Lecture 3 Review: Debugging&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;Topics: exceptions &amp;amp; tracebacks · avoiding bugs · static analysis · minimum failing examples · manual debugging · the pdb debugger · AI-assisted debugging&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;hr /&gt;
-&lt;h2 id=&quot;1&quot;&gt;1. 为什么调试重要&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;开发软件时，花在调试上的时间往往&lt;strong&gt;不少于&lt;/strong&gt;写代码本身。&lt;/li&gt;
-&lt;li&gt;调试是必须主动掌握、能大幅提升效率的技能。&lt;/li&gt;
+&lt;h2 id=&quot;1-why-debugging-matters&quot;&gt;1. Why debugging matters&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Developers often spend as much (or more) time debugging as writing &amp;quot;real&amp;quot; code.&lt;/li&gt;
+&lt;li&gt;Debugging is a skill you must actively develop to stay productive.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;bug&quot;&gt;历史上的著名 bug&lt;/h3&gt;&lt;table&gt;
+&lt;h3 id=&quot;famous-bugs-in-history&quot;&gt;Famous bugs in history&lt;/h3&gt;&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-  &lt;th&gt;事件&lt;/th&gt;
-  &lt;th&gt;说明&lt;/th&gt;
+  &lt;th&gt;Event&lt;/th&gt;
+  &lt;th&gt;Notes&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-  &lt;td&gt;世界上第一个 bug（1947）&lt;/td&gt;
-  &lt;td&gt;Grace Hopper 在日志里记录了一只真正的飞蛾卡在继电器里，普及了「debugging」一词&lt;/td&gt;
+  &lt;td&gt;The first &amp;quot;bug&amp;quot; (1947)&lt;/td&gt;
+  &lt;td&gt;Grace Hopper logged an actual moth stuck in a relay, popularising the term &amp;quot;debugging&amp;quot;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-  &lt;td&gt;Y2K 千年虫&lt;/td&gt;
-  &lt;td&gt;两位数年份导致 2000 年问题，全球花数十亿美元修复&lt;/td&gt;
+  &lt;td&gt;Y2K&lt;/td&gt;
+  &lt;td&gt;Two-digit years caused the year-2000 problem; billions spent fixing it worldwide&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-  &lt;td&gt;达兰导弹（1991）&lt;/td&gt;
-  &lt;td&gt;Patriot 系统时钟 100 小时漂移 1/3 秒，导致拦截失败，28 名美军丧生&lt;/td&gt;
+  &lt;td&gt;Dhahran missile (1991)&lt;/td&gt;
+  &lt;td&gt;A Patriot system clock drifted ⅓ s over 100 h, causing a failed intercept that killed 28 US soldiers&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&quot;bug-2&quot;&gt;有趣的 bug 类型&lt;/h3&gt;&lt;table&gt;
+&lt;h3 id=&quot;fun-bug-types&quot;&gt;Fun bug types&lt;/h3&gt;&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-  &lt;th&gt;类型&lt;/th&gt;
-  &lt;th&gt;特点&lt;/th&gt;
+  &lt;th&gt;Type&lt;/th&gt;
+  &lt;th&gt;Characteristic&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-  &lt;td&gt;Heisenbug（海森堡 bug）&lt;/td&gt;
-  &lt;td&gt;一被观测/调试就改变或消失（借用量子力学「观察者效应」）&lt;/td&gt;
+  &lt;td&gt;Heisenbug&lt;/td&gt;
+  &lt;td&gt;Disappears or changes when you try to observe/debug it (quantum &amp;quot;observer effect&amp;quot;)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
   &lt;td&gt;Bohrbug&lt;/td&gt;
-  &lt;td&gt;在明确（但可能未知）条件下稳定复现的 bug&lt;/td&gt;
+  &lt;td&gt;Reproduces reliably under well-defined (possibly unknown) conditions&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
   &lt;td&gt;Mandelbug&lt;/td&gt;
-  &lt;td&gt;极其复杂、几乎无法修复的 bug（借 Mandelbrot）&lt;/td&gt;
+  &lt;td&gt;So complex it&#x27;s practically unfixable (after Mandelbrot)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
   &lt;td&gt;Schroedinbug&lt;/td&gt;
-  &lt;td&gt;只有当你发现它「本就不该能工作」时才显现的 bug&lt;/td&gt;
+  &lt;td&gt;Only manifests once you realise it &amp;quot;shouldn&#x27;t work at all&amp;quot;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;hr /&gt;
-&lt;h2 id=&quot;2-python-traceback&quot;&gt;2. Python traceback 与异常&lt;/h2&gt;&lt;h3 id=&quot;traceback&quot;&gt;读 traceback&lt;/h3&gt;&lt;p&gt;traceback 是异常发生时给出的调用栈报告。&lt;strong&gt;从下往上读&lt;/strong&gt;（最底下一行是异常发生的位置，但不一定是 bug 根源）。&lt;/p&gt;
+&lt;h2 id=&quot;2-python-tracebacks-and-exceptions&quot;&gt;2. Python tracebacks and exceptions&lt;/h2&gt;&lt;h3 id=&quot;reading-a-traceback&quot;&gt;Reading a traceback&lt;/h3&gt;&lt;p&gt;A traceback is the call-stack report produced when an exception is raised. &lt;strong&gt;Read it bottom-to-top&lt;/strong&gt; (the last line is where the exception fired, not necessarily the bug&#x27;s root cause).&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;NameError: name &#x27;exp&#x27; is not defined
 &lt;/code&gt;&lt;/pre&gt;
 &lt;ul&gt;
-&lt;li&gt;第一行是&lt;strong&gt;异常类型&lt;/strong&gt;；&lt;code&gt;Traceback (most recent call last)&lt;/code&gt; 下面按调用顺序列出每一层。&lt;/li&gt;
+&lt;li&gt;The first line is the &lt;strong&gt;exception type&lt;/strong&gt;; below &lt;code&gt;Traceback (most recent call last)&lt;/code&gt; each call is listed.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;section&quot;&gt;常见异常（要能写出触发它们的代码）&lt;/h3&gt;&lt;table&gt;
+&lt;h3 id=&quot;common-exceptions-be-able-to-trigger-each&quot;&gt;Common exceptions (be able to trigger each)&lt;/h3&gt;&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-  &lt;th&gt;异常&lt;/th&gt;
-  &lt;th&gt;触发方式&lt;/th&gt;
+  &lt;th&gt;Exception&lt;/th&gt;
+  &lt;th&gt;How to trigger&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
@@ -741,381 +738,376 @@ arr.val_2[1]
 &lt;/tr&gt;
 &lt;tr&gt;
   &lt;td&gt;&lt;code&gt;SyntaxError&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;语法写错（如 &lt;code&gt;2+2 ==&amp;quot;4&amp;quot;&lt;/code&gt;）&lt;/td&gt;
+  &lt;td&gt;syntax errors (e.g. &lt;code&gt;2+2 ==&amp;quot;4&amp;quot;&lt;/code&gt;)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
   &lt;td&gt;&lt;code&gt;IndentationError&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;缩进错误（for 下面没有缩进）&lt;/td&gt;
+  &lt;td&gt;missing indentation under &lt;code&gt;for&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
   &lt;td&gt;&lt;code&gt;RecursionError&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;&lt;code&gt;def f(): return f()&lt;/code&gt; 无限递归&lt;/td&gt;
+  &lt;td&gt;&lt;code&gt;def f(): return f()&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;blockquote&gt;
-&lt;p&gt;可自定义异常；异常类型完整列表见 &lt;a href=&quot;https://docs.python.org/3/library/exceptions.html&quot;&gt;Python 文档&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;You can define custom exceptions; see the &lt;a href=&quot;https://docs.python.org/3/library/exceptions.html&quot;&gt;Python docs&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;hr /&gt;
-&lt;h2 id=&quot;3-bug&quot;&gt;3. 避免 bug（写代码时就考虑）&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;每个人都会写 bug，写代码时要&lt;strong&gt;为测试和调试而写&lt;/strong&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;KISS&lt;/strong&gt;（Keep It Simple, Stupid）：能跑起来的最简单方案是什么？&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;DRY&lt;/strong&gt;（Don&#x27;t Repeat Yourself）：每块知识只应有单一、明确的权威表示（常量、算法等）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;松耦合&lt;/strong&gt;（Loose Coupling）：限制代码间的相互依赖。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;有意义的命名&lt;/strong&gt;：变量/函数/模块用有意义的名字，别用晦涩的数学符号名。&lt;/li&gt;
+&lt;h2 id=&quot;3-avoiding-bugs-write-with-debugging-in-mind&quot;&gt;3. Avoiding bugs (write with debugging in mind)&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Everyone writes buggy code — write it to be testable and debuggable.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;KISS&lt;/strong&gt; (Keep It Simple, Stupid): what&#x27;s the simplest thing that could work?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DRY&lt;/strong&gt; (Don&#x27;t Repeat Yourself): each piece of knowledge has a single authoritative representation.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Loose coupling&lt;/strong&gt;: limit interdependencies between parts of the code.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Meaningful names&lt;/strong&gt;: name variables/functions/modules clearly, not cryptically.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr /&gt;
-&lt;h2 id=&quot;4-static-analysis&quot;&gt;4. 静态分析（Static Analysis）&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;解释型语言（Python/Matlab/JS）vs 编译型（C/C++/Fortran）：编译型能在&lt;strong&gt;编译期&lt;/strong&gt;发现缺 import、类型不匹配等 bug，Python 没有这一步。&lt;/li&gt;
-&lt;li&gt;Python 静态分析工具：&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;pyflakes&lt;/code&gt;：最简单，快；检测语法错误、缺 import、名字拼写错误。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;flake8&lt;/code&gt;：&lt;code&gt;pyflakes&lt;/code&gt; + &lt;code&gt;pep8&lt;/code&gt;，额外检测 PEP8 风格违规。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;pylint&lt;/code&gt;、&lt;code&gt;pychecker&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;笔记本版本：&lt;code&gt;flake8-nb&lt;/code&gt;。&lt;/li&gt;
+&lt;h2 id=&quot;4-static-analysis&quot;&gt;4. Static analysis&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Interpreted (Python/Matlab/JS) vs compiled (C/C++/Fortran): compiled languages catch some bugs at &lt;strong&gt;compile time&lt;/strong&gt;; Python misses that step.&lt;/li&gt;
+&lt;li&gt;Python static-analysis tools:&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;pyflakes&lt;/code&gt;: simplest and fast; catches syntax errors, missing imports, name typos.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;flake8&lt;/code&gt;: &lt;code&gt;pyflakes&lt;/code&gt; + &lt;code&gt;pep8&lt;/code&gt;, also flags PEP8 style violations.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pylint&lt;/code&gt;, &lt;code&gt;pychecker&lt;/code&gt;; notebook version &lt;code&gt;flake8-nb&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;强烈建议在编辑器/IDE 里集成，能显著提升效率。&lt;/li&gt;
+&lt;li&gt;Integrate into your editor/IDE for big productivity gains.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr /&gt;
-&lt;h2 id=&quot;5-workflow&quot;&gt;5. 调试工作流（Workflow）&lt;/h2&gt;&lt;p&gt;没有银弹，但策略能帮忙。理想情况是把问题隔离到少量代码行，用&lt;strong&gt;短修改-运行-失败循环&lt;/strong&gt;：&lt;/p&gt;
+&lt;h2 id=&quot;5-the-debugging-workflow&quot;&gt;5. The debugging workflow&lt;/h2&gt;&lt;p&gt;No silver bullet, but a strategy helps. Ideal: isolate the bug to a few lines with a short modify-run-fail cycle.&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;让它稳定失败&lt;/strong&gt;：找一个每次都同样失败的测试用例。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;分而治之&lt;/strong&gt;：定位到某个模块 → 某个函数 → 某一行。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;隔离出最小可复现失败样例（MFE）&lt;/strong&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一次只改一件事&lt;/strong&gt;，重跑失败用例。&lt;/li&gt;
-&lt;li&gt;用调试器理解到底哪里错了。&lt;/li&gt;
-&lt;li&gt;记笔记、保持耐心。&lt;/li&gt;
-&lt;li&gt;修好 bug 后，把这段代码&lt;strong&gt;加入测试套件&lt;/strong&gt;，防止回归。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Make it fail reliably&lt;/strong&gt; — find a test case that fails the same way every time.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Divide and conquer&lt;/strong&gt; — isolate the module → function → line.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Isolate a minimum failing example (MFE)&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Change one thing at a time&lt;/strong&gt;, re-run the failing case.&lt;/li&gt;
+&lt;li&gt;Use the debugger to understand what&#x27;s wrong.&lt;/li&gt;
+&lt;li&gt;Take notes and be patient.&lt;/li&gt;
+&lt;li&gt;After fixing, &lt;strong&gt;add the case to your test suite&lt;/strong&gt; to prevent regression.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;hr /&gt;
-&lt;h2 id=&quot;6-minimum-failing-example-mfe&quot;&gt;6. 最小失败样例（Minimum Failing Example, MFE）&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;能复现某个 bug 的&lt;strong&gt;最简单代码&lt;/strong&gt;。&lt;/li&gt;
-&lt;li&gt;找人帮忙调试时，提供 MFE 是好习惯，能大幅缩短对方调试时间。&lt;/li&gt;
-&lt;li&gt;给开源项目报 issue 时，开发者常会要求「Please could you provide an MFE」。&lt;/li&gt;
-&lt;li&gt;例子：几百行的 Devito 代码，浓缩成十几行的 MFE 后不到一小时就定位并修复。&lt;/li&gt;
+&lt;h2 id=&quot;6-minimum-failing-example-mfe&quot;&gt;6. Minimum failing example (MFE)&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;The simplest code that reproduces a bug.&lt;/li&gt;
+&lt;li&gt;Providing an MFE is good practice when asking for help — it drastically cuts debugging time.&lt;/li&gt;
+&lt;li&gt;Open-source maintainers often reply &amp;quot;please provide an MFE&amp;quot;.&lt;/li&gt;
+&lt;li&gt;Example: hundreds of lines of Devito code condensed to ~15 lines, then fixed in under an hour.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr /&gt;
-&lt;h2 id=&quot;7&quot;&gt;7. 手动调试&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;print 语句&lt;/strong&gt;：在可疑处打印变量值，快速定位问题行。&lt;/li&gt;
+&lt;h2 id=&quot;7-manual-debugging&quot;&gt;7. Manual debugging&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;print statements&lt;/strong&gt;: print values near the suspected line to localise the bug.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;x = some_function(inputs)
 print(x.property1, x.property2)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;IPython.embed()&lt;/code&gt;&lt;/strong&gt;：在代码中途嵌入交互式解释器，检查当时状态。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;IPython.embed()&lt;/code&gt;&lt;/strong&gt;: drop into an interactive interpreter mid-code to inspect state.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;x = some_function(inputs)
 from IPython import embed; embed()
 &lt;/code&gt;&lt;/pre&gt;
 &lt;hr /&gt;
-&lt;h2 id=&quot;8-python-pdb&quot;&gt;8. Python 调试器 pdb&lt;/h2&gt;&lt;h3 id=&quot;section-2&quot;&gt;能做什么&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;查看源码；在调用栈上上下移动；查看/修改变量值；设置断点。&lt;/li&gt;
+&lt;h2 id=&quot;8-the-python-debugger-pdb&quot;&gt;8. The Python debugger (pdb)&lt;/h2&gt;&lt;h3 id=&quot;what-it-can-do&quot;&gt;What it can do&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;View source; walk up/down the call stack; inspect/modify variable values; set breakpoints.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;section-3&quot;&gt;三种启动方式&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Postmortem（事后）&lt;/strong&gt;：出错后（仅 IPython）&lt;code&gt;%debug&lt;/code&gt; 进入调试器。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;命令行&lt;/strong&gt;：&lt;code&gt;python -m pdb script.py&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;代码内&lt;/strong&gt;：在想要暂停处插入 &lt;code&gt;breakpoint()&lt;/code&gt;（旧代码等价 &lt;code&gt;import pdb; pdb.set_trace()&lt;/code&gt;）。&lt;/li&gt;
+&lt;h3 id=&quot;three-ways-to-launch&quot;&gt;Three ways to launch&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Postmortem&lt;/strong&gt; (IPython only): after an error, run &lt;code&gt;%debug&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Command line&lt;/strong&gt;: &lt;code&gt;python -m pdb script.py&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;In code&lt;/strong&gt;: insert &lt;code&gt;breakpoint()&lt;/code&gt; where you want to drop in (older equivalent: &lt;code&gt;import pdb; pdb.set_trace()&lt;/code&gt;).&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id=&quot;section-4&quot;&gt;常用命令&lt;/h3&gt;&lt;table&gt;
+&lt;h3 id=&quot;common-commands&quot;&gt;Common commands&lt;/h3&gt;&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-  &lt;th&gt;命令&lt;/th&gt;
-  &lt;th&gt;说明&lt;/th&gt;
+  &lt;th&gt;Command&lt;/th&gt;
+  &lt;th&gt;Description&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
   &lt;td&gt;&lt;code&gt;l&lt;/code&gt;(list)&lt;/td&gt;
-  &lt;td&gt;列出当前位置代码&lt;/td&gt;
+  &lt;td&gt;list code around the current position&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
   &lt;td&gt;&lt;code&gt;p&lt;/code&gt;(print)&lt;/td&gt;
-  &lt;td&gt;打印变量值（&lt;code&gt;p a&lt;/code&gt;）&lt;/td&gt;
+  &lt;td&gt;print a variable (&lt;code&gt;p a&lt;/code&gt;)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
   &lt;td&gt;&lt;code&gt;n&lt;/code&gt;(ext)&lt;/td&gt;
-  &lt;td&gt;执行下一行（&lt;strong&gt;不进&lt;/strong&gt;新函数）&lt;/td&gt;
+  &lt;td&gt;next line (&lt;strong&gt;doesn&#x27;t&lt;/strong&gt; step into functions)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
   &lt;td&gt;&lt;code&gt;s&lt;/code&gt;(tep)&lt;/td&gt;
-  &lt;td&gt;执行下一条语句（&lt;strong&gt;进入&lt;/strong&gt;新函数）&lt;/td&gt;
+  &lt;td&gt;next statement (&lt;strong&gt;steps into&lt;/strong&gt; functions)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
   &lt;td&gt;&lt;code&gt;c&lt;/code&gt;(ontinue)&lt;/td&gt;
-  &lt;td&gt;继续到下一个断点&lt;/td&gt;
+  &lt;td&gt;continue to the next breakpoint&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
   &lt;td&gt;&lt;code&gt;b&lt;/code&gt;(reak)&lt;/td&gt;
-  &lt;td&gt;设断点（&lt;code&gt;b 34&lt;/code&gt;）&lt;/td&gt;
+  &lt;td&gt;set a breakpoint (&lt;code&gt;b 34&lt;/code&gt;)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
   &lt;td&gt;&lt;code&gt;u&lt;/code&gt;(p) / &lt;code&gt;d&lt;/code&gt;(own)&lt;/td&gt;
-  &lt;td&gt;上/下移动调用栈&lt;/td&gt;
+  &lt;td&gt;move up/down the call stack&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
   &lt;td&gt;&lt;code&gt;bt&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;打印调用栈&lt;/td&gt;
+  &lt;td&gt;print the call stack&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
   &lt;td&gt;&lt;code&gt;a&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;打印局部变量&lt;/td&gt;
+  &lt;td&gt;print local variables&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
   &lt;td&gt;&lt;code&gt;!command&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;执行 Python 命令（区别于 pdb 命令）&lt;/td&gt;
+  &lt;td&gt;run a Python command (vs a pdb command)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
   &lt;td&gt;&lt;code&gt;q&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;退出&lt;/td&gt;
+  &lt;td&gt;quit&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
   &lt;td&gt;&lt;code&gt;h&lt;/code&gt; / &lt;code&gt;help&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;帮助&lt;/td&gt;
+  &lt;td&gt;help&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&quot;warning&quot;&gt;把 warning 变成异常&lt;/h3&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;np.seterr(all=&#x27;raise&#x27;)   # 让 divide/invalid/over 等变成异常，便于 post-mortem 调试
+&lt;h3 id=&quot;turning-warnings-into-exceptions&quot;&gt;Turning warnings into exceptions&lt;/h3&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;np.seterr(all=&#x27;raise&#x27;)   # make divide/invalid/over raise, enabling post-mortem debugging
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&quot;pytest&quot;&gt;pytest 里调试&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;pytest --pdb my_test.py&lt;/code&gt;：异常时 post-mortem。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;pytest --pdb-failure&lt;/code&gt;：测试失败时用调试器检查。&lt;/li&gt;
+&lt;h3 id=&quot;debugging-in-pytest&quot;&gt;Debugging in pytest&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;pytest --pdb my_test.py&lt;/code&gt;: post-mortem on exceptions.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pytest --pdb-failure&lt;/code&gt;: inspect test failures with the debugger.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;section-5&quot;&gt;图形化/替代工具&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;pudb&lt;/code&gt;（半图形化控制台调试器）、VS Code 调试模式、Mu 编辑器。&lt;/li&gt;
+&lt;h3 id=&quot;gui-alternative-tools&quot;&gt;GUI/alternative tools&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;pudb&lt;/code&gt; (semi-graphical console debugger), VS Code&#x27;s debug mode, the Mu editor.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr /&gt;
-&lt;h2 id=&quot;9-ai&quot;&gt;9. AI 与调试&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;AI（Copilot、Claude 等）是强大的编程/调试助手，但&lt;strong&gt;有限制&lt;/strong&gt;：容易被误导、会幻觉、自己也会写出 bug。&lt;/li&gt;
-&lt;li&gt;经验建议：&lt;ul&gt;
-&lt;li&gt;花时间最久的一些 bug 恰恰是 AI 生成的——因为太急没仔细检查。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;你最终要为自己产出的所有代码负责&lt;/strong&gt;。&lt;/li&gt;
-&lt;li&gt;上下文很重要：网页聊天适合小片段，不适合大型代码库；agentic 工具（Claude Code/Codex）对大代码库更强，但 MSc 作业通常不允许用。&lt;/li&gt;
+&lt;h2 id=&quot;9-ai-and-debugging&quot;&gt;9. AI and debugging&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;AI (Copilot, Claude, …) is a powerful assistant but &lt;strong&gt;has limits&lt;/strong&gt;: it can be misled, hallucinate, and write its own bugs.&lt;/li&gt;
+&lt;li&gt;Experience-based tips:&lt;ul&gt;
+&lt;li&gt;Some of the hardest-to-find bugs come from AI-generated code checked too hastily.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;You are ultimately responsible for all the code you produce.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Context matters: chat UIs suit small snippets; agentic tools (Claude Code/Codex) suit large codebases but are often not permitted for assessed work.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;学习建议：必须能自己从零写代码；AI 可用于辅助学习（澄清概念、优化建议），但&lt;strong&gt;依赖 AI 写/调代码长期对你不利&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;Learning advice: you must be able to write code from scratch yourself; AI helps with learning (clarifying concepts, suggesting efficient approaches) but &lt;strong&gt;relying on it to write/debug code won&#x27;t benefit you long-term&lt;/strong&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr /&gt;
-&lt;h2 id=&quot;10&quot;&gt;10. 小结（今天学到了什么）&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;每个人都会写 bug。&lt;/li&gt;
-&lt;li&gt;调试工具能省大量时间和精力。&lt;/li&gt;
-&lt;li&gt;静态分析工具能避免很多简单 bug。&lt;/li&gt;
-&lt;li&gt;用 &lt;code&gt;IPython.embed()&lt;/code&gt; 手动调试。&lt;/li&gt;
-&lt;li&gt;Python 调试器 &lt;code&gt;pdb&lt;/code&gt; 的基础用法。&lt;/li&gt;
+&lt;h2 id=&quot;10-summary&quot;&gt;10. Summary&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Everyone writes bugs.&lt;/li&gt;
+&lt;li&gt;Debugging tools save time and energy.&lt;/li&gt;
+&lt;li&gt;Static analysis avoids many simple bugs.&lt;/li&gt;
+&lt;li&gt;Use &lt;code&gt;IPython.embed()&lt;/code&gt; for manual debugging.&lt;/li&gt;
+&lt;li&gt;Learn the basics of &lt;code&gt;pdb&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;评估要求：作业中要包含&lt;strong&gt;调试过程的截图&lt;/strong&gt;作为「调试证据」。&lt;/p&gt;
-&lt;/blockquote&gt;
 </description>
     </item>
 <item>
-        <title>NPP Lecture 4 复习：Python 数据结构与类（面向对象与深度学习）</title>
+        <title>NPP Lecture 4 Review: Python Data Structures & Classes (OOP and Deep Learning)</title>
         <link>https://ada-c38f0bb79f.github.io/p/npp-lecture4-review/</link>
         <pubDate>Thu, 08 Oct 2026 12:00:00 +0800</pubDate>
         
         <guid>https://ada-c38f0bb79f.github.io/p/npp-lecture4-review/</guid>
-        <description>&lt;h1 id=&quot;lecture-4-python-data-structures-amp-classes&quot;&gt;Lecture 4 复习：Python Data Structures &amp;amp; Classes（面向对象与深度学习）&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;主题：内置数据结构 · 可变/不可变 · 标准库扩展类型 · 类与继承 · 魔法方法 · PyTorch &lt;code&gt;nn.Module&lt;/code&gt;
-讲师：Dr. Tom Davison（Data Structures）· Debbie Pelacani Cruz（Classes &amp;amp; Deep Learning）&lt;/p&gt;
+        <description>&lt;h1 id=&quot;npp-lecture-4-review-python-data-structures-amp-classes-oop-and-deep-learning&quot;&gt;NPP Lecture 4 Review: Python Data Structures &amp;amp; Classes (OOP and Deep Learning)&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;Topics: built-in data structures · mutability · standard-library containers · classes &amp;amp; inheritance · magic methods · PyTorch &lt;code&gt;nn.Module&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;hr /&gt;
-&lt;h2 id=&quot;section&quot;&gt;第一部分：核心数据结构&lt;/h2&gt;&lt;h3 id=&quot;1&quot;&gt;1. 对象与名字绑定&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;所有 Python 数据都是「对象（object）」。&lt;/li&gt;
-&lt;li&gt;Python 用&lt;strong&gt;鸭子类型&lt;/strong&gt;：函数接受任意对象作为输入（不像 C/Java）。&lt;/li&gt;
-&lt;li&gt;用 &lt;code&gt;=&lt;/code&gt; 把对象&lt;strong&gt;绑定到名字&lt;/strong&gt;。&lt;/li&gt;
+&lt;h2 id=&quot;part-1-core-data-structures&quot;&gt;Part 1: Core data structures&lt;/h2&gt;&lt;h3 id=&quot;1-objects-and-name-binding&quot;&gt;1. Objects and name binding&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Every Python datum is an &amp;quot;object&amp;quot;.&lt;/li&gt;
+&lt;li&gt;Python uses &lt;strong&gt;duck typing&lt;/strong&gt;: functions accept any object (unlike C/Java).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;=&lt;/code&gt; &lt;strong&gt;binds an object to a name&lt;/strong&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;x = 7
-y = x          # y 和 x 指向同一个对象
+y = x          # y and x point to the same object
 a = list([1,2,3,4])
-b = a          # b 和 a 指向同一个 list 对象（浅绑定！）
+b = a          # b and a point to the same list (shallow binding!)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&quot;2-vs-mutability&quot;&gt;2. 可变 vs 不可变（Mutability）&lt;/h3&gt;&lt;table&gt;
+&lt;h3 id=&quot;2-mutable-vs-immutable&quot;&gt;2. Mutable vs immutable&lt;/h3&gt;&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-  &lt;th&gt;类型&lt;/th&gt;
-  &lt;th&gt;可变性&lt;/th&gt;
+  &lt;th&gt;Type&lt;/th&gt;
+  &lt;th&gt;Mutability&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
   &lt;td&gt;&lt;code&gt;int&lt;/code&gt; / &lt;code&gt;float&lt;/code&gt; / &lt;code&gt;str&lt;/code&gt; / &lt;code&gt;complex&lt;/code&gt; / &lt;code&gt;tuple&lt;/code&gt; / &lt;code&gt;frozenset&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;&lt;strong&gt;不可变&lt;/strong&gt;（immutable）&lt;/td&gt;
+  &lt;td&gt;&lt;strong&gt;immutable&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
   &lt;td&gt;&lt;code&gt;list&lt;/code&gt; / &lt;code&gt;set&lt;/code&gt; / &lt;code&gt;dict&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;&lt;strong&gt;可变&lt;/strong&gt;（mutable）&lt;/td&gt;
+  &lt;td&gt;&lt;strong&gt;mutable&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;ul&gt;
-&lt;li&gt;「更新」不可变对象其实是在&lt;strong&gt;新建对象&lt;/strong&gt;，用 &lt;code&gt;id()&lt;/code&gt; 可验证。&lt;/li&gt;
+&lt;li&gt;&amp;quot;Updating&amp;quot; an immutable object actually creates a &lt;strong&gt;new object&lt;/strong&gt; — verify with &lt;code&gt;id()&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;x = 3
-print(id(x)); x += 5; print(id(x))   # id 改变 → 新对象
+print(id(x)); x += 5; print(id(x))   # id changes → new object
 &lt;/code&gt;&lt;/pre&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;小整数缓存&lt;/strong&gt;：Python 缓存 -5 到 256 的整数对象。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Small-integer cache&lt;/strong&gt;: Python caches the integers −5 to 256.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;x = 3; y = 3
-print(x is y)          # True（同一缓存对象）
+print(x is y)          # True (same cached object)
 a = 12345; b = 12345
 print(a is b)          # False
 &lt;/code&gt;&lt;/pre&gt;
 &lt;ul&gt;
-&lt;li&gt;Python 整数&lt;strong&gt;任意精度&lt;/strong&gt;，上限受内存限制（&lt;code&gt;sys.getsizeof()&lt;/code&gt; 看占用）。&lt;/li&gt;
+&lt;li&gt;Python integers are &lt;strong&gt;arbitrary precision&lt;/strong&gt;, bounded only by memory (&lt;code&gt;sys.getsizeof()&lt;/code&gt;).&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;3-list&quot;&gt;3. 列表（list）&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;用 &lt;code&gt;[]&lt;/code&gt; 或 &lt;code&gt;list()&lt;/code&gt; 创建：&lt;code&gt;[1,3,5]&lt;/code&gt;、&lt;code&gt;list((3,4,5))&lt;/code&gt;、&lt;code&gt;[_ for _ in range(6,10)]&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;特点：&lt;strong&gt;可变、一维（单索引）、有序&lt;/strong&gt;，是其它对象的集合，支持迭代。&lt;/li&gt;
-&lt;li&gt;快：查找/改元素、增删&lt;strong&gt;末尾&lt;/strong&gt;元素。&lt;/li&gt;
-&lt;li&gt;慢：增删&lt;strong&gt;非末尾&lt;/strong&gt;元素（与长度成正比，因为要整体搬移）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;实现&lt;/strong&gt;：CPython 的 list 是一块存「内存地址」的内存块；预留空间扩展，满了要整体拷贝。&lt;/li&gt;
+&lt;h3 id=&quot;3-lists&quot;&gt;3. Lists&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Create with &lt;code&gt;[]&lt;/code&gt; or &lt;code&gt;list()&lt;/code&gt;: &lt;code&gt;[1,3,5]&lt;/code&gt;, &lt;code&gt;list((3,4,5))&lt;/code&gt;, &lt;code&gt;[_ for _ in range(6,10)]&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Properties: &lt;strong&gt;mutable, one-dimensional (single index), ordered&lt;/strong&gt;; a collection of other objects; supports iteration.&lt;/li&gt;
+&lt;li&gt;Fast: look up / change elements, append/remove the &lt;strong&gt;last&lt;/strong&gt; element.&lt;/li&gt;
+&lt;li&gt;Slow: add/remove elements &lt;strong&gt;other than the last&lt;/strong&gt; (cost scales with length — the whole block shifts).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Implementation&lt;/strong&gt;: CPython lists are a block of memory addresses; spare space is preallocated, and a full list must be copied wholesale.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4 id=&quot;list-comprehension&quot;&gt;列表推导式（list comprehension）&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;[ _ for _ in range(6, 10) ]&lt;/code&gt;，通常是最快的建 list 方式（比 for+append 快 20–25%），在可读范围内优先用。&lt;/li&gt;
+&lt;h4 id=&quot;list-comprehensions&quot;&gt;List comprehensions&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;[_ for _ in range(6, 10)]&lt;/code&gt; is usually the fastest way to build a list (20–25% faster than a &lt;code&gt;for&lt;/code&gt;+&lt;code&gt;append&lt;/code&gt; loop); prefer it while it stays readable.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;4-tuple&quot;&gt;4. 元组（tuple）&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;用逗号（常配 &lt;code&gt;()&lt;/code&gt;）或 &lt;code&gt;tuple()&lt;/code&gt; 创建：&lt;code&gt;1,3,5&lt;/code&gt;、&lt;code&gt;(2,3,4)&lt;/code&gt;、&lt;code&gt;tuple([3,4,5])&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;特点：&lt;strong&gt;不可变、一维、有序&lt;/strong&gt;，是 list 的不可变等价物。&lt;/li&gt;
-&lt;li&gt;快：查元素；比 list 略省内存（块大小固定，无需预留扩展空间）。&lt;/li&gt;
-&lt;li&gt;已知不会变就用 tuple。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;解包（unpacking）&lt;/strong&gt;：&lt;code&gt;a, b, c = 1, 2, 3&lt;/code&gt;，常用于接收函数返回的多值。&lt;/li&gt;
+&lt;h3 id=&quot;4-tuples&quot;&gt;4. Tuples&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Create with commas (usually &lt;code&gt;()&lt;/code&gt;) or &lt;code&gt;tuple()&lt;/code&gt;: &lt;code&gt;1,3,5&lt;/code&gt;, &lt;code&gt;(2,3,4)&lt;/code&gt;, &lt;code&gt;tuple([3,4,5])&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Properties: &lt;strong&gt;immutable, one-dimensional, ordered&lt;/strong&gt; — the immutable equivalent of a list.&lt;/li&gt;
+&lt;li&gt;Fast at lookup; slightly less memory than a list (block sized exactly, no spare room).&lt;/li&gt;
+&lt;li&gt;Use a tuple when something should never change.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Unpacking&lt;/strong&gt;: &lt;code&gt;a, b, c = 1, 2, 3&lt;/code&gt; — often used to collect multiple return values.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;5-generator&quot;&gt;5. 生成器（generator）&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;没有「tuple 推导式」；&lt;code&gt;(x**2 for x in range(3))&lt;/code&gt; 是&lt;strong&gt;生成器&lt;/strong&gt;。&lt;/li&gt;
-&lt;li&gt;只能迭代&lt;strong&gt;一次&lt;/strong&gt;，不存内容，用的时候才生成、用完丢弃 → &lt;strong&gt;省内存&lt;/strong&gt;。&lt;/li&gt;
-&lt;li&gt;易混淆：&lt;/li&gt;
+&lt;h3 id=&quot;5-generators&quot;&gt;5. Generators&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;There is no &amp;quot;tuple comprehension&amp;quot;; &lt;code&gt;(x**2 for x in range(3))&lt;/code&gt; is a &lt;strong&gt;generator&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;A generator can be iterated &lt;strong&gt;only once&lt;/strong&gt;; it doesn&#x27;t store its contents but yields values on demand and discards them — &lt;strong&gt;memory-efficient&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Easy to trip over:&lt;/li&gt;
 &lt;/ul&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;gen = (x for x in range(4))
 print(list(gen))   # [0, 1, 2, 3]
-print(list(gen))   # []（已经耗尽！）
+print(list(gen))   # [] (already exhausted!)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&quot;6-set-frozenset&quot;&gt;6. 集合（set）与 frozenset&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;用 &lt;code&gt;{}&lt;/code&gt; 或 &lt;code&gt;set()&lt;/code&gt; 创建：&lt;code&gt;{1,3,5}&lt;/code&gt;、&lt;code&gt;set([3,4,5])&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;特点：&lt;strong&gt;无序、可变&lt;/strong&gt;，是&lt;strong&gt;去重&lt;/strong&gt;对象的集合。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;x in S&lt;/code&gt; 极快（比 list 快一两个数量级）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;实现&lt;/strong&gt;：哈希表（hash table）。一个大块（大部分为空）+ 哈希函数映射到 0..N-1。&lt;ul&gt;
-&lt;li&gt;加成员：算哈希 → 插入对应位置。&lt;/li&gt;
-&lt;li&gt;查成员：算哈希 → 查对应位置。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;冲突（collision）&lt;/strong&gt;：两个输入哈希到同一位置，Python 按可预测模式继续找下一块，直到找到目标或空位。→ 所以 set 需要比较空、比 list 费内存。&lt;/li&gt;
+&lt;h3 id=&quot;6-sets-and-frozensets&quot;&gt;6. Sets and frozensets&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Create with &lt;code&gt;{}&lt;/code&gt; or &lt;code&gt;set()&lt;/code&gt;: &lt;code&gt;{1,3,5}&lt;/code&gt;, &lt;code&gt;set([3,4,5])&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Properties: &lt;strong&gt;unordered, mutable&lt;/strong&gt;, a collection of &lt;strong&gt;distinct&lt;/strong&gt; objects.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;x in S&lt;/code&gt; is very fast (orders of magnitude faster than a list).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Implementation&lt;/strong&gt;: a hash table — a large (mostly empty) block plus a hash function mapping values to slots 0..N−1.&lt;ul&gt;
+&lt;li&gt;Add: hash the value → insert at that slot.&lt;/li&gt;
+&lt;li&gt;Lookup: hash the value → check that slot.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Collisions&lt;/strong&gt; (two values hashing to the same slot) are resolved by probing a predictable pattern until the target or an empty slot is found → sets must stay sparse, using more memory than lists.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;code&gt;frozenset&lt;/code&gt;：set 的不可变版本。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;frozenset&lt;/code&gt;: the immutable version of a set.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;7-dict&quot;&gt;7. 字典（dict）&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;映射 &lt;strong&gt;key → value&lt;/strong&gt;：&lt;code&gt;{&amp;quot;a&amp;quot;:1,&amp;quot;b&amp;quot;:10}&lt;/code&gt;、&lt;code&gt;dict(x=1,y=2)&lt;/code&gt;、&lt;code&gt;{x:x**2 for x in range(10)}&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;和 set 一样优化了 &lt;code&gt;x in D&lt;/code&gt;（快一两个数量级）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;key 必须不可变且可哈希&lt;/strong&gt;（不能用 list 当 key）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;实现&lt;/strong&gt;：和 set 类似的哈希表；区别是：&lt;ul&gt;
-&lt;li&gt;dict 同时存 key 和（value 对象的地址）。&lt;/li&gt;
-&lt;li&gt;dict &lt;strong&gt;保留插入顺序&lt;/strong&gt;（Python 3.7+），set 不保留。&lt;/li&gt;
+&lt;h3 id=&quot;7-dictionaries-dict&quot;&gt;7. Dictionaries (dict)&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Map &lt;strong&gt;keys → values&lt;/strong&gt;: &lt;code&gt;{&amp;quot;a&amp;quot;:1,&amp;quot;b&amp;quot;:10}&lt;/code&gt;, &lt;code&gt;dict(x=1,y=2)&lt;/code&gt;, &lt;code&gt;{x:x**2 for x in range(10)}&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Like sets, optimized for &lt;code&gt;x in D&lt;/code&gt; (fast key lookup).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Keys must be immutable and hashable&lt;/strong&gt; (no lists as keys).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Implementation&lt;/strong&gt;: a hash table like a set, but:&lt;ul&gt;
+&lt;li&gt;a dict stores both the key and (the address of) the value object;&lt;/li&gt;
+&lt;li&gt;a dict preserves &lt;strong&gt;insertion order&lt;/strong&gt; (Python 3.7+), a set does not.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;字典推导式建 dict 快，但不总是比 for 循环快（如反转字典两者差不多）。&lt;/li&gt;
+&lt;li&gt;Dict comprehensions build dicts quickly, but aren&#x27;t always faster than a loop (e.g. reversing a dict is about equal).&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;8&quot;&gt;8. 如何选择数据类型&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;需要&lt;strong&gt;有序 + 可变 + 索引&lt;/strong&gt; → list；&lt;strong&gt;不变&lt;/strong&gt; → tuple。&lt;/li&gt;
-&lt;li&gt;需要&lt;strong&gt;去重 / 快速 in 判断&lt;/strong&gt; → set；不变 → frozenset。&lt;/li&gt;
-&lt;li&gt;需要 &lt;strong&gt;key→value 映射 / 快速查 key&lt;/strong&gt; → dict。&lt;/li&gt;
-&lt;li&gt;需要&lt;strong&gt;节约内存、只遍历一次&lt;/strong&gt; → generator。&lt;/li&gt;
+&lt;h3 id=&quot;8-choosing-a-data-structure&quot;&gt;8. Choosing a data structure&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Ordered + mutable + indexable → &lt;strong&gt;list&lt;/strong&gt;; fixed → &lt;strong&gt;tuple&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Deduplication / fast &lt;code&gt;in&lt;/code&gt; tests → &lt;strong&gt;set&lt;/strong&gt;; fixed → &lt;strong&gt;frozenset&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;key→value mapping / fast key lookup → &lt;strong&gt;dict&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Memory-efficient, iterate once → &lt;strong&gt;generator&lt;/strong&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr /&gt;
-&lt;h2 id=&quot;section-2&quot;&gt;第二部分：标准库扩展类型&lt;/h2&gt;&lt;h3 id=&quot;9-array&quot;&gt;9. &lt;code&gt;array&lt;/code&gt; 模块&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;存&lt;strong&gt;同类型&lt;/strong&gt;数据的集合，比 list 省内存（直接存值而非存对象地址）。&lt;/li&gt;
-&lt;li&gt;但难用，大多数人忽略它；日常用 numpy 更好。&lt;/li&gt;
+&lt;h2 id=&quot;part-2-standard-library-extension-types&quot;&gt;Part 2: Standard-library extension types&lt;/h2&gt;&lt;h3 id=&quot;9-the-array-module&quot;&gt;9. The &lt;code&gt;array&lt;/code&gt; module&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Stores a &lt;strong&gt;homogeneous&lt;/strong&gt; collection (one type), more memory-efficient than a list (values, not pointers).&lt;/li&gt;
+&lt;li&gt;But awkward to use; most people ignore it — prefer NumPy.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import array
 a = [1,2,3,4,5]
-b = array.array(&#x27;b&#x27;, a)   # 更省内存
+b = array.array(&#x27;b&#x27;, a)   # more compact
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&quot;10-collections&quot;&gt;10. &lt;code&gt;collections&lt;/code&gt; 模块&lt;/h3&gt;&lt;table&gt;
+&lt;h3 id=&quot;10-the-collections-module&quot;&gt;10. The &lt;code&gt;collections&lt;/code&gt; module&lt;/h3&gt;&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-  &lt;th&gt;类型&lt;/th&gt;
-  &lt;th&gt;说明&lt;/th&gt;
+  &lt;th&gt;Type&lt;/th&gt;
+  &lt;th&gt;Notes&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
   &lt;td&gt;&lt;code&gt;namedtuple&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;类似 tuple 但有命名字段&lt;/td&gt;
+  &lt;td&gt;tuple-like with named fields&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
   &lt;td&gt;&lt;code&gt;deque&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;类似 list，但&lt;strong&gt;头尾&lt;/strong&gt;增删都快&lt;/td&gt;
+  &lt;td&gt;list-like, fast append/pop at &lt;strong&gt;both&lt;/strong&gt; ends&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
   &lt;td&gt;&lt;code&gt;OrderedDict&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;记住插入顺序的 dict（现在普通 dict 也保序，多出现在旧代码）&lt;/td&gt;
+  &lt;td&gt;insertion-ordered dict (now redundant since dicts are ordered; still in legacy code)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
   &lt;td&gt;&lt;code&gt;defaultdict&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;缺 key 时用工厂函数自动给默认值，如 &lt;code&gt;defaultdict(int)&lt;/code&gt;&lt;/td&gt;
+  &lt;td&gt;auto-provides a default value for missing keys via a factory, e.g. &lt;code&gt;defaultdict(int)&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;hr /&gt;
-&lt;h2 id=&quot;numpy-pandas&quot;&gt;第三部分：numpy / pandas 回顾&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;numpy.ndarray&lt;/code&gt;：多维数组（1D~64D），&lt;strong&gt;所有元素必须同类型&lt;/strong&gt;；未指定 &lt;code&gt;dtype&lt;/code&gt; 时自动推断能覆盖所有输入的类型。&lt;/li&gt;
+&lt;h2 id=&quot;part-3-numpy-pandas-recap&quot;&gt;Part 3: NumPy / Pandas recap&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;numpy.ndarray&lt;/code&gt;: multidimensional arrays (1-D to 64-D); &lt;strong&gt;all elements must share one type&lt;/strong&gt;; if no &lt;code&gt;dtype&lt;/code&gt; is given, NumPy picks one that fits the input.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;np.array([0,1,2])     # int64
-np.array([0,1,2.5])   # float64
-np.array([0,&#x27;hat&#x27;,sum])  # object
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;np.array([0,1,2])       # int64
+np.array([0,1,2.5])     # float64
+np.array([0,&#x27;hat&#x27;,sum]) # object
 &lt;/code&gt;&lt;/pre&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;pandas.Series&lt;/code&gt;：带标签的一维数组；&lt;code&gt;pandas.DataFrame&lt;/code&gt;：带索引和列名的表。&lt;/li&gt;
-&lt;li&gt;详见 Lecture 2。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pandas.Series&lt;/code&gt;: a labelled 1-D array; &lt;code&gt;pandas.DataFrame&lt;/code&gt;: a table with an index and named columns.&lt;/li&gt;
+&lt;li&gt;See Lecture 2 for details.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr /&gt;
-&lt;h2 id=&quot;python-classes&quot;&gt;第四部分：Python 类（Classes）&lt;/h2&gt;&lt;h3 id=&quot;11&quot;&gt;11. 面向对象与封装&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;类 = 自定义数据结构：**数据（属性）+ 修改它的函数（方法）**绑在一起。&lt;/li&gt;
-&lt;li&gt;好处：&lt;strong&gt;封装（Encapsulation）&lt;/strong&gt;——把数据和方法绑定，减少把数据/方法用错对象的错误。&lt;/li&gt;
+&lt;h2 id=&quot;part-4-python-classes&quot;&gt;Part 4: Python classes&lt;/h2&gt;&lt;h3 id=&quot;11-oop-and-encapsulation&quot;&gt;11. OOP and encapsulation&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;A class = a custom data structure bundling &lt;strong&gt;data (attributes)&lt;/strong&gt; with the &lt;strong&gt;functions (methods)&lt;/strong&gt; that act on it.&lt;/li&gt;
+&lt;li&gt;Benefit: &lt;strong&gt;encapsulation&lt;/strong&gt; — binding data and methods together makes it harder to apply them to the wrong object.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;class MyClass:
     &amp;quot;&amp;quot;&amp;quot;This is my cool class.&amp;quot;&amp;quot;&amp;quot;
     def my_method(self, a, b):
-        self.val = a + b     # 存实例属性
+        self.val = a + b     # store an instance attribute
         return a * b
 
-inst = MyClass()             # 用 () 创建实例
-a = inst.my_method(1, 2)     # a=2，inst.val=3
+inst = MyClass()             # create an instance with ()
+a = inst.my_method(1, 2)     # a=2, inst.val=3
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&quot;12-init&quot;&gt;12. &lt;code&gt;__init__&lt;/code&gt; 与实例属性&lt;/h3&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;class Point3D:
+&lt;h3 id=&quot;12-init-and-instance-attributes&quot;&gt;12. &lt;code&gt;__init__&lt;/code&gt; and instance attributes&lt;/h3&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;class Point3D:
     def __init__(self, x, y, z):
         self.x = x; self.y = y; self.z = z
 
 p = Point3D(1, 4, 7)
 print(p.x, p.y, p.z)   # 1 4 7
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&quot;13-vs&quot;&gt;13. 类属性 vs 实例属性（⚠️ 常见坑）&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;类属性&lt;/strong&gt;（写在 class 体、不在方法里）：&lt;strong&gt;所有实例共享同一个对象&lt;/strong&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;实例属性&lt;/strong&gt;（&lt;code&gt;self.xxx&lt;/code&gt;）：每个实例各自独立。&lt;/li&gt;
+&lt;h3 id=&quot;13-class-attributes-vs-instance-attributes-common-pitfall&quot;&gt;13. Class attributes vs instance attributes (⚠️ common pitfall)&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Class attributes&lt;/strong&gt; (written in the class body, outside methods): &lt;strong&gt;shared by all instances&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Instance attributes&lt;/strong&gt; (&lt;code&gt;self.xxx&lt;/code&gt;): independent per instance.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;class MyClass:
-    mylist = []            # 类属性，所有实例共享！
+    mylist = []            # class attribute — shared by all instances!
 
 inst1, inst2 = MyClass(), MyClass()
 inst1.mylist.append(1); inst2.mylist.append(2)
-print(inst1.mylist is inst2.mylist)   # True（同一个 list！）
+print(inst1.mylist is inst2.mylist)   # True (the same list!)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;blockquote&gt;
-&lt;p&gt;可变类型（如 list）当类属性特别危险，因为实例间会互相影响。&lt;/p&gt;
+&lt;p&gt;Mutable types (like a list) as class attributes are especially dangerous — instances interfere with each other.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h3 id=&quot;14-inheritance&quot;&gt;14. 继承（Inheritance）&lt;/h3&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;class MySubClass(MyBaseClass):
-    &#x27;&#x27;&#x27;继承 MyBaseClass&#x27;&#x27;&#x27;
-    # 新增方法
+&lt;h3 id=&quot;14-inheritance&quot;&gt;14. Inheritance&lt;/h3&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;class MySubClass(MyBaseClass):
+    &#x27;&#x27;&#x27;MySubClass inherits from MyBaseClass&#x27;&#x27;&#x27;
+    # new methods here
 &lt;/code&gt;&lt;/pre&gt;
 &lt;ul&gt;
-&lt;li&gt;所有类最终都继承自基类 &lt;code&gt;object&lt;/code&gt;（&lt;code&gt;int&lt;/code&gt;、&lt;code&gt;list&lt;/code&gt; 也一样）。&lt;/li&gt;
-&lt;li&gt;子类可**重写（override）**父类方法。&lt;/li&gt;
-&lt;li&gt;查基类：&lt;code&gt;Tree.__base__&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;super()&lt;/code&gt;&lt;/strong&gt;：在子类里调用父类的方法，避免重写整个函数。&lt;/li&gt;
+&lt;li&gt;Every class ultimately inherits from the base &lt;code&gt;object&lt;/code&gt; (including &lt;code&gt;int&lt;/code&gt;, &lt;code&gt;list&lt;/code&gt;, …).&lt;/li&gt;
+&lt;li&gt;A subclass can &lt;strong&gt;override&lt;/strong&gt; parent methods.&lt;/li&gt;
+&lt;li&gt;Inspect the base: &lt;code&gt;Tree.__base__&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;super()&lt;/code&gt;&lt;/strong&gt; calls the parent&#x27;s method without rewriting it entirely.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;class Shrub(Tree):
     def __init__(self, species, age, height, fruit):
-        super().__init__(species, age, height)   # 调用父类 __init__
+        super().__init__(species, age, height)   # call the parent __init__
         self.fruit = fruit
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&quot;15-property&quot;&gt;15. property：让函数「像属性」&lt;/h3&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;class Temperature:
+&lt;h3 id=&quot;15-properties-make-a-function-feel-like-an-attribute&quot;&gt;15. Properties: make a function feel like an attribute&lt;/h3&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;class Temperature:
     def __init__(self, temp):
         self.celsius = temp
 
@@ -1127,11 +1119,11 @@ print(inst1.mylist is inst2.mylist)   # True（同一个 list！）
     def fahrenheit(self, temp):
         self.celsius = (temp - 32) * 5/9
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&quot;16-magic-special-methods&quot;&gt;16. 魔法方法（magic/special methods）&lt;/h3&gt;&lt;table&gt;
+&lt;h3 id=&quot;16-magic-special-methods&quot;&gt;16. Magic (special) methods&lt;/h3&gt;&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-  &lt;th&gt;触发&lt;/th&gt;
-  &lt;th&gt;方法&lt;/th&gt;
+  &lt;th&gt;Trigger&lt;/th&gt;
+  &lt;th&gt;Method&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
@@ -1144,42 +1136,42 @@ print(inst1.mylist is inst2.mylist)   # True（同一个 list！）
   &lt;td&gt;&lt;code&gt;__str__(self)&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-  &lt;td&gt;&lt;code&gt;inst&lt;/code&gt;（交互式显示）&lt;/td&gt;
+  &lt;td&gt;&lt;code&gt;inst&lt;/code&gt; (interactive display)&lt;/td&gt;
   &lt;td&gt;&lt;code&gt;__repr__(self)&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
   &lt;td&gt;&lt;code&gt;inst1 + inst2&lt;/code&gt;&lt;/td&gt;
-  &lt;td&gt;&lt;code&gt;__add__&lt;/code&gt;（运算符重载）&lt;/td&gt;
+  &lt;td&gt;&lt;code&gt;__add__&lt;/code&gt; (operator overloading)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;ul&gt;
-&lt;li&gt;重载规则：&lt;strong&gt;别让人惊讶&lt;/strong&gt;——&lt;code&gt;+&lt;/code&gt; 应该是加/增/追加，&lt;code&gt;-&lt;/code&gt; 应该是减/删。&lt;/li&gt;
+&lt;li&gt;Overloading rule: &lt;strong&gt;don&#x27;t surprise people&lt;/strong&gt; — &lt;code&gt;+&lt;/code&gt; should add/append, &lt;code&gt;-&lt;/code&gt; should subtract/remove.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;17-new-del&quot;&gt;17. &lt;code&gt;__new__&lt;/code&gt; 与 &lt;code&gt;__del__&lt;/code&gt;（进阶，可先忽略）&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;创建实例时先调 &lt;code&gt;__new__&lt;/code&gt; 再调 &lt;code&gt;__init__&lt;/code&gt;（一般只需写 &lt;code&gt;__init__&lt;/code&gt;）。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;__del__&lt;/code&gt; 在垃圾回收认为对象不再需要时调用，用于清理特殊资源。&lt;/li&gt;
+&lt;h3 id=&quot;17-new-and-del-advanced-skippable&quot;&gt;17. &lt;code&gt;__new__&lt;/code&gt; and &lt;code&gt;__del__&lt;/code&gt; (advanced — skippable)&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Creating an instance calls &lt;code&gt;__new__&lt;/code&gt; then &lt;code&gt;__init__&lt;/code&gt; (usually you only write &lt;code&gt;__init__&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;__del__&lt;/code&gt; runs when the garbage collector considers the object no longer needed — use it for special cleanup.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr /&gt;
-&lt;h2 id=&quot;pytorch&quot;&gt;第五部分：类与深度学习（PyTorch）&lt;/h2&gt;&lt;h3 id=&quot;18-pytorch&quot;&gt;18. 从神经元到 PyTorch&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;基础神经元&lt;/strong&gt;（线性模型：加权求和 + bias）：&lt;/p&gt;
+&lt;h2 id=&quot;part-5-classes-and-deep-learning-pytorch&quot;&gt;Part 5: Classes and deep learning (PyTorch)&lt;/h2&gt;&lt;h3 id=&quot;18-from-a-neuron-to-pytorch&quot;&gt;18. From a neuron to PyTorch&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Base neuron&lt;/strong&gt; (linear model: weighted sum + bias):&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;class Neuron:
     def __init__(self, weights, bias):
         self.weights = weights; self.bias = bias
     def forward(self, inputs):
         return sum(w*i for w,i in zip(self.weights, inputs)) + self.bias
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;strong&gt;用继承加激活函数&lt;/strong&gt;（ReLU / Sigmoid）：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Add activation functions via inheritance&lt;/strong&gt; (ReLU / Sigmoid):&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;class ReLUNeuron(Neuron):
     def relu(self, x): return max(0, x)
     def forward(self, inputs):
-        return self.relu(super().forward(inputs))   # 父类算线性，再套激活
+        return self.relu(super().forward(inputs))   # parent computes linear, then activate
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&quot;19-pytorch-nn-module&quot;&gt;19. PyTorch 的 &lt;code&gt;nn.Module&lt;/code&gt;&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;PyTorch 中一切「神经网络」都继承自 &lt;code&gt;torch.nn.Module&lt;/code&gt;，它管理参数、设备移动、保存/加载、autograd。&lt;/li&gt;
-&lt;li&gt;关键点：&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;super().__init__()&lt;/code&gt; 初始化父类。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;nn.Linear&lt;/code&gt; 自动注册可学习参数。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;forward&lt;/code&gt; 定义计算。&lt;/li&gt;
+&lt;h3 id=&quot;19-pytorch-s-nn-module&quot;&gt;19. PyTorch&#x27;s &lt;code&gt;nn.Module&lt;/code&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;In PyTorch, everything &amp;quot;neural&amp;quot; inherits from &lt;code&gt;torch.nn.Module&lt;/code&gt;, which manages parameters, device movement, save/load, and autograd.&lt;/li&gt;
+&lt;li&gt;Key points:&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;super().__init__()&lt;/code&gt; initialises the parent.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;nn.Linear&lt;/code&gt; registers learnable parameters automatically.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;forward&lt;/code&gt; defines the computation.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -1191,7 +1183,7 @@ print(inst1.mylist is inst2.mylist)   # True（同一个 list！）
     def forward(self, x):
         return self.relu(self.linear(x))
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;strong&gt;多层感知机（MLP）&lt;/strong&gt;：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Multi-layer perceptron (MLP)&lt;/strong&gt;:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;class TinyMLP(nn.Module):
     def __init__(self, input_size, hidden_size, num_classes):
         super().__init__()
@@ -1201,28 +1193,28 @@ print(inst1.mylist is inst2.mylist)   # True（同一个 list！）
     def forward(self, x):
         return self.fc2(self.act(self.fc1(x)))
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&quot;20-key-takeaways&quot;&gt;20. Key Takeaways&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;类&lt;/strong&gt;封装数据（属性）与行为（方法）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;继承&lt;/strong&gt;让你定义一次通用蓝图，在子类里特化行为。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;PyTorch&lt;/strong&gt; 处处用这个模式：模型和层都继承 &lt;code&gt;nn.Module&lt;/code&gt;，提供参数管理、设备管理、autograd 集成。&lt;/li&gt;
-&lt;li&gt;理解类与继承 → 深度学习框架更透明，模型更易设计、调试和扩展。&lt;/li&gt;
+&lt;h3 id=&quot;20-key-takeaways&quot;&gt;20. Key takeaways&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Classes&lt;/strong&gt; encapsulate data (attributes) and behaviour (methods).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Inheritance&lt;/strong&gt; lets you define a blueprint once and specialise it in subclasses.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PyTorch&lt;/strong&gt; uses this pattern everywhere: models and layers inherit from &lt;code&gt;nn.Module&lt;/code&gt;, providing parameter handling, device management, and autograd integration.&lt;/li&gt;
+&lt;li&gt;Understanding classes and inheritance makes DL frameworks more transparent and your own models easier to design, debug, and extend.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr /&gt;
-&lt;h2 id=&quot;section-3&quot;&gt;易错点提醒 ⚠️&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;可变类型（list/dict/set）当&lt;strong&gt;类属性&lt;/strong&gt;会在实例间共享，通常应放 &lt;code&gt;__init__&lt;/code&gt; 里当实例属性。&lt;/li&gt;
-&lt;li&gt;生成器只能迭代一次。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;a = b&lt;/code&gt; 对可变对象是&lt;strong&gt;浅绑定&lt;/strong&gt;（同一对象），改 &lt;code&gt;a&lt;/code&gt; 会影响 &lt;code&gt;b&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;dict 的 key 必须&lt;strong&gt;不可变且可哈希&lt;/strong&gt;。&lt;/li&gt;
-&lt;li&gt;子类要扩展（而非完全重写）父类逻辑时用 &lt;code&gt;super()&lt;/code&gt;。&lt;/li&gt;
+&lt;h2 id=&quot;common-pitfalls&quot;&gt;Common pitfalls ⚠️&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;Mutable types (list/dict/set) as &lt;strong&gt;class attributes&lt;/strong&gt; are shared across instances — put them in &lt;code&gt;__init__&lt;/code&gt; instead.&lt;/li&gt;
+&lt;li&gt;Generators can be iterated only once.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;a = b&lt;/code&gt; for a mutable object is a &lt;strong&gt;shallow binding&lt;/strong&gt; (same object) — mutating &lt;code&gt;a&lt;/code&gt; affects &lt;code&gt;b&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Dict keys must be &lt;strong&gt;immutable and hashable&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Use &lt;code&gt;super()&lt;/code&gt; to extend (rather than fully replace) parent logic in a subclass.&lt;/li&gt;
 &lt;/ol&gt;
 </description>
     </item>
     <item>
         <title>Disease detection program logbook(continuously_updated)</title>
-        <link>https://CarlossQAQ.github.io/p/disease-detection-program-logbookcontinuously_updated/</link>
+        <link>https://ada-c38f0bb79f.github.io/p/disease-detection-program-logbookcontinuously_updated/</link>
         <pubDate>Fri, 29 Nov 2024 14:40:58 +0800</pubDate>
         
-        <guid>https://CarlossQAQ.github.io/p/disease-detection-program-logbookcontinuously_updated/</guid>
+        <guid>https://ada-c38f0bb79f.github.io/p/disease-detection-program-logbookcontinuously_updated/</guid>
         <description>&lt;h1 id=&#34;disease_detection-project-log&#34;&gt;Disease_detection Project Log
 &lt;/h1&gt;&lt;h2 id=&#34;1113---project-kickoff&#34;&gt;11.13 - Project Kickoff
 &lt;/h2&gt;&lt;p&gt;The project was officially launched under the leadership of Carlos, with Ken serving as the advisor. Team members include Medicine, Quinn, Gina, and Keith. The goal is to detect disease-related terms and enhance skills in natural language processing and deep learning.&lt;/p&gt;
@@ -1336,10 +1328,10 @@ print(inst1.mylist is inst2.mylist)   # True（同一个 list！）
         </item>
         <item>
         <title>Marcov_chain_prediction_algorithm</title>
-        <link>https://CarlossQAQ.github.io/p/marcov_chain_prediction_algorithm/</link>
+        <link>https://ada-c38f0bb79f.github.io/p/marcov_chain_prediction_algorithm/</link>
         <pubDate>Fri, 29 Nov 2024 11:44:31 +0800</pubDate>
         
-        <guid>https://CarlossQAQ.github.io/p/marcov_chain_prediction_algorithm/</guid>
+        <guid>https://ada-c38f0bb79f.github.io/p/marcov_chain_prediction_algorithm/</guid>
         <description>&lt;h2 id=&#34;what-is-a-markov-chain&#34;&gt;What is a Markov Chain?
 &lt;/h2&gt;&lt;p&gt;A &lt;strong&gt;Markov Chain&lt;/strong&gt; is a mathematical model describing transitions between states based on probabilities. Its defining property is that the &lt;strong&gt;future state depends only on the current state&lt;/strong&gt;, not on past states.&lt;/p&gt;
 &lt;h3 id=&#34;markov-property&#34;&gt;Markov Property
@@ -1360,10 +1352,10 @@ P =
 $$&lt;/p&gt;
 &lt;p&gt;Each entry ( P(s_j|s_i) ) represents the probability of transitioning from state ( s_i ) to state ( s_j ). The rows of the matrix must sum to 1.&lt;/p&gt;
 &lt;h3 id=&#34;visual-representation&#34;&gt;Visual Representation
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://CarlossQAQ.github.io/p/marcov_chain_prediction_algorithm/state_transition_matrix.png&#34;
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://ada-c38f0bb79f.github.io/p/marcov_chain_prediction_algorithm/state_transition_matrix.png&#34;
 	width=&#34;954&#34;
 	height=&#34;800&#34;
-	srcset=&#34;https://CarlossQAQ.github.io/p/marcov_chain_prediction_algorithm/state_transition_matrix_hu5722981567273431262.png 480w, https://CarlossQAQ.github.io/p/marcov_chain_prediction_algorithm/state_transition_matrix_hu7721517031506615268.png 1024w&#34;
+	srcset=&#34;https://ada-c38f0bb79f.github.io/p/marcov_chain_prediction_algorithm/state_transition_matrix_hu5722981567273431262.png 480w, https://ada-c38f0bb79f.github.io/p/marcov_chain_prediction_algorithm/state_transition_matrix_hu7721517031506615268.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;State Transition Matrix&#34;
@@ -1374,10 +1366,10 @@ $$&lt;/p&gt;
 		data-flex-basis=&#34;286px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://CarlossQAQ.github.io/p/marcov_chain_prediction_algorithm/state_transition_diagram.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://ada-c38f0bb79f.github.io/p/marcov_chain_prediction_algorithm/state_transition_diagram.png&#34;
 	width=&#34;1600&#34;
 	height=&#34;1200&#34;
-	srcset=&#34;https://CarlossQAQ.github.io/p/marcov_chain_prediction_algorithm/state_transition_diagram_hu6959064839851416965.png 480w, https://CarlossQAQ.github.io/p/marcov_chain_prediction_algorithm/state_transition_diagram_hu17490209543252086977.png 1024w&#34;
+	srcset=&#34;https://ada-c38f0bb79f.github.io/p/marcov_chain_prediction_algorithm/state_transition_diagram_hu6959064839851416965.png 480w, https://ada-c38f0bb79f.github.io/p/marcov_chain_prediction_algorithm/state_transition_diagram_hu17490209543252086977.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;State Transition Diagram&#34;
@@ -1503,10 +1495,10 @@ $$&lt;/p&gt;
         </item>
         <item>
         <title>LLM LECTURE1</title>
-        <link>https://CarlossQAQ.github.io/p/llm-lecture1/</link>
+        <link>https://ada-c38f0bb79f.github.io/p/llm-lecture1/</link>
         <pubDate>Fri, 29 Nov 2024 00:16:47 +0800</pubDate>
         
-        <guid>https://CarlossQAQ.github.io/p/llm-lecture1/</guid>
+        <guid>https://ada-c38f0bb79f.github.io/p/llm-lecture1/</guid>
         <description>&lt;table style=&#34;width:100%&#34;&gt;
 &lt;tr&gt;
 &lt;td style=&#34;vertical-align:middle; text-align:left;&#34;&gt;
@@ -1833,18 +1825,18 @@ Let&amp;rsquo;s try to tokenize text with the modified tokenizer:&lt;/p&gt;
         </item>
         <item>
         <title>Archives</title>
-        <link>https://CarlossQAQ.github.io/archives/</link>
+        <link>https://ada-c38f0bb79f.github.io/archives/</link>
         <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://CarlossQAQ.github.io/archives/</guid>
+        <guid>https://ada-c38f0bb79f.github.io/archives/</guid>
         <description></description>
         </item>
         <item>
         <title>Math Typesetting</title>
-        <link>https://CarlossQAQ.github.io/p/math-typesetting/</link>
+        <link>https://ada-c38f0bb79f.github.io/p/math-typesetting/</link>
         <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://CarlossQAQ.github.io/p/math-typesetting/</guid>
+        <guid>https://ada-c38f0bb79f.github.io/p/math-typesetting/</guid>
         <description>&lt;p&gt;Mathematical notation in a Hugo project can be enabled by using third party JavaScript libraries.&lt;/p&gt;
 &lt;p&gt;In this example we will be using &lt;a class=&#34;link&#34; href=&#34;https://katex.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;KaTeX&lt;/a&gt;&lt;/p&gt;
@@ -1882,10 +1874,10 @@ $$&lt;/p&gt;</description>
         </item>
         <item>
         <title>About</title>
-        <link>https://CarlossQAQ.github.io/about/</link>
+        <link>https://ada-c38f0bb79f.github.io/about/</link>
         <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://CarlossQAQ.github.io/about/</guid>
+        <guid>https://ada-c38f0bb79f.github.io/about/</guid>
         <description>&lt;p&gt;Written in Go, Hugo is an open source static site generator available under the &lt;a class=&#34;link&#34; href=&#34;https://github.com/gohugoio/hugo/blob/master/LICENSE&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Apache License 2.0.&lt;/a&gt; Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.&lt;/p&gt;
 &lt;p&gt;Hugo makes use of a variety of open source projects including:&lt;/p&gt;
@@ -1910,10 +1902,10 @@ $$&lt;/p&gt;</description>
         </item>
         <item>
         <title>Links</title>
-        <link>https://CarlossQAQ.github.io/links/</link>
+        <link>https://ada-c38f0bb79f.github.io/links/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://CarlossQAQ.github.io/links/</guid>
+        <guid>https://ada-c38f0bb79f.github.io/links/</guid>
         <description>&lt;p&gt;To use this feature, add &lt;code&gt;links&lt;/code&gt; section to frontmatter.&lt;/p&gt;
 &lt;p&gt;This page&amp;rsquo;s frontmatter:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -1945,10 +1937,10 @@ $$&lt;/p&gt;</description>
         </item>
         <item>
         <title>Search</title>
-        <link>https://CarlossQAQ.github.io/search/</link>
+        <link>https://ada-c38f0bb79f.github.io/search/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://CarlossQAQ.github.io/search/</guid>
+        <guid>https://ada-c38f0bb79f.github.io/search/</guid>
         <description></description>
         </item>
         

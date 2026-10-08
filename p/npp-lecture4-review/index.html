@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="list/tuple/set/dict 等数据结构、可变性、类与继承、魔法方法、property，以及 PyTorch nn.Module 的复习笔记。">
-<title>NPP Lecture 4 复习：Python 数据结构与类（面向对象与深度学习）</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Review notes on Python data structures, mutability, classes and inheritance, magic methods, properties, and PyTorch nn.Module.">
+<title>NPP Lecture 4 Review: Python Data Structures & Classes (OOP and Deep Learning)</title>
 
 <link rel='canonical' href='https://ada-c38f0bb79f.github.io/p/npp-lecture4-review/'>
 
-<link rel="stylesheet" href="/scss/style.min.cd3e66856c780baaa0f235942bb48d1e842e67328e0ab44cc64935c8eadf098a.css"><meta property='og:title' content="NPP Lecture 4 复习：Python 数据结构与类（面向对象与深度学习）">
-<meta property='og:description' content="list/tuple/set/dict 等数据结构、可变性、类与继承、魔法方法、property，以及 PyTorch nn.Module 的复习笔记。">
+<link rel="stylesheet" href="/scss/style.min.cd3e66856c780baaa0f235942bb48d1e842e67328e0ab44cc64935c8eadf098a.css"><meta property='og:title' content="NPP Lecture 4 Review: Python Data Structures & Classes (OOP and Deep Learning)">
+<meta property='og:description' content="Review notes on Python data structures, mutability, classes and inheritance, magic methods, properties, and PyTorch nn.Module.">
 <meta property='og:url' content='https://ada-c38f0bb79f.github.io/p/npp-lecture4-review/'>
 <meta property='og:site_name' content='Carlos_Hu'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-10-08T12:00:00&#43;08:00'/><meta property='article:modified_time' content='2026-10-08T12:00:00&#43;08:00'/>
 <meta name="twitter:site" content="@CarlosHu4961">
-    <meta name="twitter:creator" content="@CarlosHu4961"><meta name="twitter:title" content="NPP Lecture 4 复习：Python 数据结构与类（面向对象与深度学习）">
-<meta name="twitter:description" content="list/tuple/set/dict 等数据结构、可变性、类与继承、魔法方法、property，以及 PyTorch nn.Module 的复习笔记。">
+    <meta name="twitter:creator" content="@CarlosHu4961"><meta name="twitter:title" content="NPP Lecture 4 Review: Python Data Structures & Classes (OOP and Deep Learning)">
+<meta name="twitter:description" content="Review notes on Python data structures, mutability, classes and inheritance, magic methods, properties, and PyTorch nn.Module.">
     <link rel="shortcut icon" href="/favicon.ico" />
 
   
@@ -102,7 +102,7 @@
             
                 <li>
                     <a 
-                        href='https://github.com/CarlossQAQ'
+                        href='https://github.com/ada-c38f0bb79f'
                         target="_blank"
                         title="GitHub"
                         rel="me"
@@ -237,9 +237,9 @@
 
                             <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
                                 
-                                    <option value="https://CarlossQAQ.github.io/" selected>Let&#39;s speak English</option>
+                                    <option value="https://ada-c38f0bb79f.github.io/" selected>Let&#39;s speak English</option>
                                 
-                                    <option value="https://CarlossQAQ.github.io/zh-cn/" >让我们说中文</option>
+                                    <option value="https://ada-c38f0bb79f.github.io/zh-cn/" >让我们说中文</option>
                                 
                             </select>
                         </li>
@@ -294,33 +294,33 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#section">第一部分：核心数据结构</a></li>
-    <li><a href="#1">1. 对象与名字绑定</a></li>
-    <li><a href="#2-vs-mutability">2. 可变 vs 不可变（Mutability）</a></li>
-    <li><a href="#3-list">3. 列表（list）</a></li>
-    <li><a href="#list-comprehension">列表推导式（list comprehension）</a></li>
-    <li><a href="#4-tuple">4. 元组（tuple）</a></li>
-    <li><a href="#5-generator">5. 生成器（generator）</a></li>
-    <li><a href="#6-set-frozenset">6. 集合（set）与 frozenset</a></li>
-    <li><a href="#7-dict">7. 字典（dict）</a></li>
-    <li><a href="#8">8. 如何选择数据类型</a></li>
-    <li><a href="#section-2">第二部分：标准库扩展类型</a></li>
-    <li><a href="#9-array">9. array 模块</a></li>
-    <li><a href="#10-collections">10. collections 模块</a></li>
-    <li><a href="#numpy-pandas">第三部分：numpy / pandas 回顾</a></li>
-    <li><a href="#python-classes">第四部分：Python 类（Classes）</a></li>
-    <li><a href="#11">11. 面向对象与封装</a></li>
-    <li><a href="#12-init">12. __init__ 与实例属性</a></li>
-    <li><a href="#13-vs">13. 类属性 vs 实例属性（⚠️ 常见坑）</a></li>
-    <li><a href="#14-inheritance">14. 继承（Inheritance）</a></li>
-    <li><a href="#15-property">15. property：让函数「像属性」</a></li>
-    <li><a href="#16-magic-special-methods">16. 魔法方法（magic/special methods）</a></li>
-    <li><a href="#17-new-del">17. __new__ 与 __del__（进阶，可先忽略）</a></li>
-    <li><a href="#pytorch">第五部分：类与深度学习（PyTorch）</a></li>
-    <li><a href="#18-pytorch">18. 从神经元到 PyTorch</a></li>
-    <li><a href="#19-pytorch-nn-module">19. PyTorch 的 nn.Module</a></li>
-    <li><a href="#20-key-takeaways">20. Key Takeaways</a></li>
-    <li><a href="#section-3">易错点提醒 ⚠️</a></li>
+    <li><a href="#part-1-core-data-structures">Part 1: Core data structures</a></li>
+    <li><a href="#1-objects-and-name-binding">1. Objects and name binding</a></li>
+    <li><a href="#2-mutable-vs-immutable">2. Mutable vs immutable</a></li>
+    <li><a href="#3-lists">3. Lists</a></li>
+    <li><a href="#list-comprehensions">List comprehensions</a></li>
+    <li><a href="#4-tuples">4. Tuples</a></li>
+    <li><a href="#5-generators">5. Generators</a></li>
+    <li><a href="#6-sets-and-frozensets">6. Sets and frozensets</a></li>
+    <li><a href="#7-dictionaries-dict">7. Dictionaries (dict)</a></li>
+    <li><a href="#8-choosing-a-data-structure">8. Choosing a data structure</a></li>
+    <li><a href="#part-2-standard-library-extension-types">Part 2: Standard-library extension types</a></li>
+    <li><a href="#9-the-array-module">9. The array module</a></li>
+    <li><a href="#10-the-collections-module">10. The collections module</a></li>
+    <li><a href="#part-3-numpy-pandas-recap">Part 3: NumPy / Pandas recap</a></li>
+    <li><a href="#part-4-python-classes">Part 4: Python classes</a></li>
+    <li><a href="#11-oop-and-encapsulation">11. OOP and encapsulation</a></li>
+    <li><a href="#12-init-and-instance-attributes">12. __init__ and instance attributes</a></li>
+    <li><a href="#13-class-attributes-vs-instance-attributes-common-pitfall">13. Class attributes vs instance attributes (⚠️ common pitfall)</a></li>
+    <li><a href="#14-inheritance">14. Inheritance</a></li>
+    <li><a href="#15-properties-make-a-function-feel-like-an-attribute">15. Properties: make a function feel like an attribute</a></li>
+    <li><a href="#16-magic-special-methods">16. Magic (special) methods</a></li>
+    <li><a href="#17-new-and-del-advanced-skippable">17. __new__ and __del__ (advanced — skippable)</a></li>
+    <li><a href="#part-5-classes-and-deep-learning-pytorch">Part 5: Classes and deep learning (PyTorch)</a></li>
+    <li><a href="#18-from-a-neuron-to-pytorch">18. From a neuron to PyTorch</a></li>
+    <li><a href="#19-pytorch-s-nn-module">19. PyTorch's nn.Module</a></li>
+    <li><a href="#20-key-takeaways">20. Key takeaways</a></li>
+    <li><a href="#common-pitfalls">Common pitfalls ⚠️</a></li>
   </ol>
 </nav>
         </div>
@@ -340,7 +340,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/npp-lecture4-review/">NPP Lecture 4 复习：Python 数据结构与类（面向对象与深度学习）</a>
+            <a href="/p/npp-lecture4-review/">NPP Lecture 4 Review: Python Data Structures & Classes (OOP and Deep Learning)</a>
         </h2>
     
         
@@ -377,7 +377,7 @@
 
 
                 <time class="article-time--reading">
-                    5 minute read
+                    10 minute read
                 </time>
             </div>
         
@@ -392,209 +392,208 @@
     <section class="article-content">
     
     
-    <h1 id="lecture-4-python-data-structures-amp-classes">Lecture 4 复习：Python Data Structures &amp; Classes（面向对象与深度学习）</h1><blockquote>
-<p>主题：内置数据结构 · 可变/不可变 · 标准库扩展类型 · 类与继承 · 魔法方法 · PyTorch <code>nn.Module</code>
-讲师：Dr. Tom Davison（Data Structures）· Debbie Pelacani Cruz（Classes &amp; Deep Learning）</p>
+    <h1 id="npp-lecture-4-review-python-data-structures-amp-classes-oop-and-deep-learning">NPP Lecture 4 Review: Python Data Structures &amp; Classes (OOP and Deep Learning)</h1><blockquote>
+<p>Topics: built-in data structures · mutability · standard-library containers · classes &amp; inheritance · magic methods · PyTorch <code>nn.Module</code></p>
 </blockquote>
 <hr />
-<h2 id="section">第一部分：核心数据结构</h2><h3 id="1">1. 对象与名字绑定</h3><ul>
-<li>所有 Python 数据都是「对象（object）」。</li>
-<li>Python 用<strong>鸭子类型</strong>：函数接受任意对象作为输入（不像 C/Java）。</li>
-<li>用 <code>=</code> 把对象<strong>绑定到名字</strong>。</li>
+<h2 id="part-1-core-data-structures">Part 1: Core data structures</h2><h3 id="1-objects-and-name-binding">1. Objects and name binding</h3><ul>
+<li>Every Python datum is an &quot;object&quot;.</li>
+<li>Python uses <strong>duck typing</strong>: functions accept any object (unlike C/Java).</li>
+<li><code>=</code> <strong>binds an object to a name</strong>.</li>
 </ul>
 <pre><code class="language-python">x = 7
-y = x          # y 和 x 指向同一个对象
+y = x          # y and x point to the same object
 a = list([1,2,3,4])
-b = a          # b 和 a 指向同一个 list 对象（浅绑定！）
+b = a          # b and a point to the same list (shallow binding!)
 </code></pre>
-<h3 id="2-vs-mutability">2. 可变 vs 不可变（Mutability）</h3><table>
+<h3 id="2-mutable-vs-immutable">2. Mutable vs immutable</h3><table>
 <thead>
 <tr>
-  <th>类型</th>
-  <th>可变性</th>
+  <th>Type</th>
+  <th>Mutability</th>
 </tr>
 </thead>
 <tbody>
 <tr>
   <td><code>int</code> / <code>float</code> / <code>str</code> / <code>complex</code> / <code>tuple</code> / <code>frozenset</code></td>
-  <td><strong>不可变</strong>（immutable）</td>
+  <td><strong>immutable</strong></td>
 </tr>
 <tr>
   <td><code>list</code> / <code>set</code> / <code>dict</code></td>
-  <td><strong>可变</strong>（mutable）</td>
+  <td><strong>mutable</strong></td>
 </tr>
 </tbody>
 </table>
 <ul>
-<li>「更新」不可变对象其实是在<strong>新建对象</strong>，用 <code>id()</code> 可验证。</li>
+<li>&quot;Updating&quot; an immutable object actually creates a <strong>new object</strong> — verify with <code>id()</code>.</li>
 </ul>
 <pre><code class="language-python">x = 3
-print(id(x)); x += 5; print(id(x))   # id 改变 → 新对象
+print(id(x)); x += 5; print(id(x))   # id changes → new object
 </code></pre>
 <ul>
-<li><strong>小整数缓存</strong>：Python 缓存 -5 到 256 的整数对象。</li>
+<li><strong>Small-integer cache</strong>: Python caches the integers −5 to 256.</li>
 </ul>
 <pre><code class="language-python">x = 3; y = 3
-print(x is y)          # True（同一缓存对象）
+print(x is y)          # True (same cached object)
 a = 12345; b = 12345
 print(a is b)          # False
 </code></pre>
 <ul>
-<li>Python 整数<strong>任意精度</strong>，上限受内存限制（<code>sys.getsizeof()</code> 看占用）。</li>
+<li>Python integers are <strong>arbitrary precision</strong>, bounded only by memory (<code>sys.getsizeof()</code>).</li>
 </ul>
-<h3 id="3-list">3. 列表（list）</h3><ul>
-<li>用 <code>[]</code> 或 <code>list()</code> 创建：<code>[1,3,5]</code>、<code>list((3,4,5))</code>、<code>[_ for _ in range(6,10)]</code>。</li>
-<li>特点：<strong>可变、一维（单索引）、有序</strong>，是其它对象的集合，支持迭代。</li>
-<li>快：查找/改元素、增删<strong>末尾</strong>元素。</li>
-<li>慢：增删<strong>非末尾</strong>元素（与长度成正比，因为要整体搬移）。</li>
-<li><strong>实现</strong>：CPython 的 list 是一块存「内存地址」的内存块；预留空间扩展，满了要整体拷贝。</li>
+<h3 id="3-lists">3. Lists</h3><ul>
+<li>Create with <code>[]</code> or <code>list()</code>: <code>[1,3,5]</code>, <code>list((3,4,5))</code>, <code>[_ for _ in range(6,10)]</code>.</li>
+<li>Properties: <strong>mutable, one-dimensional (single index), ordered</strong>; a collection of other objects; supports iteration.</li>
+<li>Fast: look up / change elements, append/remove the <strong>last</strong> element.</li>
+<li>Slow: add/remove elements <strong>other than the last</strong> (cost scales with length — the whole block shifts).</li>
+<li><strong>Implementation</strong>: CPython lists are a block of memory addresses; spare space is preallocated, and a full list must be copied wholesale.</li>
 </ul>
-<h4 id="list-comprehension">列表推导式（list comprehension）</h4><ul>
-<li><code>[ _ for _ in range(6, 10) ]</code>，通常是最快的建 list 方式（比 for+append 快 20–25%），在可读范围内优先用。</li>
+<h4 id="list-comprehensions">List comprehensions</h4><ul>
+<li><code>[_ for _ in range(6, 10)]</code> is usually the fastest way to build a list (20–25% faster than a <code>for</code>+<code>append</code> loop); prefer it while it stays readable.</li>
 </ul>
-<h3 id="4-tuple">4. 元组（tuple）</h3><ul>
-<li>用逗号（常配 <code>()</code>）或 <code>tuple()</code> 创建：<code>1,3,5</code>、<code>(2,3,4)</code>、<code>tuple([3,4,5])</code>。</li>
-<li>特点：<strong>不可变、一维、有序</strong>，是 list 的不可变等价物。</li>
-<li>快：查元素；比 list 略省内存（块大小固定，无需预留扩展空间）。</li>
-<li>已知不会变就用 tuple。</li>
-<li><strong>解包（unpacking）</strong>：<code>a, b, c = 1, 2, 3</code>，常用于接收函数返回的多值。</li>
+<h3 id="4-tuples">4. Tuples</h3><ul>
+<li>Create with commas (usually <code>()</code>) or <code>tuple()</code>: <code>1,3,5</code>, <code>(2,3,4)</code>, <code>tuple([3,4,5])</code>.</li>
+<li>Properties: <strong>immutable, one-dimensional, ordered</strong> — the immutable equivalent of a list.</li>
+<li>Fast at lookup; slightly less memory than a list (block sized exactly, no spare room).</li>
+<li>Use a tuple when something should never change.</li>
+<li><strong>Unpacking</strong>: <code>a, b, c = 1, 2, 3</code> — often used to collect multiple return values.</li>
 </ul>
-<h3 id="5-generator">5. 生成器（generator）</h3><ul>
-<li>没有「tuple 推导式」；<code>(x**2 for x in range(3))</code> 是<strong>生成器</strong>。</li>
-<li>只能迭代<strong>一次</strong>，不存内容，用的时候才生成、用完丢弃 → <strong>省内存</strong>。</li>
-<li>易混淆：</li>
+<h3 id="5-generators">5. Generators</h3><ul>
+<li>There is no &quot;tuple comprehension&quot;; <code>(x**2 for x in range(3))</code> is a <strong>generator</strong>.</li>
+<li>A generator can be iterated <strong>only once</strong>; it doesn't store its contents but yields values on demand and discards them — <strong>memory-efficient</strong>.</li>
+<li>Easy to trip over:</li>
 </ul>
 <pre><code class="language-python">gen = (x for x in range(4))
 print(list(gen))   # [0, 1, 2, 3]
-print(list(gen))   # []（已经耗尽！）
+print(list(gen))   # [] (already exhausted!)
 </code></pre>
-<h3 id="6-set-frozenset">6. 集合（set）与 frozenset</h3><ul>
-<li>用 <code>{}</code> 或 <code>set()</code> 创建：<code>{1,3,5}</code>、<code>set([3,4,5])</code>。</li>
-<li>特点：<strong>无序、可变</strong>，是<strong>去重</strong>对象的集合。</li>
-<li><code>x in S</code> 极快（比 list 快一两个数量级）。</li>
-<li><strong>实现</strong>：哈希表（hash table）。一个大块（大部分为空）+ 哈希函数映射到 0..N-1。<ul>
-<li>加成员：算哈希 → 插入对应位置。</li>
-<li>查成员：算哈希 → 查对应位置。</li>
-<li><strong>冲突（collision）</strong>：两个输入哈希到同一位置，Python 按可预测模式继续找下一块，直到找到目标或空位。→ 所以 set 需要比较空、比 list 费内存。</li>
+<h3 id="6-sets-and-frozensets">6. Sets and frozensets</h3><ul>
+<li>Create with <code>{}</code> or <code>set()</code>: <code>{1,3,5}</code>, <code>set([3,4,5])</code>.</li>
+<li>Properties: <strong>unordered, mutable</strong>, a collection of <strong>distinct</strong> objects.</li>
+<li><code>x in S</code> is very fast (orders of magnitude faster than a list).</li>
+<li><strong>Implementation</strong>: a hash table — a large (mostly empty) block plus a hash function mapping values to slots 0..N−1.<ul>
+<li>Add: hash the value → insert at that slot.</li>
+<li>Lookup: hash the value → check that slot.</li>
+<li><strong>Collisions</strong> (two values hashing to the same slot) are resolved by probing a predictable pattern until the target or an empty slot is found → sets must stay sparse, using more memory than lists.</li>
 </ul>
 </li>
-<li><code>frozenset</code>：set 的不可变版本。</li>
+<li><code>frozenset</code>: the immutable version of a set.</li>
 </ul>
-<h3 id="7-dict">7. 字典（dict）</h3><ul>
-<li>映射 <strong>key → value</strong>：<code>{&quot;a&quot;:1,&quot;b&quot;:10}</code>、<code>dict(x=1,y=2)</code>、<code>{x:x**2 for x in range(10)}</code>。</li>
-<li>和 set 一样优化了 <code>x in D</code>（快一两个数量级）。</li>
-<li><strong>key 必须不可变且可哈希</strong>（不能用 list 当 key）。</li>
-<li><strong>实现</strong>：和 set 类似的哈希表；区别是：<ul>
-<li>dict 同时存 key 和（value 对象的地址）。</li>
-<li>dict <strong>保留插入顺序</strong>（Python 3.7+），set 不保留。</li>
+<h3 id="7-dictionaries-dict">7. Dictionaries (dict)</h3><ul>
+<li>Map <strong>keys → values</strong>: <code>{&quot;a&quot;:1,&quot;b&quot;:10}</code>, <code>dict(x=1,y=2)</code>, <code>{x:x**2 for x in range(10)}</code>.</li>
+<li>Like sets, optimized for <code>x in D</code> (fast key lookup).</li>
+<li><strong>Keys must be immutable and hashable</strong> (no lists as keys).</li>
+<li><strong>Implementation</strong>: a hash table like a set, but:<ul>
+<li>a dict stores both the key and (the address of) the value object;</li>
+<li>a dict preserves <strong>insertion order</strong> (Python 3.7+), a set does not.</li>
 </ul>
 </li>
-<li>字典推导式建 dict 快，但不总是比 for 循环快（如反转字典两者差不多）。</li>
+<li>Dict comprehensions build dicts quickly, but aren't always faster than a loop (e.g. reversing a dict is about equal).</li>
 </ul>
-<h3 id="8">8. 如何选择数据类型</h3><ul>
-<li>需要<strong>有序 + 可变 + 索引</strong> → list；<strong>不变</strong> → tuple。</li>
-<li>需要<strong>去重 / 快速 in 判断</strong> → set；不变 → frozenset。</li>
-<li>需要 <strong>key→value 映射 / 快速查 key</strong> → dict。</li>
-<li>需要<strong>节约内存、只遍历一次</strong> → generator。</li>
+<h3 id="8-choosing-a-data-structure">8. Choosing a data structure</h3><ul>
+<li>Ordered + mutable + indexable → <strong>list</strong>; fixed → <strong>tuple</strong>.</li>
+<li>Deduplication / fast <code>in</code> tests → <strong>set</strong>; fixed → <strong>frozenset</strong>.</li>
+<li>key→value mapping / fast key lookup → <strong>dict</strong>.</li>
+<li>Memory-efficient, iterate once → <strong>generator</strong>.</li>
 </ul>
 <hr />
-<h2 id="section-2">第二部分：标准库扩展类型</h2><h3 id="9-array">9. <code>array</code> 模块</h3><ul>
-<li>存<strong>同类型</strong>数据的集合，比 list 省内存（直接存值而非存对象地址）。</li>
-<li>但难用，大多数人忽略它；日常用 numpy 更好。</li>
+<h2 id="part-2-standard-library-extension-types">Part 2: Standard-library extension types</h2><h3 id="9-the-array-module">9. The <code>array</code> module</h3><ul>
+<li>Stores a <strong>homogeneous</strong> collection (one type), more memory-efficient than a list (values, not pointers).</li>
+<li>But awkward to use; most people ignore it — prefer NumPy.</li>
 </ul>
 <pre><code class="language-python">import array
 a = [1,2,3,4,5]
-b = array.array('b', a)   # 更省内存
+b = array.array('b', a)   # more compact
 </code></pre>
-<h3 id="10-collections">10. <code>collections</code> 模块</h3><table>
+<h3 id="10-the-collections-module">10. The <code>collections</code> module</h3><table>
 <thead>
 <tr>
-  <th>类型</th>
-  <th>说明</th>
+  <th>Type</th>
+  <th>Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr>
   <td><code>namedtuple</code></td>
-  <td>类似 tuple 但有命名字段</td>
+  <td>tuple-like with named fields</td>
 </tr>
 <tr>
   <td><code>deque</code></td>
-  <td>类似 list，但<strong>头尾</strong>增删都快</td>
+  <td>list-like, fast append/pop at <strong>both</strong> ends</td>
 </tr>
 <tr>
   <td><code>OrderedDict</code></td>
-  <td>记住插入顺序的 dict（现在普通 dict 也保序，多出现在旧代码）</td>
+  <td>insertion-ordered dict (now redundant since dicts are ordered; still in legacy code)</td>
 </tr>
 <tr>
   <td><code>defaultdict</code></td>
-  <td>缺 key 时用工厂函数自动给默认值，如 <code>defaultdict(int)</code></td>
+  <td>auto-provides a default value for missing keys via a factory, e.g. <code>defaultdict(int)</code></td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h2 id="numpy-pandas">第三部分：numpy / pandas 回顾</h2><ul>
-<li><code>numpy.ndarray</code>：多维数组（1D~64D），<strong>所有元素必须同类型</strong>；未指定 <code>dtype</code> 时自动推断能覆盖所有输入的类型。</li>
+<h2 id="part-3-numpy-pandas-recap">Part 3: NumPy / Pandas recap</h2><ul>
+<li><code>numpy.ndarray</code>: multidimensional arrays (1-D to 64-D); <strong>all elements must share one type</strong>; if no <code>dtype</code> is given, NumPy picks one that fits the input.</li>
 </ul>
-<pre><code class="language-python">np.array([0,1,2])     # int64
-np.array([0,1,2.5])   # float64
-np.array([0,'hat',sum])  # object
+<pre><code class="language-python">np.array([0,1,2])       # int64
+np.array([0,1,2.5])     # float64
+np.array([0,'hat',sum]) # object
 </code></pre>
 <ul>
-<li><code>pandas.Series</code>：带标签的一维数组；<code>pandas.DataFrame</code>：带索引和列名的表。</li>
-<li>详见 Lecture 2。</li>
+<li><code>pandas.Series</code>: a labelled 1-D array; <code>pandas.DataFrame</code>: a table with an index and named columns.</li>
+<li>See Lecture 2 for details.</li>
 </ul>
 <hr />
-<h2 id="python-classes">第四部分：Python 类（Classes）</h2><h3 id="11">11. 面向对象与封装</h3><ul>
-<li>类 = 自定义数据结构：**数据（属性）+ 修改它的函数（方法）**绑在一起。</li>
-<li>好处：<strong>封装（Encapsulation）</strong>——把数据和方法绑定，减少把数据/方法用错对象的错误。</li>
+<h2 id="part-4-python-classes">Part 4: Python classes</h2><h3 id="11-oop-and-encapsulation">11. OOP and encapsulation</h3><ul>
+<li>A class = a custom data structure bundling <strong>data (attributes)</strong> with the <strong>functions (methods)</strong> that act on it.</li>
+<li>Benefit: <strong>encapsulation</strong> — binding data and methods together makes it harder to apply them to the wrong object.</li>
 </ul>
 <pre><code class="language-python">class MyClass:
     &quot;&quot;&quot;This is my cool class.&quot;&quot;&quot;
     def my_method(self, a, b):
-        self.val = a + b     # 存实例属性
+        self.val = a + b     # store an instance attribute
         return a * b
 
-inst = MyClass()             # 用 () 创建实例
-a = inst.my_method(1, 2)     # a=2，inst.val=3
+inst = MyClass()             # create an instance with ()
+a = inst.my_method(1, 2)     # a=2, inst.val=3
 </code></pre>
-<h3 id="12-init">12. <code>__init__</code> 与实例属性</h3><pre><code class="language-python">class Point3D:
+<h3 id="12-init-and-instance-attributes">12. <code>__init__</code> and instance attributes</h3><pre><code class="language-python">class Point3D:
     def __init__(self, x, y, z):
         self.x = x; self.y = y; self.z = z
 
 p = Point3D(1, 4, 7)
 print(p.x, p.y, p.z)   # 1 4 7
 </code></pre>
-<h3 id="13-vs">13. 类属性 vs 实例属性（⚠️ 常见坑）</h3><ul>
-<li><strong>类属性</strong>（写在 class 体、不在方法里）：<strong>所有实例共享同一个对象</strong>。</li>
-<li><strong>实例属性</strong>（<code>self.xxx</code>）：每个实例各自独立。</li>
+<h3 id="13-class-attributes-vs-instance-attributes-common-pitfall">13. Class attributes vs instance attributes (⚠️ common pitfall)</h3><ul>
+<li><strong>Class attributes</strong> (written in the class body, outside methods): <strong>shared by all instances</strong>.</li>
+<li><strong>Instance attributes</strong> (<code>self.xxx</code>): independent per instance.</li>
 </ul>
 <pre><code class="language-python">class MyClass:
-    mylist = []            # 类属性，所有实例共享！
+    mylist = []            # class attribute — shared by all instances!
 
 inst1, inst2 = MyClass(), MyClass()
 inst1.mylist.append(1); inst2.mylist.append(2)
-print(inst1.mylist is inst2.mylist)   # True（同一个 list！）
+print(inst1.mylist is inst2.mylist)   # True (the same list!)
 </code></pre>
 <blockquote>
-<p>可变类型（如 list）当类属性特别危险，因为实例间会互相影响。</p>
+<p>Mutable types (like a list) as class attributes are especially dangerous — instances interfere with each other.</p>
 </blockquote>
-<h3 id="14-inheritance">14. 继承（Inheritance）</h3><pre><code class="language-python">class MySubClass(MyBaseClass):
-    '''继承 MyBaseClass'''
-    # 新增方法
+<h3 id="14-inheritance">14. Inheritance</h3><pre><code class="language-python">class MySubClass(MyBaseClass):
+    '''MySubClass inherits from MyBaseClass'''
+    # new methods here
 </code></pre>
 <ul>
-<li>所有类最终都继承自基类 <code>object</code>（<code>int</code>、<code>list</code> 也一样）。</li>
-<li>子类可**重写（override）**父类方法。</li>
-<li>查基类：<code>Tree.__base__</code>。</li>
-<li><strong><code>super()</code></strong>：在子类里调用父类的方法，避免重写整个函数。</li>
+<li>Every class ultimately inherits from the base <code>object</code> (including <code>int</code>, <code>list</code>, …).</li>
+<li>A subclass can <strong>override</strong> parent methods.</li>
+<li>Inspect the base: <code>Tree.__base__</code>.</li>
+<li><strong><code>super()</code></strong> calls the parent's method without rewriting it entirely.</li>
 </ul>
 <pre><code class="language-python">class Shrub(Tree):
     def __init__(self, species, age, height, fruit):
-        super().__init__(species, age, height)   # 调用父类 __init__
+        super().__init__(species, age, height)   # call the parent __init__
         self.fruit = fruit
 </code></pre>
-<h3 id="15-property">15. property：让函数「像属性」</h3><pre><code class="language-python">class Temperature:
+<h3 id="15-properties-make-a-function-feel-like-an-attribute">15. Properties: make a function feel like an attribute</h3><pre><code class="language-python">class Temperature:
     def __init__(self, temp):
         self.celsius = temp
 
@@ -606,11 +605,11 @@ print(inst1.mylist is inst2.mylist)   # True（同一个 list！）
     def fahrenheit(self, temp):
         self.celsius = (temp - 32) * 5/9
 </code></pre>
-<h3 id="16-magic-special-methods">16. 魔法方法（magic/special methods）</h3><table>
+<h3 id="16-magic-special-methods">16. Magic (special) methods</h3><table>
 <thead>
 <tr>
-  <th>触发</th>
-  <th>方法</th>
+  <th>Trigger</th>
+  <th>Method</th>
 </tr>
 </thead>
 <tbody>
@@ -623,42 +622,42 @@ print(inst1.mylist is inst2.mylist)   # True（同一个 list！）
   <td><code>__str__(self)</code></td>
 </tr>
 <tr>
-  <td><code>inst</code>（交互式显示）</td>
+  <td><code>inst</code> (interactive display)</td>
   <td><code>__repr__(self)</code></td>
 </tr>
 <tr>
   <td><code>inst1 + inst2</code></td>
-  <td><code>__add__</code>（运算符重载）</td>
+  <td><code>__add__</code> (operator overloading)</td>
 </tr>
 </tbody>
 </table>
 <ul>
-<li>重载规则：<strong>别让人惊讶</strong>——<code>+</code> 应该是加/增/追加，<code>-</code> 应该是减/删。</li>
+<li>Overloading rule: <strong>don't surprise people</strong> — <code>+</code> should add/append, <code>-</code> should subtract/remove.</li>
 </ul>
-<h3 id="17-new-del">17. <code>__new__</code> 与 <code>__del__</code>（进阶，可先忽略）</h3><ul>
-<li>创建实例时先调 <code>__new__</code> 再调 <code>__init__</code>（一般只需写 <code>__init__</code>）。</li>
-<li><code>__del__</code> 在垃圾回收认为对象不再需要时调用，用于清理特殊资源。</li>
+<h3 id="17-new-and-del-advanced-skippable">17. <code>__new__</code> and <code>__del__</code> (advanced — skippable)</h3><ul>
+<li>Creating an instance calls <code>__new__</code> then <code>__init__</code> (usually you only write <code>__init__</code>).</li>
+<li><code>__del__</code> runs when the garbage collector considers the object no longer needed — use it for special cleanup.</li>
 </ul>
 <hr />
-<h2 id="pytorch">第五部分：类与深度学习（PyTorch）</h2><h3 id="18-pytorch">18. 从神经元到 PyTorch</h3><p><strong>基础神经元</strong>（线性模型：加权求和 + bias）：</p>
+<h2 id="part-5-classes-and-deep-learning-pytorch">Part 5: Classes and deep learning (PyTorch)</h2><h3 id="18-from-a-neuron-to-pytorch">18. From a neuron to PyTorch</h3><p><strong>Base neuron</strong> (linear model: weighted sum + bias):</p>
 <pre><code class="language-python">class Neuron:
     def __init__(self, weights, bias):
         self.weights = weights; self.bias = bias
     def forward(self, inputs):
         return sum(w*i for w,i in zip(self.weights, inputs)) + self.bias
 </code></pre>
-<p><strong>用继承加激活函数</strong>（ReLU / Sigmoid）：</p>
+<p><strong>Add activation functions via inheritance</strong> (ReLU / Sigmoid):</p>
 <pre><code class="language-python">class ReLUNeuron(Neuron):
     def relu(self, x): return max(0, x)
     def forward(self, inputs):
-        return self.relu(super().forward(inputs))   # 父类算线性，再套激活
+        return self.relu(super().forward(inputs))   # parent computes linear, then activate
 </code></pre>
-<h3 id="19-pytorch-nn-module">19. PyTorch 的 <code>nn.Module</code></h3><ul>
-<li>PyTorch 中一切「神经网络」都继承自 <code>torch.nn.Module</code>，它管理参数、设备移动、保存/加载、autograd。</li>
-<li>关键点：<ul>
-<li><code>super().__init__()</code> 初始化父类。</li>
-<li><code>nn.Linear</code> 自动注册可学习参数。</li>
-<li><code>forward</code> 定义计算。</li>
+<h3 id="19-pytorch-s-nn-module">19. PyTorch's <code>nn.Module</code></h3><ul>
+<li>In PyTorch, everything &quot;neural&quot; inherits from <code>torch.nn.Module</code>, which manages parameters, device movement, save/load, and autograd.</li>
+<li>Key points:<ul>
+<li><code>super().__init__()</code> initialises the parent.</li>
+<li><code>nn.Linear</code> registers learnable parameters automatically.</li>
+<li><code>forward</code> defines the computation.</li>
 </ul>
 </li>
 </ul>
@@ -670,7 +669,7 @@ print(inst1.mylist is inst2.mylist)   # True（同一个 list！）
     def forward(self, x):
         return self.relu(self.linear(x))
 </code></pre>
-<p><strong>多层感知机（MLP）</strong>：</p>
+<p><strong>Multi-layer perceptron (MLP)</strong>:</p>
 <pre><code class="language-python">class TinyMLP(nn.Module):
     def __init__(self, input_size, hidden_size, num_classes):
         super().__init__()
@@ -680,19 +679,19 @@ print(inst1.mylist is inst2.mylist)   # True（同一个 list！）
     def forward(self, x):
         return self.fc2(self.act(self.fc1(x)))
 </code></pre>
-<h3 id="20-key-takeaways">20. Key Takeaways</h3><ul>
-<li><strong>类</strong>封装数据（属性）与行为（方法）。</li>
-<li><strong>继承</strong>让你定义一次通用蓝图，在子类里特化行为。</li>
-<li><strong>PyTorch</strong> 处处用这个模式：模型和层都继承 <code>nn.Module</code>，提供参数管理、设备管理、autograd 集成。</li>
-<li>理解类与继承 → 深度学习框架更透明，模型更易设计、调试和扩展。</li>
+<h3 id="20-key-takeaways">20. Key takeaways</h3><ul>
+<li><strong>Classes</strong> encapsulate data (attributes) and behaviour (methods).</li>
+<li><strong>Inheritance</strong> lets you define a blueprint once and specialise it in subclasses.</li>
+<li><strong>PyTorch</strong> uses this pattern everywhere: models and layers inherit from <code>nn.Module</code>, providing parameter handling, device management, and autograd integration.</li>
+<li>Understanding classes and inheritance makes DL frameworks more transparent and your own models easier to design, debug, and extend.</li>
 </ul>
 <hr />
-<h2 id="section-3">易错点提醒 ⚠️</h2><ol>
-<li>可变类型（list/dict/set）当<strong>类属性</strong>会在实例间共享，通常应放 <code>__init__</code> 里当实例属性。</li>
-<li>生成器只能迭代一次。</li>
-<li><code>a = b</code> 对可变对象是<strong>浅绑定</strong>（同一对象），改 <code>a</code> 会影响 <code>b</code>。</li>
-<li>dict 的 key 必须<strong>不可变且可哈希</strong>。</li>
-<li>子类要扩展（而非完全重写）父类逻辑时用 <code>super()</code>。</li>
+<h2 id="common-pitfalls">Common pitfalls ⚠️</h2><ol>
+<li>Mutable types (list/dict/set) as <strong>class attributes</strong> are shared across instances — put them in <code>__init__</code> instead.</li>
+<li>Generators can be iterated only once.</li>
+<li><code>a = b</code> for a mutable object is a <strong>shallow binding</strong> (same object) — mutating <code>a</code> affects <code>b</code>.</li>
+<li>Dict keys must be <strong>immutable and hashable</strong>.</li>
+<li>Use <code>super()</code> to extend (rather than fully replace) parent logic in a subclass.</li>
 </ol>
 
 
@@ -740,7 +739,7 @@ print(inst1.mylist is inst2.mylist)   # True（同一个 list！）
     
         
     <script src="https://utteranc.es/client.js" 
-        repo=""
+        repo="ada-c38f0bb79f/ada-c38f0bb79f.github.io"
         issue-term="pathname"
         
         crossorigin="anonymous"
@@ -899,15 +898,8 @@ print(inst1.mylist is inst2.mylist)   # True（同一个 list！）
         document.head.appendChild(customFont);
     }());
 </script>
-<script src=https://CarlossQAQ.github.io/background/sakura.js></script>
-<script src="https://utteranc.es/client.js"
-        repo="CarlossQAQ/CarlossQAQ.github.io"
-        issue-term="pathname"
-        label="❤️"
-        theme="github-dark"
-        crossorigin="anonymous"
-        async>
-</script>
+<script src=https://ada-c38f0bb79f.github.io/background/sakura.js></script>
+
 
 <style>
     .post-content{
